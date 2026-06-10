@@ -51,53 +51,80 @@
 </head>
 <body>
 
-  <!-- Top Bar -->
-  <div class="top-bar">
+  <div class="topbar">
     <div class="container">
-      <div class="top-bar-features">
-        <div class="top-bar-feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Eco-Friendly Products</div>
-        <div class="top-bar-feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Trained &amp; Background-Checked Staff</div>
-        <div class="top-bar-feature"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Reliable. Professional. Consistent.</div>
-      </div>
-      <div class="top-bar-cta">
-        <a href="tel:2192858345" class="top-bar-phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.39 2 2 0 0 1 3.59 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(219) 285-8345</a>
-        <a href="contact.html" class="top-bar-btn">Request a Quote</a>
+      <div class="topbar__inner">
+        <div class="topbar__left">
+          <div class="topbar__chip">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Eco-Friendly Products
+          </div>
+          <div class="topbar__chip">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            Background-Checked Staff
+          </div>
+          <div class="topbar__chip">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Fully Insured &amp; Bonded
+          </div>
+        </div>
+        <div class="topbar__right">
+          <a href="tel:2192858345" class="topbar__phone">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.39 2 2 0 0 1 3.59 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            (219) 285-8345
+          </a>
+          <a href="contact.html" class="topbar__cta">Request a Quote</a>
+        </div>
       </div>
     </div>
   </div>
-
-  <!-- Navbar -->
-  <nav class="navbar">
+  <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="container">
-      <a href="../index.html" class="nav-logo">
-        <img src="../images/logo.png" alt="Pink Petals Logo" onerror="this.style.display='none'" />
-        <div class="nav-logo-text"><span class="brand-name">Pink Petals</span><span class="brand-sub">Facility Solutions</span></div>
-      </a>
-      <ul class="nav-menu">
-        <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
-        <li class="nav-item">
-          <a href="services.html" class="nav-link active">Services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
-          <div class="dropdown">
-            <a href="#commercial" class="dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/></svg>Commercial Cleaning</a>
-            <a href="#janitorial" class="dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Janitorial Services</a>
-            <a href="#green" class="dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Green Cleaning</a>
-            <a href="#disinfection" class="dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Disinfection Services</a>
-            <a href="#floor" class="dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>Floor Care</a>
-            <a href="#facility" class="dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>Facility Support</a>
-            <a href="#dayporter" class="dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/></svg>Day Porter Services</a>
-            <a href="#postconstruction" class="dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Post-Construction Cleaning</a>
+      <div class="nav__inner">
+        <a href="../index.html" class="nav__logo" aria-label="Pink Petals Facility Solutions home">
+          <img src="../images/logo.png" alt="" class="nav__logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+          <div class="nav__logo-mark" style="display:none">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-        </li>
-        <li class="nav-item"><a href="industries.html" class="nav-link">Industries</a></li>
-        <li class="nav-item"><a href="eco-friendly.html" class="nav-link">Why Eco-Friendly</a></li>
-        <li class="nav-item"><a href="government.html" class="nav-link">Government</a></li>
-        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-      </ul>
-      <div class="nav-cta"><a href="contact.html" class="btn btn-primary" style="padding:10px 22px;font-size:0.82rem;">Request a Quote</a></div>
-      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+          <div class="nav__logo-text">
+            <span class="nav__brand">Pink Petals</span>
+            <span class="nav__sub">Facility Solutions</span>
+          </div>
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a href="../index.html" class="nav__link">Home</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="services.html" class="nav__link">Services</a></li>
+          <li><a href="industries.html" class="nav__link">Industries</a></li>
+          <li><a href="government.html" class="nav__link">Government</a></li>
+          <li><a href="contact.html" class="nav__link">Contact</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a href="contact.html" class="btn btn-primary" style="padding:11px 24px;font-size:.82rem;min-height:44px;">Get a Quote</a>
+        </div>
+        <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
+  <div class="nav__drawer-overlay" role="presentation"></div>
+  <div class="nav__drawer" role="dialog" aria-label="Navigation menu">
+    <button class="nav__drawer-close" aria-label="Close menu">&times;</button>
+    <div class="nav__drawer-links">
+      <a href="../index.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Home</a>
+      <a href="about.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About Us</a>
+      <a href="services.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/></svg>Services</a>
+      <a href="industries.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/></svg>Industries</a>
+      <a href="government.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Government</a>
+      <a href="eco-friendly.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>Why Eco-Friendly</a>
+      <a href="contact.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>Contact</a>
+    </div>
+    <div class="nav__drawer-cta">
+      <a href="contact.html" class="btn btn-primary" style="justify-content:center;">Request a Quote</a>
+      <a href="tel:2192858345" class="btn btn-outline-green" style="justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.39 2 2 0 0 1 3.59 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(219) 285-8345</a>
+    </div>
+  </div>
 
   <!-- Page Hero -->
   <div class="page-hero">
@@ -345,25 +372,60 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="../index.html" class="nav-logo"><img src="../images/logo.png" alt="Pink Petals Logo" onerror="this.style.display='none'" style="width:44px;height:44px;"/><div class="nav-logo-text"><span class="brand-name">Pink Petals</span><span class="brand-sub">Facility Solutions</span></div></a>
-          <p>Premium eco-friendly commercial cleaning and facility services in Northwest Indiana and Chicagoland.</p>
+          <a href="../index.html" class="nav__logo" style="margin-bottom:4px;">
+            <img src="../images/logo.png" alt="" class="nav__logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" style="width:40px;height:40px;" />
+            <div class="nav__logo-mark" style="display:none;width:40px;height:40px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="nav__logo-text"><span class="nav__brand">Pink Petals</span><span class="nav__sub">Facility Solutions</span></div>
+          </a>
+          <p class="footer-tagline">Healthy Buildings. Cleaner Air. Better Environments.</p>
+          <p>Premium eco-friendly commercial cleaning and facility services across Northwest Indiana and Chicagoland.</p>
           <div class="footer-social">
-            <a href="#" class="social-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-            <a href="#" class="social-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
-            <a href="#" class="social-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" class="social-icon" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" class="social-icon" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
           </div>
         </div>
-        <div><div class="footer-heading">Services</div><ul class="footer-links"><li><a href="#commercial" class="footer-link">Commercial Cleaning</a></li><li><a href="#janitorial" class="footer-link">Janitorial Services</a></li><li><a href="#green" class="footer-link">Green Cleaning</a></li><li><a href="#disinfection" class="footer-link">Disinfection</a></li><li><a href="#floor" class="footer-link">Floor Care</a></li><li><a href="#facility" class="footer-link">Facility Support</a></li><li><a href="#dayporter" class="footer-link">Day Porter</a></li><li><a href="#postconstruction" class="footer-link">Post-Construction</a></li></ul></div>
-        <div><div class="footer-heading">Company</div><ul class="footer-links"><li><a href="about.html" class="footer-link">About Us</a></li><li><a href="industries.html" class="footer-link">Industries</a></li><li><a href="eco-friendly.html" class="footer-link">Why Eco-Friendly</a></li><li><a href="government.html" class="footer-link">Government</a></li><li><a href="contact.html" class="footer-link">Contact Us</a></li></ul></div>
-        <div><div class="footer-heading">Contact</div><div class="footer-contact"><div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.39 2 2 0 0 1 3.59 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:2192858345">(219) 285-8345</a></div><div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:info@pinkpetalsfacility.com">info@pinkpetalsfacility.com</a></div><div class="footer-contact-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Merrillville, IN 46410</span></div></div></div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul class="footer-links">
+            <li><a href="services.html#commercial">Commercial Cleaning</a></li>
+            <li><a href="services.html#janitorial">Janitorial Services</a></li>
+            <li><a href="services.html#green">Green Cleaning</a></li>
+            <li><a href="services.html#disinfection">Disinfection Services</a></li>
+            <li><a href="services.html#floor">Floor Care</a></li>
+            <li><a href="services.html#facility">Facility Support</a></li>
+            <li><a href="services.html#dayporter">Day Porter</a></li>
+            <li><a href="services.html#postconstruction">Post-Construction</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="industries.html">Industries</a></li>
+            <li><a href="eco-friendly.html">Why Eco-Friendly</a></li>
+            <li><a href="government.html">Government Contracting</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.39 2 2 0 0 1 3.59 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:2192858345">(219) 285-8345</a></li>
+            <li class="footer-contact-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:info@pinkpetalsfacility.com">info@pinkpetalsfacility.com</a></li>
+            <li class="footer-contact-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>3618 W 80th Ln, Unit 219<br>Merrillville, IN 46410</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Pink Petals Inc. All rights reserved.</p>
+        <p>CEO &amp; Founder: Brenda Koger &nbsp;&middot;&nbsp; WOSB Certification Pending &nbsp;&middot;&nbsp; Fully Insured</p>
       </div>
     </div>
-    <div class="footer-bottom"><div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;width:100%;"><span>&copy; 2025 Pink Petals Inc. All rights reserved.</span><span>CEO &amp; Founder: <strong style="color:rgba(255,255,255,0.6);">Brenda Koger</strong></span></div></div>
   </footer>
   <script src="../js/main.js"></script>
 </body>
