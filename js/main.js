@@ -1,94 +1,90 @@
 /* Pink Petals Facility Solutions — Main JS */
+(function () {
+  'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
+  /* ---- Drawer (mobile menu) ---- */
+  const hamburger = document.querySelector('.nav__hamburger');
+  const drawer    = document.querySelector('.nav__drawer');
+  const overlay   = document.querySelector('.nav__drawer-overlay');
+  const closeBtn  = document.querySelector('.nav__drawer-close');
 
-  /* ---- Mobile Nav ---- */
-  const hamburger = document.querySelector('.hamburger');
-  const navMenu = document.querySelector('.nav-menu');
-  const navItems = document.querySelectorAll('.nav-item');
-
-  if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      navMenu.classList.toggle('open');
-    });
-    document.addEventListener('click', (e) => {
-      if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-        hamburger.classList.remove('open');
-        navMenu.classList.remove('open');
-        navItems.forEach(i => i.classList.remove('open'));
-      }
-    });
-    navItems.forEach(item => {
-      const link = item.querySelector('.nav-link');
-      const dropdown = item.querySelector('.dropdown');
-      if (dropdown && link) {
-        link.addEventListener('click', (e) => {
-          if (window.innerWidth <= 768) {
-            e.preventDefault();
-            item.classList.toggle('open');
-          }
-        });
-      }
-    });
+  function openDrawer() {
+    drawer && drawer.classList.add('open');
+    overlay && overlay.classList.add('open');
+    hamburger && hamburger.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    drawer && drawer.classList.remove('open');
+    overlay && overlay.classList.remove('open');
+    hamburger && hamburger.classList.remove('open');
+    document.body.style.overflow = '';
   }
 
-  /* ---- Scroll Animations ---- */
-  const fadeEls = document.querySelectorAll('.fade-in');
-  if (fadeEls.length) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    fadeEls.forEach(el => observer.observe(el));
-  }
+  hamburger && hamburger.addEventListener('click', () => {
+    drawer && drawer.classList.contains('open') ? closeDrawer() : openDrawer();
+  });
+  overlay && overlay.addEventListener('click', closeDrawer);
+  closeBtn && closeBtn.addEventListener('click', closeDrawer);
 
-  /* ---- Sticky navbar shadow ---- */
-  const navbar = document.querySelector('.navbar');
-  if (navbar) {
+  /* Close drawer on nav link click */
+  document.querySelectorAll('.nav__drawer-link, .nav__drawer-cta .btn').forEach(el => {
+    el.addEventListener('click', closeDrawer);
+  });
+
+  /* ---- Sticky nav shadow ---- */
+  const nav = document.querySelector('.nav');
+  if (nav) {
     window.addEventListener('scroll', () => {
-      navbar.style.boxShadow = window.scrollY > 20
-        ? '0 4px 24px rgba(0,0,0,0.14)'
-        : '0 2px 8px rgba(0,0,0,0.08)';
-    });
+      nav.classList.toggle('scrolled', window.scrollY > 24);
+    }, { passive: true });
   }
 
   /* ---- Active nav link ---- */
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(link => {
+  const path = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav__link, .nav__drawer-link').forEach(link => {
     const href = (link.getAttribute('href') || '').split('/').pop();
-    if (href === currentPath) link.classList.add('active');
+    if (href === path) link.classList.add('active');
   });
 
-  /* ---- Contact Form ---- */
-  const form = document.getElementById('contact-form');
+  /* ---- Scroll reveal ---- */
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('in'));
+  }
+
+  /* ---- Contact form ---- */
+  const form = document.getElementById('quote-form');
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
+      const btn = form.querySelector('[type="submit"]');
+      const orig = btn.textContent;
       btn.textContent = 'Message Sent!';
-      btn.style.background = '#1B5E38';
+      btn.style.background = 'var(--green)';
       btn.disabled = true;
       setTimeout(() => {
-        btn.textContent = 'Send Message';
+        btn.textContent = orig;
         btn.style.background = '';
         btn.disabled = false;
         form.reset();
-      }, 3500);
+      }, 4000);
     });
   }
 
-  /* ---- Capability Statement Download ---- */
-  const dlBtn = document.getElementById('download-capability');
-  if (dlBtn) {
-    dlBtn.addEventListener('click', (e) => {
+  /* ---- Capability statement ---- */
+  document.querySelectorAll('[data-capability]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
       e.preventDefault();
-      alert('Capability Statement PDF will be available for download shortly. Please contact us directly at (219) 285-8345 for an immediate copy.');
+      alert('Capability Statement will be available for download shortly.\nFor an immediate copy, please call (219) 285-8345 or email info@pinkpetalsfacility.com');
     });
-  }
+  });
 
-});
+})();
