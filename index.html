@@ -411,57 +411,84 @@
   <!-- ═══════════════════════════════════
        ABOUT
   ═══════════════════════════════════ -->
-  <section class="about section" id="about">
+  <section class="about" id="about">
     <div class="wrap">
       <div class="about-grid">
 
-        <div class="about-left" data-reveal="up">
-          <p class="eyebrow">Our Story</p>
-          <h2 class="h2">Built on Standards.<br>Driven by <em>Purpose.</em></h2>
-          <div class="pink-rule"></div>
-          <p class="body-lg">
-            Pink Petals Facility Solutions was founded by <strong>Brenda O. Koger</strong>
-            with a singular conviction: every facility&mdash;whether a federal courthouse,
-            a hospital, or a corporate campus&mdash;deserves services that reflect the
-            highest standards of cleanliness, safety, and professionalism.
-          </p>
-          <p class="body-md">
-            As a Women-Owned and Minority-Owned small business headquartered in Merrillville,
-            Indiana, we bring enterprise-level precision to every contract we serve.
-          </p>
-          <div class="tag-row">
-            <span class="tag">WOSB</span>
-            <span class="tag">Minority-Owned</span>
-            <span class="tag">Indiana Corp.</span>
-            <span class="tag">Fully Insured</span>
+        <!-- LEFT: Large editorial image -->
+        <div class="about-img-col" data-reveal="up">
+          <div class="about-img-wrap">
+            <img src="images/hero-photo.png"
+                 alt="Pink Petals facility solutions professional"
+                 class="about-img"
+                 onerror="this.style.display='none'">
           </div>
         </div>
 
-        <div class="about-right" data-reveal="right">
-          <div class="stat-card">
-            <div class="sc-item">
-              <div class="sc-num"><span class="count-up" data-target="500">0</span><sup>+</sup></div>
-              <div class="sc-lbl">Facilities Served</div>
-            </div>
-            <div class="sc-line"></div>
-            <div class="sc-item">
-              <div class="sc-num"><span class="count-up" data-target="15">0</span><sup>+</sup></div>
-              <div class="sc-lbl">Years of Excellence</div>
-            </div>
-            <div class="sc-line"></div>
-            <div class="sc-item">
-              <div class="sc-num"><span class="count-up" data-target="7">0</span></div>
-              <div class="sc-lbl">States Served</div>
-            </div>
-          </div>
+        <!-- RIGHT: Heading + feature cards -->
+        <div class="about-content">
 
-          <figure class="quote-card">
-            <div class="qc-open">&ldquo;</div>
-            <blockquote class="qc-text">
-              We don&rsquo;t just clean spaces. We protect the people who occupy them.
-            </blockquote>
-            <figcaption class="qc-attr">&mdash; Brenda O. Koger, Founder &amp; CEO</figcaption>
-          </figure>
+          <p class="about-eyebrow" data-reveal="up">About Pink Petals</p>
+
+          <h2 class="about-h2" data-reveal="up" data-delay="100">
+            <span class="ah-strong">Excellence</span>
+            <em class="ah-italic">You Can See.</em>
+            <span class="ah-strong">Service</span>
+            <em class="ah-italic">You Can Trust.</em>
+          </h2>
+
+          <!-- 2 × 2 floating feature cards -->
+          <div class="about-cards">
+
+            <div class="about-card" data-reveal="up" data-delay="0">
+              <div class="ac-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5 4.5-1.35 8-6.25 8-11.5V6L12 2z"/>
+                  <polyline points="9,12 11,14.5 15,10"/>
+                </svg>
+              </div>
+              <h3 class="ac-title">Quality Assured</h3>
+              <p class="ac-desc">Every job is inspected against rigorous standards before we consider it complete.</p>
+            </div>
+
+            <div class="about-card" data-reveal="up" data-delay="80">
+              <div class="ac-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 4c7.5 0 14 4.5 14 15C15 17 8 12 5 4z"/>
+                  <line x1="5" y1="4" x2="19" y2="19"/>
+                </svg>
+              </div>
+              <h3 class="ac-title">Eco-Friendly</h3>
+              <p class="ac-desc">EPA-registered, non-toxic products that protect your people and the planet.</p>
+            </div>
+
+            <div class="about-card" data-reveal="up" data-delay="160">
+              <div class="ac-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2 10l10-6 10 6-10 6-10-6z"/>
+                  <path d="M6 12.5v4c0 2.2 2.7 3.5 6 3.5s6-1.3 6-3.5v-4"/>
+                  <line x1="22" y1="10" x2="22" y2="15"/>
+                </svg>
+              </div>
+              <h3 class="ac-title">Trained Professionals</h3>
+              <p class="ac-desc">Fully vetted, background-checked technicians trained in OSHA compliance and safety.</p>
+            </div>
+
+            <div class="about-card" data-reveal="up" data-delay="240">
+              <div class="ac-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="15" x2="16" y2="15"/>
+                </svg>
+              </div>
+              <h3 class="ac-title">Flexible Scheduling</h3>
+              <p class="ac-desc">Daily, weekly, or custom programs designed around your facility's unique needs.</p>
+            </div>
+
+          </div>
         </div>
 
       </div>
