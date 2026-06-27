@@ -20,35 +20,78 @@
   ═══════════════════════════════════ -->
   <header class="nav" id="site-nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <img src="images/logo.png" alt="Pink Petals Inc" class="nav-logo-img" onerror="this.style.display='none'">
+
+      <!-- Logo -->
+      <a href="index.html" class="nav-logo" aria-label="Pink Petals Facility Solutions">
+        <img src="images/logo.png" alt="" class="nav-logo-img" onerror="this.style.display='none'">
         <div class="nav-logo-type">
           <span class="nav-brand">Pink Petals</span>
           <span class="nav-tag">Facility Solutions</span>
         </div>
       </a>
 
+      <!-- Desktop navigation -->
       <nav class="nav-menu" aria-label="Main navigation">
+
+        <!-- Services dropdown -->
+        <div class="nav-item nav-item--drop">
+          <a href="#services" class="nav-link nav-link--drop">
+            Services
+            <svg class="nav-chevron" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+              <path d="M2 4L5.5 7.5L9 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="nav-dropdown" role="menu">
+            <a href="#services" class="nav-drop-link" role="menuitem">Janitorial Services</a>
+            <a href="#services" class="nav-drop-link" role="menuitem">Facility Management</a>
+            <a href="#services" class="nav-drop-link" role="menuitem">Specialty Cleaning</a>
+            <a href="#services" class="nav-drop-link" role="menuitem">Window &amp; Glass Cleaning</a>
+            <a href="#services" class="nav-drop-link" role="menuitem">Waste &amp; Remediation</a>
+            <a href="#services" class="nav-drop-link" role="menuitem">Disinfection &amp; Sanitation</a>
+          </div>
+        </div>
+
+        <!-- Industries dropdown -->
+        <div class="nav-item nav-item--drop">
+          <a href="#industries" class="nav-link nav-link--drop">
+            Industries
+            <svg class="nav-chevron" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+              <path d="M2 4L5.5 7.5L9 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="nav-dropdown" role="menu">
+            <a href="#industries" class="nav-drop-link" role="menuitem">Federal Government</a>
+            <a href="#industries" class="nav-drop-link" role="menuitem">Healthcare</a>
+            <a href="#industries" class="nav-drop-link" role="menuitem">Education</a>
+            <a href="#industries" class="nav-drop-link" role="menuitem">Corporate</a>
+            <a href="#industries" class="nav-drop-link" role="menuitem">Industrial</a>
+            <a href="#industries" class="nav-drop-link" role="menuitem">State &amp; Local Gov.</a>
+          </div>
+        </div>
+
+        <a href="#government" class="nav-link">Government Contracting</a>
+        <a href="#capability" class="nav-link">Capability Statement</a>
         <a href="#about"      class="nav-link">About</a>
-        <a href="#services"   class="nav-link">Services</a>
-        <a href="#government" class="nav-link">Government</a>
-        <a href="#capability" class="nav-link">Capability</a>
         <a href="#contact"    class="nav-link">Contact</a>
+
       </nav>
 
+      <!-- CTA -->
       <div class="nav-actions">
-        <a href="tel:2192858345" class="nav-phone">(219) 285-8345</a>
-        <a href="#contact" class="nav-cta">Get a Quote</a>
+        <a href="#contact" class="nav-cta">Request Proposal</a>
       </div>
 
+      <!-- Mobile hamburger -->
       <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
         <span></span>
         <span></span>
+        <span></span>
       </button>
+
     </div>
   </header>
 
-  <!-- Mobile drawer -->
+  <!-- Mobile drawer — slides in from right -->
   <div class="drawer" id="drawer" aria-hidden="true">
     <div class="drawer-top">
       <a href="index.html" class="nav-logo">
@@ -60,15 +103,16 @@
       </a>
       <button class="drawer-x" aria-label="Close menu">&#x2715;</button>
     </div>
-    <nav class="drawer-menu">
-      <a href="#about"      class="drawer-link">About</a>
+    <nav class="drawer-menu" aria-label="Mobile navigation">
       <a href="#services"   class="drawer-link">Services</a>
-      <a href="#government" class="drawer-link">Government</a>
-      <a href="#capability" class="drawer-link">Capability</a>
+      <a href="#industries" class="drawer-link">Industries</a>
+      <a href="#government" class="drawer-link">Government Contracting</a>
+      <a href="#capability" class="drawer-link">Capability Statement</a>
+      <a href="#about"      class="drawer-link">About</a>
       <a href="#contact"    class="drawer-link">Contact</a>
     </nav>
     <div class="drawer-bottom">
-      <a href="#contact" class="btn-fill drawer-btn">Get a Quote</a>
+      <a href="#contact" class="drawer-btn">Request Proposal</a>
       <div class="drawer-info">
         <a href="tel:2192858345">(219) 285-8345</a>
         <a href="mailto:pinkpetalsfacilitysolutions@gmail.com">pinkpetalsfacilitysolutions@gmail.com</a>
