@@ -627,55 +627,132 @@
   <!-- ═══════════════════════════════════
        GOVERNMENT CONTRACTING
   ═══════════════════════════════════ -->
-  <section class="government section--emerald" id="government">
+  <section class="government" id="government">
     <div class="wrap">
 
-      <div class="gov-head" data-reveal="up">
-        <p class="eyebrow light">Federal Contracting</p>
-        <h2 class="h2 light">Government <em>Ready</em></h2>
-        <p class="gov-lead">
-          Fully registered and certified to compete for federal, state, and local government
-          contracts&mdash;bringing compliance, precision, and accountability to every engagement.
-        </p>
+      <!-- ── Top row: heading + certification badges ── -->
+      <div class="gov-top" data-reveal="up">
+
+        <div class="gov-intro">
+          <p class="gov-eyebrow">Federal Contracting</p>
+          <h2 class="gov-h2">
+            <span class="gh-line1">Government Ready.</span>
+            <span class="gh-line2">Built to Perform.</span>
+          </h2>
+          <p class="gov-lead">Fully registered and compliant to compete for federal, state, and local government contracts. Accountability, precision, and performance — delivered on every engagement.</p>
+        </div>
+
+        <ul class="gov-cert-list" aria-label="Business certifications">
+          <li class="gov-cert">
+            <span class="gc-badge">WOSB</span>
+            <span class="gc-cert-name">Women-Owned Small Business</span>
+          </li>
+          <li class="gov-cert">
+            <span class="gc-badge">MBE</span>
+            <span class="gc-cert-name">Minority Business Enterprise</span>
+          </li>
+          <li class="gov-cert">
+            <span class="gc-badge">SAM</span>
+            <span class="gc-cert-name">System for Award Management</span>
+          </li>
+          <li class="gov-cert">
+            <span class="gc-badge">INC</span>
+            <span class="gc-cert-name">Indiana Corporation</span>
+          </li>
+        </ul>
+
       </div>
 
-      <div class="uei-block" data-reveal="up">
-        <p class="uei-label">Unique Entity Identifier (UEI)</p>
-        <p class="uei-number">E154ZRUAYHV1</p>
-        <p class="uei-status">
-          <span class="uei-dot"></span>
-          SAM.gov &mdash; Submitted &middot; Pending Activation
-        </p>
+      <div class="gov-rule" aria-hidden="true"></div>
+
+      <!-- ── Credential strip: UEI, CAGE, SAM, Entity ── -->
+      <div class="gov-creds" data-reveal="up">
+        <div class="gov-cred">
+          <span class="gcr-label">Unique Entity Identifier (UEI)</span>
+          <span class="gcr-value gcr-mono">E154ZRUAYHV1</span>
+        </div>
+        <div class="gov-cred-sep" aria-hidden="true"></div>
+        <div class="gov-cred">
+          <span class="gcr-label">CAGE Code</span>
+          <span class="gcr-value gcr-mono">Pending</span>
+        </div>
+        <div class="gov-cred-sep" aria-hidden="true"></div>
+        <div class="gov-cred">
+          <span class="gcr-label">SAM.gov Status</span>
+          <span class="gcr-value">
+            <span class="gcr-dot" aria-hidden="true"></span>Submitted &middot; Pending Activation
+          </span>
+        </div>
+        <div class="gov-cred-sep" aria-hidden="true"></div>
+        <div class="gov-cred">
+          <span class="gcr-label">Entity Type</span>
+          <span class="gcr-value">Indiana Corporation</span>
+        </div>
       </div>
 
-      <div class="gov-grid">
-        <div class="gov-card" data-reveal="up" data-delay="0">
-          <p class="gov-card-label">NAICS Codes</p>
-          <ul class="code-list">
-            <li><b>561720</b><span>Janitorial Services</span></li>
-            <li><b>561210</b><span>Facilities Support Services</span></li>
-            <li><b>561790</b><span>Other Services to Buildings</span></li>
-            <li><b>561740</b><span>Carpet &amp; Upholstery Cleaning</span></li>
-            <li><b>562910</b><span>Remediation Services</span></li>
+      <div class="gov-rule" aria-hidden="true"></div>
+
+      <!-- ── Code tables + CTA ── -->
+      <div class="gov-tables" data-reveal="up">
+
+        <div class="gov-table-block">
+          <p class="gtb-label">NAICS Codes</p>
+          <ul class="gtb-list">
+            <li class="gtb-row">
+              <span class="gtb-code">561720</span>
+              <span class="gtb-desc">Janitorial Services</span>
+            </li>
+            <li class="gtb-row">
+              <span class="gtb-code">561210</span>
+              <span class="gtb-desc">Facilities Support Services</span>
+            </li>
+            <li class="gtb-row">
+              <span class="gtb-code">561790</span>
+              <span class="gtb-desc">Other Services to Buildings</span>
+            </li>
+            <li class="gtb-row">
+              <span class="gtb-code">561740</span>
+              <span class="gtb-desc">Carpet &amp; Upholstery Cleaning</span>
+            </li>
+            <li class="gtb-row">
+              <span class="gtb-code">562910</span>
+              <span class="gtb-desc">Remediation Services</span>
+            </li>
           </ul>
         </div>
-        <div class="gov-card" data-reveal="up" data-delay="80">
-          <p class="gov-card-label">PSC Codes</p>
-          <ul class="code-list">
-            <li><b>S201</b><span>Building Housekeeping Services</span></li>
-            <li><b>S216</b><span>Building Cleaning &mdash; Interior</span></li>
-            <li><b>S299</b><span>Other Housekeeping Services</span></li>
+
+        <div class="gov-table-block">
+          <p class="gtb-label">PSC Codes</p>
+          <ul class="gtb-list">
+            <li class="gtb-row">
+              <span class="gtb-code">S201</span>
+              <span class="gtb-desc">Building Housekeeping Services</span>
+            </li>
+            <li class="gtb-row">
+              <span class="gtb-code">S216</span>
+              <span class="gtb-desc">Building Cleaning &mdash; Interior</span>
+            </li>
+            <li class="gtb-row">
+              <span class="gtb-code">S299</span>
+              <span class="gtb-desc">Other Housekeeping Services</span>
+            </li>
           </ul>
         </div>
-        <div class="gov-card" data-reveal="up" data-delay="160">
-          <p class="gov-card-label">Certifications</p>
-          <ul class="code-list">
-            <li><b>WOSB</b><span>Women-Owned Small Business</span></li>
-            <li><b>MBE</b><span>Minority Business Enterprise</span></li>
-            <li><b>SAM</b><span>System for Award Management</span></li>
-            <li><b>INC</b><span>Indiana Corporation</span></li>
-          </ul>
+
+        <div class="gov-doc-block">
+          <p class="gtb-label">Documentation</p>
+          <p class="gov-doc-text">A complete profile of our services, certifications, past performance, and socioeconomic designations — formatted for procurement review.</p>
+          <div class="gov-doc-actions">
+            <a href="images/capability-statement.png" download="Pink-Petals-Capability-Statement.png" class="gov-dl-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3v12m0 0-4-4m4 4 4-4M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"/>
+              </svg>
+              Download Capability Statement
+            </a>
+            <a href="images/capability-statement.png" target="_blank" class="gov-view-link">View online &rarr;</a>
+          </div>
         </div>
+
       </div>
 
     </div>
