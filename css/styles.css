@@ -1250,21 +1250,49 @@ strong { font-weight: var(--fw-semibold); }
 
 
 /* ─────────────────────────────────────────────────────────────────
-   18. TRUST STRIP (scrolling marquee)
+   18. TRUST BAR — premium scrolling marquee
 ───────────────────────────────────────────────────────────────── */
 
+/* ── Shell */
 .trust-strip {
+  position: relative;
+  height: 64px;
   overflow: hidden;
   background: var(--c-emerald);
-  padding: 12px 0;
-  border-top:    1px solid rgba(255,255,255,0.06);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-top:    1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  cursor: default;
+  display: flex;
+  align-items: center;
 }
+
+/* Edge fades — items dissolve in and out gracefully */
+.trust-strip::before,
+.trust-strip::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: clamp(52px, 7vw, 100px);
+  z-index: 2;
+  pointer-events: none;
+}
+.trust-strip::before {
+  left: 0;
+  background: linear-gradient(to right, var(--c-emerald) 0%, transparent 100%);
+}
+.trust-strip::after {
+  right: 0;
+  background: linear-gradient(to left, var(--c-emerald) 0%, transparent 100%);
+}
+
+/* ── Scrolling track */
 .trust-track {
   display: inline-flex;
   align-items: center;
+  height: 100%;
   white-space: nowrap;
-  animation: trust-scroll 32s linear infinite;
+  /* 58s: slow, deliberate, luxurious */
+  animation: trust-scroll 58s linear infinite;
   will-change: transform;
 }
 .trust-strip:hover .trust-track { animation-play-state: paused; }
@@ -1274,27 +1302,37 @@ strong { font-weight: var(--fw-semibold); }
   to   { transform: translateX(-50%); }
 }
 
-.trust-item {
-  font-family: var(--f-sans);
-  font-size: var(--text-xs);
-  font-weight: var(--fw-semibold);
-  letter-spacing: var(--ls-label);
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.70);
-  padding: 0 var(--sp-6);
+/* ── Trust item: icon + label */
+.ti {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 28px;
   cursor: default;
-  transition: color var(--t-base);
 }
-.trust-item:hover { color: rgba(255,255,255,0.95); }
-
-.trust-dot {
-  display: inline-block;
-  width: 4px;
-  height: 4px;
-  border-radius: var(--radius-full);
-  background: rgba(255,255,255,0.25);
+.ti-icon {
   flex-shrink: 0;
-  vertical-align: middle;
+  color: rgba(255,255,255,0.46);
+  transition: color 240ms var(--ease-out);
+}
+.ti-label {
+  font-family: var(--f-sans);
+  font-size: 0.8125rem;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.045em;
+  color: rgba(255,255,255,0.64);
+  white-space: nowrap;
+  transition: color 240ms var(--ease-out);
+}
+.ti:hover .ti-icon  { color: rgba(255,255,255,0.90); }
+.ti:hover .ti-label { color: rgba(255,255,255,0.92); }
+
+/* ── Diamond separator */
+.ti-sep {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: rgba(255,255,255,0.18);
 }
 
 
