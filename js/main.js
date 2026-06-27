@@ -3,36 +3,36 @@
   'use strict';
 
   /* ── MOBILE DRAWER ──────────────────────────────────────── */
-  const toggle   = document.querySelector('.nav-toggle');
-  const drawer   = document.getElementById('mobile-drawer');
-  const backdrop = document.getElementById('mobile-backdrop');
-  const close    = document.querySelector('.drawer-close');
+  const burger = document.querySelector('.nav-burger');
+  const drawer = document.getElementById('drawer');
+  const scrim  = document.getElementById('drawer-scrim');
+  const drawerX = document.querySelector('.drawer-x');
 
   function openDrawer() {
-    drawer   && (drawer.classList.add('open'),   drawer.setAttribute('aria-hidden', 'false'));
-    backdrop && backdrop.classList.add('open');
-    toggle   && (toggle.classList.add('open'),   toggle.setAttribute('aria-expanded', 'true'));
+    drawer  && (drawer.classList.add('open'),  drawer.setAttribute('aria-hidden', 'false'));
+    scrim   && scrim.classList.add('open');
+    burger  && (burger.classList.add('open'),  burger.setAttribute('aria-expanded', 'true'));
     document.body.style.overflow = 'hidden';
   }
   function closeDrawer() {
-    drawer   && (drawer.classList.remove('open'), drawer.setAttribute('aria-hidden', 'true'));
-    backdrop && backdrop.classList.remove('open');
-    toggle   && (toggle.classList.remove('open'), toggle.setAttribute('aria-expanded', 'false'));
+    drawer  && (drawer.classList.remove('open'), drawer.setAttribute('aria-hidden', 'true'));
+    scrim   && scrim.classList.remove('open');
+    burger  && (burger.classList.remove('open'), burger.setAttribute('aria-expanded', 'false'));
     document.body.style.overflow = '';
   }
 
-  toggle   && toggle.addEventListener('click',   () => drawer && drawer.classList.contains('open') ? closeDrawer() : openDrawer());
-  backdrop && backdrop.addEventListener('click',  closeDrawer);
-  close    && close.addEventListener('click',    closeDrawer);
+  burger  && burger.addEventListener('click',  () => drawer && drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+  scrim   && scrim.addEventListener('click',   closeDrawer);
+  drawerX && drawerX.addEventListener('click', closeDrawer);
 
-  document.querySelectorAll('.drawer-link, .drawer-cta').forEach(el => {
+  document.querySelectorAll('.drawer-link, .drawer-btn').forEach(el => {
     el.addEventListener('click', closeDrawer);
   });
 
   /* ── STICKY NAV ─────────────────────────────────────────── */
-  const header = document.getElementById('site-header');
-  if (header) {
-    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 30);
+  const nav = document.getElementById('site-nav');
+  if (nav) {
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
@@ -102,7 +102,7 @@
       const orig = label ? label.textContent : btn.textContent;
       if (label) label.textContent = 'Message Sent!';
       else btn.textContent = 'Message Sent!';
-      btn.style.background = 'var(--green)';
+      btn.style.background = 'var(--c-emerald)';
       btn.disabled = true;
       setTimeout(() => {
         if (label) label.textContent = orig;
