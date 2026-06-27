@@ -53,10 +53,7 @@
 
         <!-- Logo -->
         <a href="index.html" class="nav__logo" aria-label="Pink Petals Facility Solutions home">
-          <img src="images/logo.png" alt="Pink Petals Facility Solutions" class="nav__logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-          <div class="nav__logo-mark" style="display:none">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
+          <img src="images/logo.png" alt="Pink Petals Facility Solutions" class="nav__logo-img" onerror="this.style.display='none'" />
           <div class="nav__logo-text">
             <span class="nav__brand">Pink Petals</span>
             <span class="nav__sub">Facility Solutions</span>
@@ -68,14 +65,14 @@
           <li><a href="index.html" class="nav__link active">Home</a></li>
           <li><a href="pages/about.html" class="nav__link">About</a></li>
           <li><a href="pages/services.html" class="nav__link">Services</a></li>
-          <li><a href="pages/industries.html" class="nav__link">Industries</a></li>
           <li><a href="pages/government.html" class="nav__link">Government</a></li>
+          <li><a href="pages/government.html#capability" class="nav__link">Capability Statement</a></li>
           <li><a href="pages/contact.html" class="nav__link">Contact</a></li>
         </ul>
 
         <!-- Desktop CTA -->
         <div class="nav__cta">
-          <a href="pages/contact.html" class="btn btn-primary" style="padding:11px 24px;font-size:.82rem;min-height:44px;">Get a Quote</a>
+          <a href="pages/contact.html" class="nav__cta-btn">Request a Quote</a>
         </div>
 
         <!-- Hamburger -->
@@ -105,17 +102,13 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         Services
       </a>
-      <a href="pages/industries.html" class="nav__drawer-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-        Industries
-      </a>
       <a href="pages/government.html" class="nav__drawer-link">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         Government
       </a>
-      <a href="pages/eco-friendly.html" class="nav__drawer-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
-        Why Eco-Friendly
+      <a href="pages/government.html#capability" class="nav__drawer-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/></svg>
+        Capability Statement
       </a>
       <a href="pages/contact.html" class="nav__drawer-link">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -135,52 +128,80 @@
        3. HERO
        ============================================= -->
   <section class="hero" aria-label="Introduction">
-    <div class="hero__bg"></div>
-    <div class="hero__pattern"></div>
-    <div class="container">
-      <div class="hero__inner">
 
-        <!-- Logo visual — appears above text on mobile, right side on desktop -->
-        <div class="hero__visual">
-          <div class="hero__logo-wrap">
-            <div class="hero__logo-ring hero__logo-ring--outer"></div>
-            <div class="hero__logo-ring hero__logo-ring--inner"></div>
-            <img src="images/logo.png" alt="Pink Petals Facility Solutions" class="hero__logo">
-          </div>
-        </div>
+    <!-- Abstract ribbon decorations (no flowers) -->
+    <svg class="hero__deco" viewBox="0 0 1440 820" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+      <circle cx="1260" cy="-60" r="480" fill="rgba(232,56,122,0.042)"/>
+      <circle cx="1340" cy="160" r="260" fill="rgba(232,56,122,0.028)"/>
+      <path d="M-80 630 C160 440 540 530 880 410 S1380 230 1600 320" stroke="rgba(232,56,122,0.07)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M-80 710 C240 560 660 630 980 510 S1380 370 1600 440" stroke="rgba(27,94,56,0.055)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M-80 790 C320 680 720 720 1060 620 S1380 510 1600 560" stroke="rgba(232,56,122,0.035)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="100" cy="800" rx="210" ry="210" fill="rgba(27,94,56,0.038)"/>
+    </svg>
 
-        <!-- Content — text, buttons, trust bar -->
+    <div class="hero__grid">
+
+      <!-- LEFT: Content -->
+      <div class="hero__left">
         <div class="hero__content">
-          <div class="hero__badge">
-            <span class="hero__badge-dot"></span>
-            Government Contractor Ready
+          <p class="hero__eyebrow">Creating</p>
+          <h1 class="hero__headline">
+            Clean, Safe &amp;<br>
+            <em class="hero__headline-em">Healthy Environments</em>
+          </h1>
+          <div class="hero__rule">
+            <span class="hero__rule-line"></span>
+            <span class="hero__diamond" aria-hidden="true">◆</span>
+            <span class="hero__rule-line"></span>
           </div>
-          <h1>Creating Clean, Safe &amp; Healthy Environments</h1>
-          <p class="hero__sub">Commercial Janitorial &amp; Facility Services for Government, Healthcare, Commercial, Education and Industrial Facilities.</p>
+          <p class="hero__sub">Commercial Janitorial &amp; Facility Services serving Government, Healthcare, Education, Commercial Offices, Industrial Facilities and Property Management.</p>
           <div class="hero__buttons">
-            <a href="pages/contact.html" class="btn btn-primary">
-              Request a Quote
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <a href="pages/contact.html" class="hero__btn hero__btn--primary">
+              Request Quote
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
-            <a href="pages/government.html" class="btn btn-outline-white">View Capability Statement</a>
+            <a href="pages/government.html#capability" class="hero__btn hero__btn--outline">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/></svg>
+              View Capability Statement
+            </a>
           </div>
           <div class="hero__trust">
             <div class="hero__trust-item">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Fully Insured &amp; Bonded
+              <span class="hero__trust-dot"></span>Fully Insured &amp; Bonded
             </div>
+            <span class="hero__trust-sep" aria-hidden="true">·</span>
             <div class="hero__trust-item">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Women-Owned (WOSB)
+              <span class="hero__trust-dot"></span>Women-Owned (WOSB)
             </div>
+            <span class="hero__trust-sep" aria-hidden="true">·</span>
             <div class="hero__trust-item">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              UEI: E154ZRUAYHV1
+              <span class="hero__trust-dot"></span>UEI: E154ZRUAYHV1
             </div>
           </div>
         </div>
-
       </div>
+
+      <!-- RIGHT: Premium media panel -->
+      <!-- Drop images/hero-photo.jpg to add a real cleaning photo -->
+      <div class="hero__media" aria-hidden="true">
+        <img src="images/hero-photo.jpg" alt="" class="hero__photo" onerror="this.style.display='none'">
+        <div class="hero__media-bg"></div>
+        <div class="hero__media-grid"></div>
+        <div class="hero__media-glow"></div>
+        <!-- Floating logo badge -->
+        <div class="hero__media-badge">
+          <img src="images/logo.png" alt="" class="hero__media-badge-img">
+        </div>
+        <!-- Glass quote card -->
+        <div class="hero__quote-card">
+          <span class="hero__quote-open">&ldquo;</span>
+          <p class="hero__quote-text">We don't just clean.<br><strong>We protect the spaces you trust.</strong></p>
+          <div class="hero__quote-bar"></div>
+        </div>
+        <!-- Corner accent stripe -->
+        <div class="hero__media-stripe"></div>
+      </div>
+
     </div>
   </section>
 
