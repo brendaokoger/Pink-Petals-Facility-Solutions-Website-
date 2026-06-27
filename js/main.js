@@ -2,62 +2,103 @@
 (function () {
   'use strict';
 
-  /* ---- Drawer (mobile menu) ---- */
-  const hamburger = document.querySelector('.nav__hamburger');
-  const drawer    = document.querySelector('.nav__drawer');
-  const overlay   = document.querySelector('.nav__drawer-overlay');
-  const closeBtn  = document.querySelector('.nav__drawer-close');
+  /* ---- Mobile drawer ---- */
+  const hamburger = document.querySelector('.hamburger');
+  const drawer    = document.querySelector('.drawer');
+  const overlay   = document.querySelector('.drawer-overlay');
+  const closeBtn  = document.querySelector('.drawer-close');
 
   function openDrawer() {
-    drawer && drawer.classList.add('open');
-    overlay && overlay.classList.add('open');
-    hamburger && hamburger.classList.add('open');
+    if (drawer)    { drawer.classList.add('open'); drawer.setAttribute('aria-hidden', 'false'); }
+    if (overlay)   overlay.classList.add('open');
+    if (hamburger) { hamburger.classList.add('open'); hamburger.setAttribute('aria-expanded', 'true'); }
     document.body.style.overflow = 'hidden';
   }
   function closeDrawer() {
-    drawer && drawer.classList.remove('open');
-    overlay && overlay.classList.remove('open');
-    hamburger && hamburger.classList.remove('open');
+    if (drawer)    { drawer.classList.remove('open'); drawer.setAttribute('aria-hidden', 'true'); }
+    if (overlay)   overlay.classList.remove('open');
+    if (hamburger) { hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded', 'false'); }
     document.body.style.overflow = '';
   }
 
-  hamburger && hamburger.addEventListener('click', () => {
+  if (hamburger) hamburger.addEventListener('click', () => {
     drawer && drawer.classList.contains('open') ? closeDrawer() : openDrawer();
   });
-  overlay && overlay.addEventListener('click', closeDrawer);
-  closeBtn && closeBtn.addEventListener('click', closeDrawer);
+  if (overlay) overlay.addEventListener('click', closeDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
 
-  /* Close drawer on nav link click */
-  document.querySelectorAll('.nav__drawer-link, .nav__drawer-cta .btn').forEach(el => {
+  document.querySelectorAll('.drawer-link, .drawer .btn-pink, .drawer .btn-pink-sm').forEach(el => {
     el.addEventListener('click', closeDrawer);
   });
 
-  /* ---- Sticky nav shadow ---- */
+  /* ---- Sticky nav ---- */
   const nav = document.querySelector('.nav');
   if (nav) {
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 24);
-    }, { passive: true });
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
   /* ---- Active nav link ---- */
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav__link, .nav__drawer-link').forEach(link => {
-    const href = (link.getAttribute('href') || '').split('/').pop();
-    if (href === path) link.classList.add('active');
+  const page = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-link, .drawer-link').forEach(link => {
+    const href = (link.getAttribute('href') || '').split('/').pop().split('#')[0] || 'index.html';
+    if (href === page) link.classList.add('active');
   });
 
-  /* ---- Scroll reveal ---- */
-  const reveals = document.querySelectorAll('.reveal');
-  if (reveals.length && 'IntersectionObserver' in window) {
+  /* ---- Scroll reveal ([data-reveal] system) ---- */
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  if (revealEls.length && 'IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const delay = parseInt(el.dataset.delay || '0', 10);
+        if (delay) el.style.transitionDelay = delay + 'ms';
+        el.classList.add('is-revealed');
+        io.unobserve(el);
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-revealed'));
+  }
+
+  /* ---- Legacy .reveal support (subpages) ---- */
+  const legacyReveals = document.querySelectorAll('.reveal');
+  if (legacyReveals.length && 'IntersectionObserver' in window) {
+    const io2 = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        if (e.isIntersecting) { e.target.classList.add('in'); io2.unobserve(e.target); }
       });
     }, { threshold: 0.1 });
-    reveals.forEach(el => io.observe(el));
+    legacyReveals.forEach(el => io2.observe(el));
   } else {
-    reveals.forEach(el => el.classList.add('in'));
+    legacyReveals.forEach(el => el.classList.add('in'));
+  }
+
+  /* ---- Stat counters ---- */
+  const statEls = document.querySelectorAll('.stat-num[data-count]');
+  if (statEls.length && 'IntersectionObserver' in window) {
+    const counterIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.count, 10);
+        const duration = 1600;
+        const start = performance.now();
+        const easeOut = t => 1 - Math.pow(1 - t, 3);
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          el.textContent = Math.floor(easeOut(progress) * target).toLocaleString();
+          if (progress < 1) requestAnimationFrame(tick);
+          else el.textContent = target.toLocaleString();
+        }
+        requestAnimationFrame(tick);
+        counterIO.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    statEls.forEach(el => counterIO.observe(el));
   }
 
   /* ---- Contact form ---- */
@@ -79,12 +120,27 @@
     });
   }
 
-  /* ---- Capability statement ---- */
+  /* ---- Capability statement download alert ---- */
   document.querySelectorAll('[data-capability]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      alert('Capability Statement will be available for download shortly.\nFor an immediate copy, please call (219) 285-8345 or email info@pinkpetalsfacility.com');
+      alert('Capability Statement will be available for download shortly.\nFor an immediate copy, please call (219) 285-8345 or email pinkpetalsfacilitysolutions@gmail.com');
     });
   });
+
+  /* ---- Legacy drawer support (old subpages using .nav__drawer classes) ---- */
+  const legacyHamburger = document.querySelector('.nav__hamburger');
+  const legacyDrawer    = document.querySelector('.nav__drawer');
+  const legacyOverlay   = document.querySelector('.nav__drawer-overlay');
+  const legacyClose     = document.querySelector('.nav__drawer-close');
+
+  if (legacyHamburger && legacyDrawer) {
+    function openLegacy()  { legacyDrawer.classList.add('open'); legacyOverlay && legacyOverlay.classList.add('open'); legacyHamburger.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeLegacy() { legacyDrawer.classList.remove('open'); legacyOverlay && legacyOverlay.classList.remove('open'); legacyHamburger.classList.remove('open'); document.body.style.overflow = ''; }
+    legacyHamburger.addEventListener('click', () => legacyDrawer.classList.contains('open') ? closeLegacy() : openLegacy());
+    legacyOverlay && legacyOverlay.addEventListener('click', closeLegacy);
+    legacyClose && legacyClose.addEventListener('click', closeLegacy);
+    document.querySelectorAll('.nav__drawer-link, .nav__drawer-cta .btn').forEach(el => el.addEventListener('click', closeLegacy));
+  }
 
 })();
