@@ -239,6 +239,9 @@ p  { line-height: 1.75; }
   height: 44px;
   object-fit: contain;
   flex-shrink: 0;
+  border-radius: 8px;
+  background: var(--white);
+  padding: 2px;
 }
 .nav__logo-mark {
   width: 44px;
@@ -254,6 +257,15 @@ p  { line-height: 1.75; }
 .nav__logo-text { line-height: 1.15; }
 .nav__brand { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; color: var(--pink); display: block; }
 .nav__sub { font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green); display: block; }
+
+/* Footer logo — larger, wordmark readable, text spans hidden (redundant) */
+.footer-brand .nav__logo-img {
+  width: 110px !important;
+  height: 110px !important;
+  border-radius: 12px;
+  padding: 6px;
+}
+.footer-brand .nav__logo-text { display: none; }
 
 /* Desktop links */
 .nav__links {
