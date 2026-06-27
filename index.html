@@ -126,65 +126,78 @@
        HERO
   ═══════════════════════════════════ -->
   <section class="hero" id="home">
-    <div class="wrap">
-      <div class="hero-grid">
 
-        <div class="hero-text" data-reveal="up">
-          <p class="hero-kicker">Women-Owned &nbsp;&middot;&nbsp; Government Certified &nbsp;&middot;&nbsp; Merrillville, Indiana</p>
-          <h1 class="hero-h1">
-            Precision.<br>
-            Care.<br>
-            <em>Excellence.</em>
-          </h1>
-          <p class="hero-sub">
-            Premium commercial janitorial and facility solutions for federal agencies,
-            healthcare systems, and enterprise clients who demand more than clean&mdash;they demand excellence.
-          </p>
-          <div class="hero-btns">
-            <a href="#contact"    class="btn-fill">Request a Quote</a>
-            <a href="#capability" class="btn-line">View Capability</a>
-          </div>
-          <div class="hero-stats">
-            <div class="hstat">
-              <div class="hstat-n"><span class="count-up" data-target="500">0</span>+</div>
-              <div class="hstat-l">Facilities Served</div>
-            </div>
-            <div class="hstat-div"></div>
-            <div class="hstat">
-              <div class="hstat-n"><span class="count-up" data-target="15">0</span>+</div>
-              <div class="hstat-l">Years of Excellence</div>
-            </div>
-            <div class="hstat-div"></div>
-            <div class="hstat">
-              <div class="hstat-n"><span class="count-up" data-target="5">0</span></div>
-              <div class="hstat-l">NAICS Codes</div>
-            </div>
-          </div>
+    <!-- Slow-floating ambient glows -->
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-glow hero-glow--pink"></div>
+      <div class="hero-glow hero-glow--emerald"></div>
+    </div>
+    <!-- Very subtle particle field (CSS only) -->
+    <div class="hero-particles" aria-hidden="true"></div>
+
+    <!-- Two-column layout: text left, image right -->
+    <div class="hero-layout">
+
+      <!-- LEFT: Editorial text column -->
+      <div class="hero-col-text">
+
+        <!-- Brand marker with logo -->
+        <div class="hero-eyebrow">
+          <img src="images/logo.png" alt="" class="hero-logo-mark" onerror="this.style.display='none'">
+          <span class="hero-eyebrow-text">Pink Petals &nbsp;&middot;&nbsp; Facility Solutions</span>
         </div>
 
-        <div class="hero-media" data-reveal="right">
-          <div class="hero-img-frame">
-            <img src="images/hero-photo.png" alt="Pink Petals professional facility team" class="hero-img" onerror="this.style.display='none'">
-            <div class="hero-img-shade"></div>
-          </div>
+        <!-- Editorial headline — 4 lines, luxury magazine style -->
+        <h1 class="hero-headline">
+          <span class="hero-hl-intro">Creating</span>
+          <span class="hero-hl-strong">Clean, Safe &amp;</span>
+          <span class="hero-hl-accent">Healthy</span>
+          <span class="hero-hl-strong">Environments</span>
+        </h1>
 
-          <div class="hero-badge-cert">
-            <div class="hbc-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <div>
-              <strong>WOSB Certified</strong>
-              <span>Women-Owned Small Business</span>
-            </div>
-          </div>
+        <!-- Subheadline -->
+        <p class="hero-sub">
+          Premium janitorial and facility services for government, healthcare,
+          education, industrial, commercial, and property management clients.
+        </p>
 
-          <div class="hero-badge-uei">
-            <span class="uei-label">UEI</span>
-            <span class="uei-code">E154ZRUAYHV1</span>
-          </div>
+        <!-- CTA buttons -->
+        <div class="hero-actions">
+          <a href="#contact" class="h-cta h-cta--primary">
+            Request Proposal
+            <svg class="h-cta-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#services" class="h-cta h-cta--secondary">Explore Services</a>
         </div>
 
       </div>
+
+      <!-- RIGHT: Cleaning image column — fades in from right -->
+      <div class="hero-col-visual">
+        <div class="hero-photo-wrap">
+          <img src="images/hero-photo.png"
+               alt="Pink Petals cleaning professional"
+               class="hero-photo"
+               onerror="this.style.display='none'">
+          <!-- Soft gradient blends image into white background -->
+          <div class="hero-photo-fade" aria-hidden="true"></div>
+        </div>
+        <!-- Floating WOSB certification badge -->
+        <div class="hero-badge">
+          <div class="hero-badge-icon" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <div>
+            <strong>WOSB Certified</strong>
+            <span>Women-Owned Small Business</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
