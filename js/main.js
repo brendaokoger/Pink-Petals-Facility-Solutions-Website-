@@ -2,34 +2,31 @@
 (function () {
   'use strict';
 
-  /* ── MOBILE DRAWER ──────────────────────────────────────── */
-  const burger = document.querySelector('.nav-burger');
-  const drawer = document.getElementById('drawer');
-  const scrim  = document.getElementById('drawer-scrim');
-  const drawerX = document.querySelector('.drawer-x');
+  /* ── MOBILE DRAWER ────────────────────────────────────────── */
+  const burger   = document.querySelector('.nav-burger');
+  const drawer   = document.getElementById('drawer');
+  const scrim    = document.getElementById('drawer-scrim');
+  const drawerX  = document.querySelector('.drawer-x');
 
   function openDrawer() {
-    drawer  && (drawer.classList.add('open'),  drawer.setAttribute('aria-hidden', 'false'));
-    scrim   && scrim.classList.add('open');
-    burger  && (burger.classList.add('open'),  burger.setAttribute('aria-expanded', 'true'));
+    drawer && (drawer.classList.add('open'), drawer.setAttribute('aria-hidden', 'false'));
+    scrim  && scrim.classList.add('open');
+    burger && (burger.classList.add('open'), burger.setAttribute('aria-expanded', 'true'));
     document.body.style.overflow = 'hidden';
   }
   function closeDrawer() {
-    drawer  && (drawer.classList.remove('open'), drawer.setAttribute('aria-hidden', 'true'));
-    scrim   && scrim.classList.remove('open');
-    burger  && (burger.classList.remove('open'), burger.setAttribute('aria-expanded', 'false'));
+    drawer && (drawer.classList.remove('open'), drawer.setAttribute('aria-hidden', 'true'));
+    scrim  && scrim.classList.remove('open');
+    burger && (burger.classList.remove('open'), burger.setAttribute('aria-expanded', 'false'));
     document.body.style.overflow = '';
   }
 
   burger  && burger.addEventListener('click',  () => drawer && drawer.classList.contains('open') ? closeDrawer() : openDrawer());
   scrim   && scrim.addEventListener('click',   closeDrawer);
   drawerX && drawerX.addEventListener('click', closeDrawer);
+  document.querySelectorAll('.drawer-link, .drawer-btn').forEach(el => el.addEventListener('click', closeDrawer));
 
-  document.querySelectorAll('.drawer-link, .drawer-btn').forEach(el => {
-    el.addEventListener('click', closeDrawer);
-  });
-
-  /* ── STICKY NAV ─────────────────────────────────────────── */
+  /* ── STICKY NAV ───────────────────────────────────────────── */
   const nav = document.getElementById('site-nav');
   if (nav) {
     const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 30);
@@ -37,7 +34,7 @@
     onScroll();
   }
 
-  /* ── SCROLL REVEAL ──────────────────────────────────────── */
+  /* ── SCROLL REVEAL ────────────────────────────────────────── */
   const revealEls = document.querySelectorAll('[data-reveal]');
   if (revealEls.length && 'IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
@@ -55,54 +52,17 @@
     revealEls.forEach(el => el.classList.add('revealed'));
   }
 
-  /* ── LEGACY REVEAL (.reveal / .in) ─────────────────────── */
-  const legacyEls = document.querySelectorAll('.reveal');
-  if (legacyEls.length && 'IntersectionObserver' in window) {
-    const io2 = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('in'); io2.unobserve(e.target); }
-      });
-    }, { threshold: 0.1 });
-    legacyEls.forEach(el => io2.observe(el));
-  } else {
-    legacyEls.forEach(el => el.classList.add('in'));
-  }
-
-  /* ── COUNT-UP ANIMATION ─────────────────────────────────── */
-  const countEls = document.querySelectorAll('.count-up[data-target]');
-  if (countEls.length && 'IntersectionObserver' in window) {
-    const easeOut = t => 1 - Math.pow(1 - t, 3);
-    const ioCount = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const target = parseInt(el.dataset.target, 10);
-        const duration = 1500;
-        const start = performance.now();
-        function tick(now) {
-          const p = Math.min((now - start) / duration, 1);
-          el.textContent = Math.floor(easeOut(p) * target).toLocaleString();
-          if (p < 1) requestAnimationFrame(tick);
-          else el.textContent = target.toLocaleString();
-        }
-        requestAnimationFrame(tick);
-        ioCount.unobserve(el);
-      });
-    }, { threshold: 0.6 });
-    countEls.forEach(el => ioCount.observe(el));
-  }
-
-  /* ── CONTACT FORM ───────────────────────────────────────── */
+  /* ── CONTACT FORM ─────────────────────────────────────────── */
   const form = document.getElementById('quote-form');
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const btn = form.querySelector('[type="submit"]');
+      const btn   = form.querySelector('[type="submit"]');
       const label = btn.querySelector('.submit-label');
-      const orig = label ? label.textContent : btn.textContent;
+      const orig  = label ? label.textContent : btn.textContent;
       if (label) label.textContent = 'Message Sent!';
       else btn.textContent = 'Message Sent!';
-      btn.style.background = 'var(--c-emerald)';
+      btn.style.background = '#156B43';
       btn.disabled = true;
       setTimeout(() => {
         if (label) label.textContent = orig;
@@ -114,7 +74,7 @@
     });
   }
 
-  /* ── CAPABILITY STATEMENT FALLBACK ─────────────────────── */
+  /* ── CAPABILITY STATEMENT FALLBACK ───────────────────────── */
   document.querySelectorAll('[data-capability]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -122,7 +82,7 @@
     });
   });
 
-  /* ── HERO IMAGE PARALLAX (desktop only) ────────────────── */
+  /* ── HERO IMAGE PARALLAX (desktop only) ──────────────────── */
   (function () {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (!window.matchMedia('(min-width: 861px)').matches) return;
@@ -138,7 +98,6 @@
       if (!isActive || rafId) return;
       rafId = requestAnimationFrame(function () {
         const y = Math.max(0, window.scrollY);
-        /* 0.09 ratio: 100px scroll → 9px shift — barely perceptible depth */
         photoWrap.style.transform = 'translateY(' + (y * 0.09) + 'px)';
         rafId = null;
       });
@@ -146,32 +105,15 @@
 
     window.addEventListener('scroll', onParallaxScroll, { passive: true });
 
-    /* Stop when hero is fully off-screen — no wasted rAF ticks */
     if ('IntersectionObserver' in window) {
       var ioParallax = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
           isActive = e.isIntersecting;
-          if (!isActive) {
-            photoWrap.style.transform = '';
-          }
+          if (!isActive) photoWrap.style.transform = '';
         });
       }, { threshold: 0 });
       ioParallax.observe(hero);
     }
   }());
 
-  /* ── LEGACY DRAWER (old subpages) ──────────────────────── */
-  const legHamburger = document.querySelector('.nav__hamburger');
-  const legDrawer    = document.querySelector('.nav__drawer');
-  const legOverlay   = document.querySelector('.nav__drawer-overlay');
-  const legClose     = document.querySelector('.nav__drawer-close');
-  if (legHamburger && legDrawer) {
-    const legOpen  = () => { legDrawer.classList.add('open'); legOverlay && legOverlay.classList.add('open'); legHamburger.classList.add('open'); document.body.style.overflow = 'hidden'; };
-    const legClose2 = () => { legDrawer.classList.remove('open'); legOverlay && legOverlay.classList.remove('open'); legHamburger.classList.remove('open'); document.body.style.overflow = ''; };
-    legHamburger.addEventListener('click', () => legDrawer.classList.contains('open') ? legClose2() : legOpen());
-    legOverlay && legOverlay.addEventListener('click', legClose2);
-    legClose && legClose.addEventListener('click', legClose2);
-    document.querySelectorAll('.nav__drawer-link, .nav__drawer-cta .btn').forEach(el => el.addEventListener('click', legClose2));
-  }
-
-})();
+}());

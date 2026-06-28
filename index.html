@@ -3,1200 +3,1008 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pink Petals Facility Solutions — Premium Commercial Cleaning &amp; Government Contracting</title>
-  <meta name="description" content="Pink Petals Facility Solutions is a Women-Owned, Minority-Owned government contractor providing premium commercial janitorial and facility services in Merrillville, Indiana.">
-
+  <title>Pink Petals Facility Solutions — Premium Janitorial &amp; Government Contracting</title>
+  <meta name="description" content="Women-Owned, Minority-Owned government contractor providing premium commercial janitorial and facility services in Northwest Indiana and the greater Midwest.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="images/logo.png" type="image/png">
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════
-       NAVIGATION
-  ═══════════════════════════════════ -->
-  <header class="nav" id="site-nav">
-    <div class="nav-inner">
+<!-- ══════════════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════════════ -->
+<header class="nav" id="site-nav">
+  <div class="nav-inner">
 
-      <!-- Logo -->
-      <a href="index.html" class="nav-logo" aria-label="Pink Petals Facility Solutions">
-        <img src="images/logo.png" alt="" class="nav-logo-img" onerror="this.style.display='none'">
-        <div class="nav-logo-type">
-          <span class="nav-brand">Pink Petals</span>
-          <span class="nav-tag">Facility Solutions</span>
-        </div>
-      </a>
-
-      <!-- Desktop navigation -->
-      <nav class="nav-menu" aria-label="Main navigation">
-
-        <!-- Services dropdown -->
-        <div class="nav-item nav-item--drop">
-          <a href="#services" class="nav-link nav-link--drop">
-            Services
-            <svg class="nav-chevron" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
-              <path d="M2 4L5.5 7.5L9 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <div class="nav-dropdown" role="menu">
-            <a href="#services" class="nav-drop-link" role="menuitem">Janitorial Services</a>
-            <a href="#services" class="nav-drop-link" role="menuitem">Facility Management</a>
-            <a href="#services" class="nav-drop-link" role="menuitem">Specialty Cleaning</a>
-            <a href="#services" class="nav-drop-link" role="menuitem">Window &amp; Glass Cleaning</a>
-            <a href="#services" class="nav-drop-link" role="menuitem">Waste &amp; Remediation</a>
-            <a href="#services" class="nav-drop-link" role="menuitem">Disinfection &amp; Sanitation</a>
-          </div>
-        </div>
-
-        <!-- Industries dropdown -->
-        <div class="nav-item nav-item--drop">
-          <a href="#industries" class="nav-link nav-link--drop">
-            Industries
-            <svg class="nav-chevron" width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
-              <path d="M2 4L5.5 7.5L9 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <div class="nav-dropdown" role="menu">
-            <a href="#industries" class="nav-drop-link" role="menuitem">Federal Government</a>
-            <a href="#industries" class="nav-drop-link" role="menuitem">Healthcare</a>
-            <a href="#industries" class="nav-drop-link" role="menuitem">Education</a>
-            <a href="#industries" class="nav-drop-link" role="menuitem">Corporate</a>
-            <a href="#industries" class="nav-drop-link" role="menuitem">Industrial</a>
-            <a href="#industries" class="nav-drop-link" role="menuitem">State &amp; Local Gov.</a>
-          </div>
-        </div>
-
-        <a href="#government" class="nav-link">Government Contracting</a>
-        <a href="#capability" class="nav-link">Capability Statement</a>
-        <a href="#about"      class="nav-link">About</a>
-        <a href="#contact"    class="nav-link">Contact</a>
-
-      </nav>
-
-      <!-- CTA -->
-      <div class="nav-actions">
-        <a href="#contact" class="nav-cta">Request Proposal</a>
+    <a href="#home" class="nav-logo" aria-label="Pink Petals Facility Solutions — Home">
+      <img src="images/logo.png" alt="Pink Petals Facility Solutions" class="nav-logo-img"
+           onerror="this.style.display='none'">
+      <div class="nav-logo-wordmark">
+        <span class="nav-brand">Pink Petals</span>
+        <span class="nav-tag">Facility Solutions</span>
       </div>
+    </a>
 
-      <!-- Mobile hamburger -->
-      <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-    </div>
-  </header>
-
-  <!-- Mobile drawer — slides in from right -->
-  <div class="drawer" id="drawer" aria-hidden="true">
-    <div class="drawer-top">
-      <a href="index.html" class="nav-logo">
-        <img src="images/logo.png" alt="Pink Petals Inc" class="nav-logo-img" onerror="this.style.display='none'">
-        <div class="nav-logo-type">
-          <span class="nav-brand">Pink Petals</span>
-          <span class="nav-tag">Facility Solutions</span>
-        </div>
-      </a>
-      <button class="drawer-x" aria-label="Close menu">&#x2715;</button>
-    </div>
-    <nav class="drawer-menu" aria-label="Mobile navigation">
-      <a href="#services"   class="drawer-link">Services</a>
-      <a href="#industries" class="drawer-link">Industries</a>
-      <a href="#government" class="drawer-link">Government Contracting</a>
-      <a href="#capability" class="drawer-link">Capability Statement</a>
-      <a href="#about"      class="drawer-link">About</a>
-      <a href="#contact"    class="drawer-link">Contact</a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#services"    class="nav-link">Services</a>
+      <a href="#industries"  class="nav-link">Industries</a>
+      <a href="#government"  class="nav-link">Government</a>
+      <a href="#about"       class="nav-link">About</a>
+      <a href="#contact"     class="nav-link">Contact</a>
     </nav>
-    <div class="drawer-bottom">
-      <a href="#contact" class="drawer-btn">Request Proposal</a>
-      <div class="drawer-info">
-        <a href="tel:2192858345">(219) 285-8345</a>
-        <a href="mailto:pinkpetalsfacilitysolutions@gmail.com">pinkpetalsfacilitysolutions@gmail.com</a>
-      </div>
-    </div>
+
+    <a href="#contact" class="nav-cta">Request Proposal</a>
+
+    <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
   </div>
-  <div class="drawer-scrim" id="drawer-scrim"></div>
+</header>
 
-
-  <!-- ═══════════════════════════════════
-       HERO
-  ═══════════════════════════════════ -->
-  <section class="hero" id="home">
-
-    <!-- Slow-floating ambient glows -->
-    <div class="hero-bg" aria-hidden="true">
-      <div class="hero-glow hero-glow--pink"></div>
-      <div class="hero-glow hero-glow--emerald"></div>
-    </div>
-    <!-- Very subtle particle field (CSS only) -->
-    <div class="hero-particles" aria-hidden="true"></div>
-
-    <!-- Two-column layout: text left, image right -->
-    <div class="hero-layout">
-
-      <!-- LEFT: Editorial text column -->
-      <div class="hero-col-text">
-
-        <!-- Brand marker with logo -->
-        <div class="hero-eyebrow">
-          <img src="images/logo.png" alt="" class="hero-logo-mark" onerror="this.style.display='none'">
-          <span class="hero-eyebrow-text">Pink Petals &nbsp;&middot;&nbsp; Facility Solutions</span>
-        </div>
-
-        <!-- Editorial headline — 4 lines, luxury magazine style -->
-        <h1 class="hero-headline">
-          <span class="hero-hl-intro">Creating</span>
-          <span class="hero-hl-strong">Clean, Safe &amp;</span>
-          <span class="hero-hl-accent">Healthy</span>
-          <span class="hero-hl-strong">Environments</span>
-        </h1>
-
-        <!-- Subheadline -->
-        <p class="hero-sub">
-          Premium janitorial and facility services for government, healthcare,
-          education, industrial, commercial, and property management clients.
-        </p>
-
-        <!-- CTA buttons -->
-        <div class="hero-actions">
-          <a href="#contact" class="h-cta h-cta--primary">
-            Request Proposal
-            <svg class="h-cta-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a href="#services" class="h-cta h-cta--secondary">Explore Services</a>
-        </div>
-
-      </div>
-
-      <!-- RIGHT: Cleaning image column — fades in from right -->
-      <div class="hero-col-visual">
-        <div class="hero-photo-wrap">
-          <img src="images/hero-photo.png"
-               alt="Pink Petals cleaning professional"
-               class="hero-photo"
-               onerror="this.style.display='none'">
-          <!-- Soft gradient blends image into white background -->
-          <div class="hero-photo-fade" aria-hidden="true"></div>
-        </div>
-        <!-- Floating WOSB certification badge -->
-        <div class="hero-badge">
-          <div class="hero-badge-icon" aria-hidden="true">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-          </div>
-          <div>
-            <strong>WOSB Certified</strong>
-            <span>Women-Owned Small Business</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════
-       TRUST BAR
-  ═══════════════════════════════════ -->
-  <div class="trust-strip" aria-hidden="true">
-    <div class="trust-track">
-
-      <!-- ─── SET A ─────────────────────────────────────────────── -->
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="8" cy="5.5" r="2.8"/><path d="M2 15a6 6 0 0112 0"/>
-        </svg>
-        <span class="ti-label">Women-Owned Business</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 2l1.55 3.15L14 6.18l-3 2.93.71 4.14L8 11.5 4.29 13.25l.71-4.14-3-2.93 4.45-.88L8 2z"/>
-        </svg>
-        <span class="ti-label">Minority-Owned Business</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="1.5" y="3.5" width="13" height="9" rx="1.5"/><line x1="5" y1="7" x2="11" y2="7"/><line x1="5" y1="10" x2="9" y2="10"/>
-        </svg>
-        <span class="ti-label">UEI E154ZRUAYHV1</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="8" cy="8" r="6.5"/><polyline points="8,4.5 8,8 10.5,10.5"/>
-        </svg>
-        <span class="ti-label">CAGE Pending</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="2" y1="14" x2="14" y2="14"/><rect x="4" y="9" width="1.5" height="5"/><rect x="7.25" y="9" width="1.5" height="5"/><rect x="10.5" y="9" width="1.5" height="5"/><path d="M2 9l6-5 6 5"/>
-        </svg>
-        <span class="ti-label">Indiana Corporation</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 1.5L2.5 4v5.5c0 2.8 2.5 5 5.5 5.5 3-.5 5.5-2.7 5.5-5.5V4L8 1.5z"/>
-        </svg>
-        <span class="ti-label">Government Ready</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 2l1.12 4.88L14 8l-4.88 1.12L8 14l-1.12-4.88L2 8l4.88-1.12L8 2z"/>
-        </svg>
-        <span class="ti-label">Commercial Cleaning</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="8" cy="8" r="6.5"/><line x1="8" y1="4.5" x2="8" y2="11.5"/><line x1="4.5" y1="8" x2="11.5" y2="8"/>
-        </svg>
-        <span class="ti-label">Healthcare Facilities</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="8" cy="8" r="2.6"/><path d="M8 1.5V4M8 12v2.5M1.5 8H4M12 8h2.5M3.4 3.4l1.8 1.8M10.8 10.8l1.8 1.8M3.4 12.6l1.8-1.8M10.8 5.2l1.8-1.8"/>
-        </svg>
-        <span class="ti-label">Industrial Facilities</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 2c5.5 0 10 3.5 10 11C10 11 5 7.5 3 2z"/><line x1="3" y1="2" x2="13" y2="13"/>
-        </svg>
-        <span class="ti-label">Eco-Friendly</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 1.5L2.5 4v5.5c0 2.8 2.5 5 5.5 5.5 3-.5 5.5-2.7 5.5-5.5V4L8 1.5z"/><polyline points="5.5,8.5 7.25,10 10.5,6.5"/>
-        </svg>
-        <span class="ti-label">Quality Assurance</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="4" width="12" height="10" rx="1.5"/><line x1="2" y1="8" x2="14" y2="8"/><line x1="5.5" y1="2" x2="5.5" y2="6"/><line x1="10.5" y1="2" x2="10.5" y2="6"/>
-        </svg>
-        <span class="ti-label">Flexible Scheduling</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <!-- ─── SET B (seamless loop duplicate) ───────────────────── -->
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="8" cy="5.5" r="2.8"/><path d="M2 15a6 6 0 0112 0"/>
-        </svg>
-        <span class="ti-label">Women-Owned Business</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 2l1.55 3.15L14 6.18l-3 2.93.71 4.14L8 11.5 4.29 13.25l.71-4.14-3-2.93 4.45-.88L8 2z"/>
-        </svg>
-        <span class="ti-label">Minority-Owned Business</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="1.5" y="3.5" width="13" height="9" rx="1.5"/><line x1="5" y1="7" x2="11" y2="7"/><line x1="5" y1="10" x2="9" y2="10"/>
-        </svg>
-        <span class="ti-label">UEI E154ZRUAYHV1</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="8" cy="8" r="6.5"/><polyline points="8,4.5 8,8 10.5,10.5"/>
-        </svg>
-        <span class="ti-label">CAGE Pending</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="2" y1="14" x2="14" y2="14"/><rect x="4" y="9" width="1.5" height="5"/><rect x="7.25" y="9" width="1.5" height="5"/><rect x="10.5" y="9" width="1.5" height="5"/><path d="M2 9l6-5 6 5"/>
-        </svg>
-        <span class="ti-label">Indiana Corporation</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 1.5L2.5 4v5.5c0 2.8 2.5 5 5.5 5.5 3-.5 5.5-2.7 5.5-5.5V4L8 1.5z"/>
-        </svg>
-        <span class="ti-label">Government Ready</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 2l1.12 4.88L14 8l-4.88 1.12L8 14l-1.12-4.88L2 8l4.88-1.12L8 2z"/>
-        </svg>
-        <span class="ti-label">Commercial Cleaning</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="8" cy="8" r="6.5"/><line x1="8" y1="4.5" x2="8" y2="11.5"/><line x1="4.5" y1="8" x2="11.5" y2="8"/>
-        </svg>
-        <span class="ti-label">Healthcare Facilities</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="8" cy="8" r="2.6"/><path d="M8 1.5V4M8 12v2.5M1.5 8H4M12 8h2.5M3.4 3.4l1.8 1.8M10.8 10.8l1.8 1.8M3.4 12.6l1.8-1.8M10.8 5.2l1.8-1.8"/>
-        </svg>
-        <span class="ti-label">Industrial Facilities</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 2c5.5 0 10 3.5 10 11C10 11 5 7.5 3 2z"/><line x1="3" y1="2" x2="13" y2="13"/>
-        </svg>
-        <span class="ti-label">Eco-Friendly</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 1.5L2.5 4v5.5c0 2.8 2.5 5 5.5 5.5 3-.5 5.5-2.7 5.5-5.5V4L8 1.5z"/><polyline points="5.5,8.5 7.25,10 10.5,6.5"/>
-        </svg>
-        <span class="ti-label">Quality Assurance</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-      <span class="ti">
-        <svg class="ti-icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="4" width="12" height="10" rx="1.5"/><line x1="2" y1="8" x2="14" y2="8"/><line x1="5.5" y1="2" x2="5.5" y2="6"/><line x1="10.5" y1="2" x2="10.5" y2="6"/>
-        </svg>
-        <span class="ti-label">Flexible Scheduling</span>
-      </span>
-      <span class="ti-sep"><svg width="6" height="6" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 1.5L8.5 5 5 8.5 1.5 5Z"/></svg></span>
-
-    </div>
+<!-- Mobile drawer -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-top">
+    <img src="images/logo.png" alt="Pink Petals" class="drawer-logo"
+         onerror="this.style.display='none'">
+    <button class="drawer-x" aria-label="Close menu">&#x2715;</button>
   </div>
+  <nav class="drawer-nav" aria-label="Mobile navigation">
+    <a href="#services"   class="drawer-link">Services</a>
+    <a href="#industries" class="drawer-link">Industries</a>
+    <a href="#government" class="drawer-link">Government Contracting</a>
+    <a href="#capability" class="drawer-link">Capability Statement</a>
+    <a href="#about"      class="drawer-link">About</a>
+    <a href="#contact"    class="drawer-link">Contact</a>
+  </nav>
+  <div class="drawer-foot">
+    <a href="#contact" class="drawer-btn">Request Proposal</a>
+    <a href="tel:2192858345" class="drawer-tel">(219) 285-8345</a>
+  </div>
+</div>
+<div class="drawer-scrim" id="drawer-scrim"></div>
 
 
-  <!-- ═══════════════════════════════════
-       ABOUT
-  ═══════════════════════════════════ -->
-  <section class="about" id="about">
-    <div class="wrap">
-      <div class="about-grid">
+<!-- ══════════════════════════════════════════════════
+     HERO — photo appears HERE and ONLY here
+══════════════════════════════════════════════════ -->
+<section class="hero" id="home">
 
-        <!-- LEFT: Large editorial image -->
-        <div class="about-img-col" data-reveal="up">
-          <div class="about-img-wrap">
-            <img src="images/hero-photo.png"
-                 alt="Pink Petals facility solutions professional"
-                 class="about-img"
-                 onerror="this.style.display='none'">
-          </div>
-        </div>
+  <div class="hero-bg" aria-hidden="true"></div>
 
-        <!-- RIGHT: Heading + feature cards -->
-        <div class="about-content">
+  <div class="hero-layout">
 
-          <p class="about-eyebrow" data-reveal="up">About Pink Petals</p>
+    <!-- LEFT: editorial text -->
+    <div class="hero-text">
 
-          <h2 class="about-h2" data-reveal="up" data-delay="100">
-            <span class="ah-strong">Excellence</span>
-            <em class="ah-italic">You Can See.</em>
-            <span class="ah-strong">Service</span>
-            <em class="ah-italic">You Can Trust.</em>
-          </h2>
-
-          <!-- 2 × 2 floating feature cards -->
-          <div class="about-cards">
-
-            <div class="about-card" data-reveal="up" data-delay="0">
-              <div class="ac-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5 4.5-1.35 8-6.25 8-11.5V6L12 2z"/>
-                  <polyline points="9,12 11,14.5 15,10"/>
-                </svg>
-              </div>
-              <h3 class="ac-title">Quality Assured</h3>
-              <p class="ac-desc">Every job is inspected against rigorous standards before we consider it complete.</p>
-            </div>
-
-            <div class="about-card" data-reveal="up" data-delay="80">
-              <div class="ac-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M5 4c7.5 0 14 4.5 14 15C15 17 8 12 5 4z"/>
-                  <line x1="5" y1="4" x2="19" y2="19"/>
-                </svg>
-              </div>
-              <h3 class="ac-title">Eco-Friendly</h3>
-              <p class="ac-desc">EPA-registered, non-toxic products that protect your people and the planet.</p>
-            </div>
-
-            <div class="about-card" data-reveal="up" data-delay="160">
-              <div class="ac-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M2 10l10-6 10 6-10 6-10-6z"/>
-                  <path d="M6 12.5v4c0 2.2 2.7 3.5 6 3.5s6-1.3 6-3.5v-4"/>
-                  <line x1="22" y1="10" x2="22" y2="15"/>
-                </svg>
-              </div>
-              <h3 class="ac-title">Trained Professionals</h3>
-              <p class="ac-desc">Fully vetted, background-checked technicians trained in OSHA compliance and safety.</p>
-            </div>
-
-            <div class="about-card" data-reveal="up" data-delay="240">
-              <div class="ac-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="4" width="18" height="18" rx="2"/>
-                  <line x1="3" y1="10" x2="21" y2="10"/>
-                  <line x1="8" y1="2" x2="8" y2="6"/>
-                  <line x1="16" y1="2" x2="16" y2="6"/>
-                  <line x1="8" y1="15" x2="16" y2="15"/>
-                </svg>
-              </div>
-              <h3 class="ac-title">Flexible Scheduling</h3>
-              <p class="ac-desc">Daily, weekly, or custom programs designed around your facility's unique needs.</p>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════
-       SERVICES
-  ═══════════════════════════════════ -->
-  <section class="services" id="services">
-    <div class="wrap">
-
-      <div class="svc-head" data-reveal="up">
-        <p class="svc-eyebrow">Our Services</p>
-        <h2 class="svc-h2">Built for Every <em>Facility Challenge</em></h2>
-        <p class="svc-sub">From daily janitorial programs to emergency response, Pink Petals delivers consistent, inspection-ready results across every environment.</p>
+      <div class="hero-eyebrow">
+        <img src="images/logo.png" alt="" class="hero-logo-mark" aria-hidden="true"
+             onerror="this.style.display='none'">
+        <span class="hero-eyebrow-label">Pink Petals &nbsp;&middot;&nbsp; Facility Solutions</span>
       </div>
 
-      <div class="svc-photo-grid">
+      <h1 class="hero-h1">
+        <span class="hh-intro">Creating</span>
+        <span class="hh-strong">Clean, Safe &amp;</span>
+        <span class="hh-accent">Healthy</span>
+        <span class="hh-strong2">Environments</span>
+      </h1>
 
-        <a href="#contact" class="svc-photo-card" data-reveal="up" data-delay="0">
-          <img src="images/hero-photo.png" class="svc-photo-img" alt="Commercial Janitorial — Pink Petals">
-          <div class="svc-photo-overlay"></div>
-          <div class="svc-photo-body">
-            <h3 class="svc-photo-title">Commercial Janitorial</h3>
-          </div>
-        </a>
-
-        <a href="#contact" class="svc-photo-card" data-reveal="up" data-delay="70">
-          <img src="images/hero-photo.png" class="svc-photo-img" alt="Healthcare Cleaning — Pink Petals">
-          <div class="svc-photo-overlay"></div>
-          <div class="svc-photo-body">
-            <h3 class="svc-photo-title">Healthcare Cleaning</h3>
-          </div>
-        </a>
-
-        <a href="#contact" class="svc-photo-card" data-reveal="up" data-delay="140">
-          <img src="images/hero-photo.png" class="svc-photo-img" alt="Industrial Facilities — Pink Petals">
-          <div class="svc-photo-overlay"></div>
-          <div class="svc-photo-body">
-            <h3 class="svc-photo-title">Industrial Facilities</h3>
-          </div>
-        </a>
-
-        <a href="#contact" class="svc-photo-card" data-reveal="up" data-delay="210">
-          <img src="images/hero-photo.png" class="svc-photo-img" alt="Floor Care — Pink Petals">
-          <div class="svc-photo-overlay"></div>
-          <div class="svc-photo-body">
-            <h3 class="svc-photo-title">Floor Care</h3>
-          </div>
-        </a>
-
-        <a href="#contact" class="svc-photo-card" data-reveal="up" data-delay="0">
-          <img src="images/hero-photo.png" class="svc-photo-img" alt="Post Construction — Pink Petals">
-          <div class="svc-photo-overlay"></div>
-          <div class="svc-photo-body">
-            <h3 class="svc-photo-title">Post Construction</h3>
-          </div>
-        </a>
-
-        <a href="#contact" class="svc-photo-card" data-reveal="up" data-delay="70">
-          <img src="images/hero-photo.png" class="svc-photo-img" alt="Day Porter — Pink Petals">
-          <div class="svc-photo-overlay"></div>
-          <div class="svc-photo-body">
-            <h3 class="svc-photo-title">Day Porter</h3>
-          </div>
-        </a>
-
-        <a href="#contact" class="svc-photo-card" data-reveal="up" data-delay="140">
-          <img src="images/hero-photo.png" class="svc-photo-img" alt="Move-Out Cleaning — Pink Petals">
-          <div class="svc-photo-overlay"></div>
-          <div class="svc-photo-body">
-            <h3 class="svc-photo-title">Move-Out Cleaning</h3>
-          </div>
-        </a>
-
-        <a href="#contact" class="svc-photo-card" data-reveal="up" data-delay="210">
-          <img src="images/hero-photo.png" class="svc-photo-img" alt="Emergency Cleaning — Pink Petals">
-          <div class="svc-photo-overlay"></div>
-          <div class="svc-photo-body">
-            <h3 class="svc-photo-title">Emergency Cleaning</h3>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════
-       INDUSTRIES
-  ═══════════════════════════════════ -->
-  <section class="industries section" id="industries">
-    <div class="wrap">
-      <div class="section-head" data-reveal="up">
-        <p class="eyebrow">Who We Serve</p>
-        <h2 class="h2">Industries &amp; Sectors</h2>
-      </div>
-      <div class="ind-grid">
-        <div class="ind-item" data-reveal="up" data-delay="0">
-          <div class="ind-mark">F</div>
-          <h3 class="ind-name">Federal Government</h3>
-          <p class="ind-desc">GSA-qualified services for federal buildings, courthouses, and agency headquarters across the Midwest</p>
-        </div>
-        <div class="ind-item" data-reveal="up" data-delay="50">
-          <div class="ind-mark">H</div>
-          <h3 class="ind-name">Healthcare</h3>
-          <p class="ind-desc">Infection control and hospital-grade sanitation for medical facilities, clinics, and patient care environments</p>
-        </div>
-        <div class="ind-item" data-reveal="up" data-delay="100">
-          <div class="ind-mark">E</div>
-          <h3 class="ind-name">Education</h3>
-          <p class="ind-desc">K&ndash;12 schools, community colleges, and university campuses that require consistent, safe environments</p>
-        </div>
-        <div class="ind-item" data-reveal="up" data-delay="150">
-          <div class="ind-mark">C</div>
-          <h3 class="ind-name">Corporate</h3>
-          <p class="ind-desc">Class-A office buildings, corporate campuses, and mixed-use commercial facilities of any scale</p>
-        </div>
-        <div class="ind-item" data-reveal="up" data-delay="200">
-          <div class="ind-mark">I</div>
-          <h3 class="ind-name">Industrial</h3>
-          <p class="ind-desc">Manufacturing plants, warehouses, and distribution and logistics facilities with specialized cleaning demands</p>
-        </div>
-        <div class="ind-item" data-reveal="up" data-delay="250">
-          <div class="ind-mark">S</div>
-          <h3 class="ind-name">State &amp; Local Gov.</h3>
-          <p class="ind-desc">Municipal buildings, transit facilities, and public infrastructure that serve entire communities</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════
-       GOVERNMENT CONTRACTING
-  ═══════════════════════════════════ -->
-  <section class="government" id="government">
-    <div class="wrap">
-
-      <!-- ── Top row: heading + certification badges ── -->
-      <div class="gov-top" data-reveal="up">
-
-        <div class="gov-intro">
-          <p class="gov-eyebrow">Federal Contracting</p>
-          <h2 class="gov-h2">
-            <span class="gh-line1">Government Ready.</span>
-            <span class="gh-line2">Built to Perform.</span>
-          </h2>
-          <p class="gov-lead">Fully registered and compliant to compete for federal, state, and local government contracts. Accountability, precision, and performance — delivered on every engagement.</p>
-        </div>
-
-        <ul class="gov-cert-list" aria-label="Business certifications">
-          <li class="gov-cert">
-            <span class="gc-badge">WOSB</span>
-            <span class="gc-cert-name">Women-Owned Small Business</span>
-          </li>
-          <li class="gov-cert">
-            <span class="gc-badge">MBE</span>
-            <span class="gc-cert-name">Minority Business Enterprise</span>
-          </li>
-          <li class="gov-cert">
-            <span class="gc-badge">SAM</span>
-            <span class="gc-cert-name">System for Award Management</span>
-          </li>
-          <li class="gov-cert">
-            <span class="gc-badge">INC</span>
-            <span class="gc-cert-name">Indiana Corporation</span>
-          </li>
-        </ul>
-
-      </div>
-
-      <div class="gov-rule" aria-hidden="true"></div>
-
-      <!-- ── Credential strip: UEI, CAGE, SAM, Entity ── -->
-      <div class="gov-creds" data-reveal="up">
-        <div class="gov-cred">
-          <span class="gcr-label">Unique Entity Identifier (UEI)</span>
-          <span class="gcr-value gcr-mono">E154ZRUAYHV1</span>
-        </div>
-        <div class="gov-cred-sep" aria-hidden="true"></div>
-        <div class="gov-cred">
-          <span class="gcr-label">CAGE Code</span>
-          <span class="gcr-value gcr-mono">Pending</span>
-        </div>
-        <div class="gov-cred-sep" aria-hidden="true"></div>
-        <div class="gov-cred">
-          <span class="gcr-label">SAM.gov Status</span>
-          <span class="gcr-value">
-            <span class="gcr-dot" aria-hidden="true"></span>Submitted &middot; Pending Activation
-          </span>
-        </div>
-        <div class="gov-cred-sep" aria-hidden="true"></div>
-        <div class="gov-cred">
-          <span class="gcr-label">Entity Type</span>
-          <span class="gcr-value">Indiana Corporation</span>
-        </div>
-      </div>
-
-      <div class="gov-rule" aria-hidden="true"></div>
-
-      <!-- ── Code tables + CTA ── -->
-      <div class="gov-tables" data-reveal="up">
-
-        <div class="gov-table-block">
-          <p class="gtb-label">NAICS Codes</p>
-          <ul class="gtb-list">
-            <li class="gtb-row">
-              <span class="gtb-code">561720</span>
-              <span class="gtb-desc">Janitorial Services</span>
-            </li>
-            <li class="gtb-row">
-              <span class="gtb-code">561210</span>
-              <span class="gtb-desc">Facilities Support Services</span>
-            </li>
-            <li class="gtb-row">
-              <span class="gtb-code">561790</span>
-              <span class="gtb-desc">Other Services to Buildings</span>
-            </li>
-            <li class="gtb-row">
-              <span class="gtb-code">561740</span>
-              <span class="gtb-desc">Carpet &amp; Upholstery Cleaning</span>
-            </li>
-            <li class="gtb-row">
-              <span class="gtb-code">562910</span>
-              <span class="gtb-desc">Remediation Services</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="gov-table-block">
-          <p class="gtb-label">PSC Codes</p>
-          <ul class="gtb-list">
-            <li class="gtb-row">
-              <span class="gtb-code">S201</span>
-              <span class="gtb-desc">Building Housekeeping Services</span>
-            </li>
-            <li class="gtb-row">
-              <span class="gtb-code">S216</span>
-              <span class="gtb-desc">Building Cleaning &mdash; Interior</span>
-            </li>
-            <li class="gtb-row">
-              <span class="gtb-code">S299</span>
-              <span class="gtb-desc">Other Housekeeping Services</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="gov-doc-block">
-          <p class="gtb-label">Documentation</p>
-          <p class="gov-doc-text">A complete profile of our services, certifications, past performance, and socioeconomic designations — formatted for procurement review.</p>
-          <div class="gov-doc-actions">
-            <a href="images/capability-statement.png" download="Pink-Petals-Capability-Statement.png" class="gov-dl-btn">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 3v12m0 0-4-4m4 4 4-4M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"/>
-              </svg>
-              Download Capability Statement
-            </a>
-            <a href="images/capability-statement.png" target="_blank" class="gov-view-link">View online &rarr;</a>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════
-       CAPABILITY STATEMENT
-  ═══════════════════════════════════ -->
-  <section class="capability" id="capability">
-    <div class="wrap">
-
-      <!-- Header -->
-      <div class="cap-header" data-reveal="up">
-        <p class="cap-eyebrow">Documentation</p>
-        <h2 class="cap-h2">Capability Statement</h2>
-        <p class="cap-desc">A complete overview of our services, certifications, NAICS codes, past performance, and core competencies &mdash; formatted for procurement review.</p>
-      </div>
-
-      <!-- Floating paper -->
-      <div class="cap-float-wrap" data-reveal="up" data-delay="100">
-        <div class="cap-paper">
-          <div class="cap-paper-inner">
-            <a href="images/capability-statement.png" target="_blank" class="cap-paper-link" aria-label="View Capability Statement full size">
-              <img src="images/capability-statement.png" alt="Pink Petals Facility Solutions Capability Statement" class="cap-paper-img" loading="lazy">
-              <div class="cap-paper-hover" aria-hidden="true">
-                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                  <path d="M15 3h6m0 0v6m0-6-7 7M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/>
-                </svg>
-                <span>View Full Document</span>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Action buttons -->
-      <div class="cap-actions" data-reveal="up" data-delay="180">
-        <a href="images/capability-statement.png" target="_blank" class="cap-btn cap-btn--ghost">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M15 3h6m0 0v6m0-6-7 7M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/>
-          </svg>
-          View Online
-        </a>
-        <a href="images/capability-statement.png" download="Pink-Petals-Capability-Statement.png" class="cap-btn cap-btn--ghost">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 3v12m0 0-4-4m4 4 4-4M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"/>
-          </svg>
-          Download PDF
-        </a>
-        <a href="#contact" class="cap-btn cap-btn--primary">
-          Request Proposal
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M5 12h14m-7-7 7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-
-      <!-- Fine print -->
-      <p class="cap-note" data-reveal="up" data-delay="240">
-        Need it immediately? &ensp;<a href="tel:2192858345">(219) 285-8345</a>&ensp;&middot;&ensp;<a href="mailto:pinkpetalsfacilitysolutions@gmail.com">Email us</a>
+      <p class="hero-sub">
+        Premium janitorial and facility services for government, healthcare,
+        education, industrial, and commercial clients across Northwest Indiana
+        and the greater Midwest.
       </p>
 
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════
-       WHY PINK PETALS
-  ═══════════════════════════════════ -->
-  <section class="why section" id="why">
-    <div class="wrap">
-      <div class="section-head" data-reveal="up">
-        <p class="eyebrow">Why Choose Us</p>
-        <h2 class="h2">The Pink Petals <em>Difference</em></h2>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">
+          Request Proposal
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#services" class="btn-ghost">Explore Services</a>
       </div>
-      <div class="why-grid">
-        <div class="why-card" data-reveal="up" data-delay="0">
-          <div class="why-n">01</div>
-          <h3 class="why-title">Government-Grade Standards</h3>
-          <p class="why-body">We operate under the same compliance frameworks required by federal contracts&mdash;background-checked staff, documented protocols, and audit-ready reporting on every engagement.</p>
-        </div>
-        <div class="why-card" data-reveal="up" data-delay="70">
-          <div class="why-n">02</div>
-          <h3 class="why-title">Certified &amp; Verified</h3>
-          <p class="why-body">WOSB, Minority-Owned, and SAM-registered status unlocks set-aside contracts and demonstrates our commitment to compliance and accountability at every level.</p>
-        </div>
-        <div class="why-card" data-reveal="up" data-delay="140">
-          <div class="why-n">03</div>
-          <h3 class="why-title">Dedicated Account Management</h3>
-          <p class="why-body">Every client receives a dedicated point of contact&mdash;not a call center. Responsive, accountable, and fully aligned with your facility&rsquo;s specific requirements.</p>
-        </div>
-        <div class="why-card" data-reveal="up" data-delay="210">
-          <div class="why-n">04</div>
-          <h3 class="why-title">Fully Bonded &amp; Insured</h3>
-          <p class="why-body">Comprehensive liability coverage, worker&rsquo;s compensation, and bonding gives your organization complete protection at every touchpoint of our service relationship.</p>
-        </div>
-        <div class="why-card" data-reveal="up" data-delay="280">
-          <div class="why-n">05</div>
-          <h3 class="why-title">Eco-Responsible Products</h3>
-          <p class="why-body">Green-certified cleaning products and sustainable practices that protect your team, facility occupants, and the environment&mdash;without compromising results or standards.</p>
-        </div>
-        <div class="why-card" data-reveal="up" data-delay="350">
-          <div class="why-n">06</div>
-          <h3 class="why-title">Flexible Scheduling</h3>
-          <p class="why-body">Day, evening, weekend, and emergency response services designed to fit your operational hours&mdash;not disrupt them. We work completely around your schedule.</p>
+
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <div class="hero-badge-text">
+          <strong>WOSB Certified</strong>
+          <span>Women-Owned Small Business</span>
         </div>
       </div>
-    </div>
-  </section>
 
-
-  <!-- ═══════════════════════════════════
-       SERVICE AREA
-  ═══════════════════════════════════ -->
-  <section class="area section--emerald-pale" id="area">
-    <div class="wrap">
-      <div class="area-grid">
-
-        <div class="area-text" data-reveal="up">
-          <p class="eyebrow">Coverage</p>
-          <h2 class="h2">Where We <em>Serve</em></h2>
-          <p class="body-lg">
-            Based in Merrillville, Indiana, we serve clients across Northwest Indiana and the
-            greater Chicago metropolitan area&mdash;with capacity to deploy for regional and federal
-            contracts across the Midwest.
-          </p>
-          <div class="city-grid">
-            <div class="city-col">
-              <span class="city">Merrillville, IN</span>
-              <span class="city">Hammond, IN</span>
-              <span class="city">Gary, IN</span>
-              <span class="city">Highland, IN</span>
-              <span class="city">Munster, IN</span>
-            </div>
-            <div class="city-col">
-              <span class="city">Portage, IN</span>
-              <span class="city">Valparaiso, IN</span>
-              <span class="city">Chicago, IL</span>
-              <span class="city">Chicagoland</span>
-              <span class="city">&amp; Midwest Region</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="area-visual" data-reveal="right">
-          <div class="area-pin">
-            <div class="area-ring area-ring--lg"></div>
-            <div class="area-ring area-ring--md"></div>
-            <div class="area-ring area-ring--sm"></div>
-            <div class="area-center">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              <span>Merrillville, IN</span>
-            </div>
-          </div>
-          <p class="area-label">Serving a 50+ mile radius</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════
-       PAYMENT METHODS
-  ═══════════════════════════════════ -->
-  <section class="pay-section" aria-label="Accepted payment methods">
-
-    <div class="pay-label-row">
-      <p class="pay-label">Accepted Payment Methods</p>
     </div>
 
-    <div class="pay-strip">
-      <div class="pay-track">
-
-        <!-- SET A ─────────────────────────────── -->
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Visa</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Mastercard</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>American Express</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Discover</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>ACH</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Checks</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Purchase Orders</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Commercial Invoicing</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Net 15</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Net 30</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-
-        <!-- SET B — identical, for seamless loop ─ -->
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Visa</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Mastercard</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>American Express</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Discover</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>ACH</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Checks</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Purchase Orders</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Commercial Invoicing</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Net 15</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-        <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Net 30</span>
-        <span class="pm-sep" aria-hidden="true"></span>
-
+    <!-- RIGHT: cleaning professional — only instance on the site -->
+    <div class="hero-photo-col">
+      <div class="hero-photo-wrap">
+        <img src="images/hero-photo.png"
+             alt="Pink Petals cleaning professional"
+             class="hero-photo"
+             onerror="this.style.display='none'">
+        <div class="hero-photo-fade" aria-hidden="true"></div>
       </div>
     </div>
 
-  </section>
+  </div>
+</section>
 
 
-  <!-- ═══════════════════════════════════
-       CONTACT
-  ═══════════════════════════════════ -->
-  <section class="contact section" id="contact">
-    <div class="wrap">
-      <div class="contact-grid">
+<!-- ══════════════════════════════════════════════════
+     TRUST BAR — animated, pause on hover
+══════════════════════════════════════════════════ -->
+<div class="trust-strip" aria-hidden="true">
+  <div class="trust-track">
 
-        <div class="contact-info" data-reveal="up">
-          <p class="eyebrow">Get in Touch</p>
-          <h2 class="h2">Request a <em>Quote</em></h2>
-          <p class="body-lg">
-            Ready to elevate your facility? Tell us about your space and we&rsquo;ll respond
-            within 24 hours with a customized proposal.
-          </p>
-          <div class="contact-details">
-            <div class="cd">
-              <span class="cd-lbl">Phone</span>
-              <a href="tel:2192858345" class="cd-val">(219) 285-8345</a>
-            </div>
-            <div class="cd">
-              <span class="cd-lbl">Email</span>
-              <a href="mailto:pinkpetalsfacilitysolutions@gmail.com" class="cd-val">pinkpetalsfacilitysolutions@gmail.com</a>
-            </div>
-            <div class="cd">
-              <span class="cd-lbl">Location</span>
-              <span class="cd-val">Merrillville, Indiana</span>
-            </div>
-            <div class="cd">
-              <span class="cd-lbl">Hours</span>
-              <span class="cd-val">Mon&ndash;Fri 8am&ndash;6pm &nbsp;&middot;&nbsp; 24/7 Emergency</span>
-            </div>
-          </div>
-          <div class="cert-tags">
-            <span class="ctag">WOSB</span>
-            <span class="ctag">Minority-Owned</span>
-            <span class="ctag">Fully Insured</span>
-          </div>
+    <!-- SET A ─────────────────────────────────── -->
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="5.5" r="2.8"/><path d="M2 15a6 6 0 0112 0"/></svg>
+      <span>Women-Owned Business</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2l1.55 3.15L14 6.18l-3 2.93.71 4.14L8 11.5 4.29 13.25l.71-4.14-3-2.93 4.45-.88L8 2z"/></svg>
+      <span>Minority-Owned Business</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3.5" width="13" height="9" rx="1.5"/><line x1="5" y1="7" x2="11" y2="7"/><line x1="5" y1="10" x2="9" y2="10"/></svg>
+      <span>UEI&nbsp;E154ZRUAYHV1</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1.5L2.5 4v5.5c0 2.8 2.5 5 5.5 5.5 3-.5 5.5-2.7 5.5-5.5V4L8 1.5z"/></svg>
+      <span>SAM.gov Registered</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="2" y1="14" x2="14" y2="14"/><rect x="4" y="9" width="1.5" height="5"/><rect x="7.25" y="9" width="1.5" height="5"/><rect x="10.5" y="9" width="1.5" height="5"/><path d="M2 9l6-5 6 5"/></svg>
+      <span>Indiana Corporation</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2c5.5 0 10 3.5 10 11C10 11 5 7.5 3 2z"/><line x1="3" y1="2" x2="13" y2="13"/></svg>
+      <span>Eco-Friendly Products</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1.5L2.5 4v5.5c0 2.8 2.5 5 5.5 5.5 3-.5 5.5-2.7 5.5-5.5V4L8 1.5z"/><polyline points="5.5,8.5 7.25,10 10.5,6.5"/></svg>
+      <span>Quality Assurance</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="12" height="10" rx="1.5"/><line x1="2" y1="8" x2="14" y2="8"/><line x1="5.5" y1="2" x2="5.5" y2="6"/><line x1="10.5" y1="2" x2="10.5" y2="6"/></svg>
+      <span>Flexible Scheduling</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="4.5" x2="8" y2="11.5"/><line x1="4.5" y1="8" x2="11.5" y2="8"/></svg>
+      <span>Healthcare Facilities</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2l1.12 4.88L14 8l-4.88 1.12L8 14l-1.12-4.88L2 8l4.88-1.12L8 2z"/></svg>
+      <span>Government Contracts</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.6"/><path d="M8 1.5V4M8 12v2.5M1.5 8H4M12 8h2.5M3.4 3.4l1.8 1.8M10.8 10.8l1.8 1.8M3.4 12.6l1.8-1.8M10.8 5.2l1.8-1.8"/></svg>
+      <span>Industrial Facilities</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <!-- SET B — identical copy for seamless loop ── -->
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="5.5" r="2.8"/><path d="M2 15a6 6 0 0112 0"/></svg>
+      <span>Women-Owned Business</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2l1.55 3.15L14 6.18l-3 2.93.71 4.14L8 11.5 4.29 13.25l.71-4.14-3-2.93 4.45-.88L8 2z"/></svg>
+      <span>Minority-Owned Business</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3.5" width="13" height="9" rx="1.5"/><line x1="5" y1="7" x2="11" y2="7"/><line x1="5" y1="10" x2="9" y2="10"/></svg>
+      <span>UEI&nbsp;E154ZRUAYHV1</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1.5L2.5 4v5.5c0 2.8 2.5 5 5.5 5.5 3-.5 5.5-2.7 5.5-5.5V4L8 1.5z"/></svg>
+      <span>SAM.gov Registered</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="2" y1="14" x2="14" y2="14"/><rect x="4" y="9" width="1.5" height="5"/><rect x="7.25" y="9" width="1.5" height="5"/><rect x="10.5" y="9" width="1.5" height="5"/><path d="M2 9l6-5 6 5"/></svg>
+      <span>Indiana Corporation</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2c5.5 0 10 3.5 10 11C10 11 5 7.5 3 2z"/><line x1="3" y1="2" x2="13" y2="13"/></svg>
+      <span>Eco-Friendly Products</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1.5L2.5 4v5.5c0 2.8 2.5 5 5.5 5.5 3-.5 5.5-2.7 5.5-5.5V4L8 1.5z"/><polyline points="5.5,8.5 7.25,10 10.5,6.5"/></svg>
+      <span>Quality Assurance</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="12" height="10" rx="1.5"/><line x1="2" y1="8" x2="14" y2="8"/><line x1="5.5" y1="2" x2="5.5" y2="6"/><line x1="10.5" y1="2" x2="10.5" y2="6"/></svg>
+      <span>Flexible Scheduling</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.5"/><line x1="8" y1="4.5" x2="8" y2="11.5"/><line x1="4.5" y1="8" x2="11.5" y2="8"/></svg>
+      <span>Healthcare Facilities</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2l1.12 4.88L14 8l-4.88 1.12L8 14l-1.12-4.88L2 8l4.88-1.12L8 2z"/></svg>
+      <span>Government Contracts</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+    <span class="ti">
+      <svg class="ti-icon" width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.6"/><path d="M8 1.5V4M8 12v2.5M1.5 8H4M12 8h2.5M3.4 3.4l1.8 1.8M10.8 10.8l1.8 1.8M3.4 12.6l1.8-1.8M10.8 5.2l1.8-1.8"/></svg>
+      <span>Industrial Facilities</span>
+    </span>
+    <span class="ti-sep" aria-hidden="true"><svg width="5" height="5" viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5" transform="rotate(45 4 4)"/></svg></span>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════
+     SERVICES — icon cards, no photos
+══════════════════════════════════════════════════ -->
+<section class="services" id="services">
+  <div class="wrap">
+
+    <div class="svc-head" data-reveal="up">
+      <p class="eyebrow svc-eyebrow">Our Services</p>
+      <h2 class="svc-h2">Built for Every <em>Facility Challenge</em></h2>
+      <p class="svc-sub">From daily janitorial programs to emergency response, Pink Petals delivers consistent, inspection-ready results across every environment.</p>
+    </div>
+
+    <div class="svc-grid">
+
+      <div class="svc-card" data-reveal="up" data-delay="0">
+        <div class="svc-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
         </div>
+        <div class="svc-n">01</div>
+        <h3 class="svc-title">Commercial Janitorial</h3>
+        <p class="svc-desc">Daily, weekly, and custom janitorial programs for offices, retail, and corporate facilities of any size.</p>
+      </div>
 
-        <div class="contact-form-box" data-reveal="right">
-          <form id="quote-form" class="qform" novalidate>
-            <div class="frow">
-              <div class="ffield">
-                <label class="flabel" for="f-name">Full Name <span class="freq">*</span></label>
-                <input type="text" id="f-name" name="name" class="finput" placeholder="Your full name" required>
-              </div>
-              <div class="ffield">
-                <label class="flabel" for="f-org">Organization</label>
-                <input type="text" id="f-org" name="organization" class="finput" placeholder="Company or agency">
-              </div>
-            </div>
-            <div class="frow">
-              <div class="ffield">
-                <label class="flabel" for="f-email">Email <span class="freq">*</span></label>
-                <input type="email" id="f-email" name="email" class="finput" placeholder="you@example.com" required>
-              </div>
-              <div class="ffield">
-                <label class="flabel" for="f-phone">Phone</label>
-                <input type="tel" id="f-phone" name="phone" class="finput" placeholder="(000) 000-0000">
-              </div>
-            </div>
-            <div class="ffield">
-              <label class="flabel" for="f-service">Service Needed</label>
-              <select id="f-service" name="service" class="finput fselect">
-                <option value="">Select a service...</option>
-                <option>Janitorial / Day Porter</option>
-                <option>Facility Management</option>
-                <option>Floor Care &amp; Specialty Cleaning</option>
-                <option>Window Cleaning</option>
-                <option>Disinfection &amp; Sanitization</option>
-                <option>Waste Management</option>
-                <option>Government Contract Services</option>
-                <option>Other / Not Sure</option>
-              </select>
-            </div>
-            <div class="ffield">
-              <label class="flabel" for="f-message">Tell Us About Your Facility</label>
-              <textarea id="f-message" name="message" class="finput ftextarea" placeholder="Square footage, frequency, special requirements..." rows="4"></textarea>
-            </div>
-            <button type="submit" class="btn-fill fsubmit">
-              <span class="fsubmit-lbl">Send Request</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 14 0m-7-7 7 7-7 7"/></svg>
-            </button>
-          </form>
+      <div class="svc-card" data-reveal="up" data-delay="60">
+        <div class="svc-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5 4.5-1.35 8-6.25 8-11.5V6L12 2z"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
         </div>
+        <div class="svc-n">02</div>
+        <h3 class="svc-title">Healthcare Cleaning</h3>
+        <p class="svc-desc">Hospital-grade infection control and sanitation for medical facilities, clinics, and patient care environments.</p>
+      </div>
 
+      <div class="svc-card" data-reveal="up" data-delay="120">
+        <div class="svc-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <div class="svc-n">03</div>
+        <h3 class="svc-title">Industrial Facilities</h3>
+        <p class="svc-desc">Specialized cleaning for manufacturing plants, warehouses, and distribution centers with demanding safety requirements.</p>
+      </div>
+
+      <div class="svc-card" data-reveal="up" data-delay="180">
+        <div class="svc-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        </div>
+        <div class="svc-n">04</div>
+        <h3 class="svc-title">Floor Care</h3>
+        <p class="svc-desc">Stripping, waxing, buffing, carpet extraction, and hard floor polishing that restores and protects your floors.</p>
+      </div>
+
+      <div class="svc-card" data-reveal="up" data-delay="0">
+        <div class="svc-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+        </div>
+        <div class="svc-n">05</div>
+        <h3 class="svc-title">Post Construction</h3>
+        <p class="svc-desc">Detailed cleaning after construction or renovation — dust, debris, residue, and all surfaces inspection-ready.</p>
+      </div>
+
+      <div class="svc-card" data-reveal="up" data-delay="60">
+        <div class="svc-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="svc-n">06</div>
+        <h3 class="svc-title">Day Porter Services</h3>
+        <p class="svc-desc">On-site daytime attendant to maintain lobbies, restrooms, and common areas throughout your business hours.</p>
+      </div>
+
+      <div class="svc-card" data-reveal="up" data-delay="120">
+        <div class="svc-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/><path d="M15 5l-3-3-3 3"/></svg>
+        </div>
+        <div class="svc-n">07</div>
+        <h3 class="svc-title">Move-Out Cleaning</h3>
+        <p class="svc-desc">Thorough top-to-bottom cleaning for residential, office, and commercial spaces transitioning to new occupants.</p>
+      </div>
+
+      <div class="svc-card" data-reveal="up" data-delay="180">
+        <div class="svc-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="svc-n">08</div>
+        <h3 class="svc-title">Emergency Cleaning</h3>
+        <p class="svc-desc">24/7 rapid response for spills, biohazards, flood remediation, and urgent cleaning situations.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     INDUSTRIES
+══════════════════════════════════════════════════ -->
+<section class="industries" id="industries">
+  <div class="wrap">
+
+    <div class="section-head" data-reveal="up">
+      <p class="eyebrow section-eyebrow">Who We Serve</p>
+      <h2 class="section-h2">Industries &amp; <em>Sectors</em></h2>
+    </div>
+
+    <div class="ind-grid">
+      <div class="ind-card" data-reveal="up" data-delay="0">
+        <div class="ind-mark" aria-hidden="true">F</div>
+        <h3 class="ind-title">Federal Government</h3>
+        <p class="ind-desc">GSA-qualified services for federal buildings, courthouses, and agency headquarters across the Midwest.</p>
+      </div>
+      <div class="ind-card" data-reveal="up" data-delay="60">
+        <div class="ind-mark" aria-hidden="true">H</div>
+        <h3 class="ind-title">Healthcare</h3>
+        <p class="ind-desc">Infection control and hospital-grade sanitation for medical facilities, clinics, and patient care environments.</p>
+      </div>
+      <div class="ind-card" data-reveal="up" data-delay="120">
+        <div class="ind-mark" aria-hidden="true">E</div>
+        <h3 class="ind-title">Education</h3>
+        <p class="ind-desc">K&ndash;12 schools, community colleges, and university campuses requiring consistent, safe learning environments.</p>
+      </div>
+      <div class="ind-card" data-reveal="up" data-delay="0">
+        <div class="ind-mark" aria-hidden="true">C</div>
+        <h3 class="ind-title">Corporate</h3>
+        <p class="ind-desc">Class-A office buildings, corporate campuses, and mixed-use commercial facilities of any scale.</p>
+      </div>
+      <div class="ind-card" data-reveal="up" data-delay="60">
+        <div class="ind-mark" aria-hidden="true">I</div>
+        <h3 class="ind-title">Industrial</h3>
+        <p class="ind-desc">Manufacturing plants, warehouses, and logistics facilities with specialized cleaning demands and safety standards.</p>
+      </div>
+      <div class="ind-card" data-reveal="up" data-delay="120">
+        <div class="ind-mark" aria-hidden="true">S</div>
+        <h3 class="ind-title">State &amp; Local Gov.</h3>
+        <p class="ind-desc">Municipal buildings, transit facilities, and public infrastructure that serve entire communities.</p>
       </div>
     </div>
-  </section>
+
+  </div>
+</section>
 
 
-  <!-- ═══════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════ -->
-  <footer class="footer">
+<!-- ══════════════════════════════════════════════════
+     GOVERNMENT CONTRACTING
+══════════════════════════════════════════════════ -->
+<section class="government" id="government">
+  <div class="wrap">
 
-    <!-- ── Large CTA band ── -->
-    <div class="ft-cta">
-      <div class="wrap">
-        <div class="ft-cta-inner" data-reveal="up">
-          <h2 class="ft-cta-head">
-            <span class="ftch-line1">Ready to Elevate</span>
-            <em class="ftch-line2">Your Facility?</em>
-          </h2>
-          <p class="ft-cta-sub">Contact us today for a complimentary consultation and a custom proposal built around your facility&rsquo;s needs.</p>
-          <a href="#contact" class="ft-cta-btn">
-            Request Proposal
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+    <!-- Top: heading + cert list -->
+    <div class="gov-top" data-reveal="up">
+
+      <div class="gov-intro">
+        <p class="gov-eyebrow">Federal Contracting</p>
+        <h2 class="gov-h2">
+          <span class="l1">Government Ready.</span>
+          <span class="l2">Built to Perform.</span>
+        </h2>
+        <p class="gov-lead">Fully registered and compliant to compete for federal, state, and local government contracts. Accountability, precision, and performance on every engagement.</p>
+      </div>
+
+      <ul class="gov-cert-list" aria-label="Certifications">
+        <li class="gov-cert">
+          <span class="gc-badge">WOSB</span>
+          <span class="gc-name">Women-Owned Small Business</span>
+        </li>
+        <li class="gov-cert">
+          <span class="gc-badge">MBE</span>
+          <span class="gc-name">Minority Business Enterprise</span>
+        </li>
+        <li class="gov-cert">
+          <span class="gc-badge">SAM</span>
+          <span class="gc-name">System for Award Management</span>
+        </li>
+        <li class="gov-cert">
+          <span class="gc-badge">INC</span>
+          <span class="gc-name">Indiana Corporation</span>
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="gov-rule" aria-hidden="true"></div>
+
+    <!-- Credential strip -->
+    <div class="gov-creds" data-reveal="up">
+      <div class="gov-cred">
+        <span class="gcr-label">Unique Entity ID (UEI)</span>
+        <span class="gcr-value">E154ZRUAYHV1</span>
+      </div>
+      <div class="gov-cred">
+        <span class="gcr-label">CAGE Code</span>
+        <span class="gcr-value">Pending</span>
+      </div>
+      <div class="gov-cred">
+        <span class="gcr-label">SAM.gov Status</span>
+        <span class="gcr-value">
+          <span class="gcr-dot" aria-hidden="true"></span>Submitted &middot; Pending Activation
+        </span>
+      </div>
+      <div class="gov-cred">
+        <span class="gcr-label">Entity Type</span>
+        <span class="gcr-value">Indiana Corporation</span>
+      </div>
+    </div>
+
+    <div class="gov-rule" aria-hidden="true"></div>
+
+    <!-- NAICS, PSC, and Capability download -->
+    <div class="gov-tables" data-reveal="up">
+
+      <div class="gov-table-block">
+        <p class="gtb-label">NAICS Codes</p>
+        <ul>
+          <li class="gtb-row"><span class="gtb-code">561720</span><span class="gtb-desc">Janitorial Services</span></li>
+          <li class="gtb-row"><span class="gtb-code">561210</span><span class="gtb-desc">Facilities Support Services</span></li>
+          <li class="gtb-row"><span class="gtb-code">561790</span><span class="gtb-desc">Other Services to Buildings</span></li>
+          <li class="gtb-row"><span class="gtb-code">561740</span><span class="gtb-desc">Carpet &amp; Upholstery Cleaning</span></li>
+          <li class="gtb-row"><span class="gtb-code">562910</span><span class="gtb-desc">Remediation Services</span></li>
+        </ul>
+      </div>
+
+      <div class="gov-table-block">
+        <p class="gtb-label">PSC Codes</p>
+        <ul>
+          <li class="gtb-row"><span class="gtb-code">S201</span><span class="gtb-desc">Building Housekeeping Services</span></li>
+          <li class="gtb-row"><span class="gtb-code">S216</span><span class="gtb-desc">Building Cleaning &mdash; Interior</span></li>
+          <li class="gtb-row"><span class="gtb-code">S299</span><span class="gtb-desc">Other Housekeeping Services</span></li>
+        </ul>
+      </div>
+
+      <div class="gov-table-block">
+        <p class="gtb-label">Documentation</p>
+        <p class="gov-doc-text">A complete profile of our services, certifications, past performance, and socioeconomic designations — formatted for procurement review.</p>
+        <div class="gov-doc-actions">
+          <a href="images/capability-statement.png" download="Pink-Petals-Capability-Statement.png" class="gov-dl-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"/></svg>
+            Download Capability Statement
+          </a>
+          <a href="images/capability-statement.png" target="_blank" rel="noopener" class="gov-view-link">View online &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     CAPABILITY STATEMENT
+══════════════════════════════════════════════════ -->
+<section class="capability" id="capability">
+  <div class="wrap">
+
+    <div class="cap-head" data-reveal="up">
+      <p class="eyebrow cap-eyebrow">Documentation</p>
+      <h2 class="cap-h2">Capability Statement</h2>
+      <p class="cap-desc">A complete overview of our services, certifications, NAICS codes, past performance, and core competencies &mdash; formatted for procurement review.</p>
+    </div>
+
+    <div class="cap-paper-wrap" data-reveal="up" data-delay="100">
+      <div class="cap-paper">
+        <div class="cap-paper-inner">
+          <a href="images/capability-statement.png" target="_blank" rel="noopener" class="cap-paper-link" aria-label="View Capability Statement full size">
+            <img src="images/capability-statement.png" alt="Pink Petals Facility Solutions Capability Statement" class="cap-paper-img" loading="lazy">
+            <div class="cap-paper-hover" aria-hidden="true">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M15 3h6m0 0v6m0-6-7 7M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg>
+              <span>View Full Document</span>
+            </div>
           </a>
         </div>
       </div>
     </div>
 
-    <div class="ft-rule" aria-hidden="true"></div>
+    <div class="cap-actions" data-reveal="up" data-delay="180">
+      <a href="images/capability-statement.png" target="_blank" rel="noopener" class="cap-btn cap-btn-ghost">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6m0 0v6m0-6-7 7M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg>
+        View Online
+      </a>
+      <a href="images/capability-statement.png" download="Pink-Petals-Capability-Statement.png" class="cap-btn cap-btn-ghost">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"/></svg>
+        Download PDF
+      </a>
+      <a href="#contact" class="cap-btn cap-btn-primary">
+        Request Proposal
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+      </a>
+    </div>
 
-    <!-- ── Main columns ── -->
-    <div class="ft-body">
-      <div class="wrap">
-        <div class="ft-grid">
+    <p class="cap-note" data-reveal="up" data-delay="240">
+      Need it immediately? &ensp;<a href="tel:2192858345">(219) 285-8345</a>&ensp;&middot;&ensp;<a href="mailto:pinkpetalsfacilitysolutions@gmail.com">Email us</a>
+    </p>
 
-          <!-- Brand -->
-          <div class="ft-brand" data-reveal="up">
-            <a href="index.html" class="ft-logo">
-              <img src="images/logo.png" alt="Pink Petals Facility Solutions" class="ft-logo-img">
-              <div class="ft-logo-type">
-                <span class="ft-brand-name">Pink Petals</span>
-                <span class="ft-brand-tag">Facility Solutions</span>
-              </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     ABOUT — no photo here, editorial stats layout
+══════════════════════════════════════════════════ -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+
+      <!-- LEFT: heading + feature cards -->
+      <div class="about-content" data-reveal="up">
+        <p class="eyebrow about-eyebrow">About Pink Petals</p>
+        <h2 class="about-h2">Excellence <em>You Can See.</em><br>Service <em>You Can Trust.</em></h2>
+        <p class="about-body">Pink Petals Facility Solutions is a Women-Owned, Minority-Owned business serving government, healthcare, education, industrial, and commercial clients across Northwest Indiana and the greater Chicago area. We bring enterprise-level discipline to every job — fully insured, background-checked, and compliant with all applicable standards.</p>
+
+        <div class="about-cards">
+          <div class="about-card">
+            <div class="ac-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5 4.5-1.35 8-6.25 8-11.5V6L12 2z"/><polyline points="9,12 11,14.5 15,10"/></svg>
+            </div>
+            <h3 class="ac-title">Quality Assured</h3>
+            <p class="ac-desc">Every job inspected against rigorous standards before we consider it complete.</p>
+          </div>
+          <div class="about-card">
+            <div class="ac-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4c7.5 0 14 4.5 14 15C15 17 8 12 5 4z"/><line x1="5" y1="4" x2="19" y2="19"/></svg>
+            </div>
+            <h3 class="ac-title">Eco-Friendly</h3>
+            <p class="ac-desc">EPA-registered, non-toxic products that protect your people and the planet.</p>
+          </div>
+          <div class="about-card">
+            <div class="ac-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10l10-6 10 6-10 6-10-6z"/><path d="M6 12.5v4c0 2.2 2.7 3.5 6 3.5s6-1.3 6-3.5v-4"/></svg>
+            </div>
+            <h3 class="ac-title">Trained Professionals</h3>
+            <p class="ac-desc">Background-checked technicians trained in OSHA compliance and safety protocols.</p>
+          </div>
+          <div class="about-card">
+            <div class="ac-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>
+            </div>
+            <h3 class="ac-title">Flexible Scheduling</h3>
+            <p class="ac-desc">Daily, weekly, or custom programs designed around your facility's unique needs.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: editorial stats -->
+      <div class="about-stats" data-reveal="up" data-delay="120">
+        <div class="about-stat">
+          <div class="stat-n">50<span style="font-size:0.6em;opacity:0.6">+</span></div>
+          <div class="stat-label">Mile service radius from Merrillville, IN</div>
+        </div>
+        <div class="about-stat">
+          <div class="stat-n">24/7</div>
+          <div class="stat-label">Emergency response availability</div>
+        </div>
+        <div class="about-stat">
+          <div class="stat-n">100<span style="font-size:0.6em;opacity:0.6">%</span></div>
+          <div class="stat-label">Bonded, insured, and background-checked</div>
+        </div>
+        <div class="about-stat">
+          <div class="stat-n">3<span style="font-size:0.6em;opacity:0.6">+</span></div>
+          <div class="stat-label">Government certifications (WOSB, MBE, SAM)</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     WHY PINK PETALS
+══════════════════════════════════════════════════ -->
+<section class="why" id="why">
+  <div class="wrap">
+
+    <div class="section-head" data-reveal="up">
+      <p class="eyebrow section-eyebrow">Why Choose Us</p>
+      <h2 class="section-h2">The Pink Petals <em>Difference</em></h2>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card" data-reveal="up" data-delay="0">
+        <div class="why-n">01</div>
+        <h3 class="why-title">Government-Grade Standards</h3>
+        <p class="why-body">We operate under compliance frameworks required by federal contracts — background-checked staff, documented protocols, and audit-ready reporting on every engagement.</p>
+      </div>
+      <div class="why-card" data-reveal="up" data-delay="70">
+        <div class="why-n">02</div>
+        <h3 class="why-title">Certified &amp; Verified</h3>
+        <p class="why-body">WOSB, Minority-Owned, and SAM-registered status unlocks set-aside contracts and demonstrates our commitment to compliance and accountability at every level.</p>
+      </div>
+      <div class="why-card" data-reveal="up" data-delay="140">
+        <div class="why-n">03</div>
+        <h3 class="why-title">Dedicated Account Management</h3>
+        <p class="why-body">Every client receives a dedicated point of contact — not a call center. Responsive, accountable, and fully aligned with your facility's requirements.</p>
+      </div>
+      <div class="why-card" data-reveal="up" data-delay="0">
+        <div class="why-n">04</div>
+        <h3 class="why-title">Fully Bonded &amp; Insured</h3>
+        <p class="why-body">Comprehensive liability, worker's compensation, and bonding gives your organization complete protection at every touchpoint of our service relationship.</p>
+      </div>
+      <div class="why-card" data-reveal="up" data-delay="70">
+        <div class="why-n">05</div>
+        <h3 class="why-title">Eco-Responsible Products</h3>
+        <p class="why-body">Green-certified cleaning products and sustainable practices that protect your team, facility occupants, and the environment without compromising results.</p>
+      </div>
+      <div class="why-card" data-reveal="up" data-delay="140">
+        <div class="why-n">06</div>
+        <h3 class="why-title">Flexible Scheduling</h3>
+        <p class="why-body">Day, evening, weekend, and emergency response services designed to fit your operational hours — not disrupt them. We work completely around your schedule.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     SERVICE AREA
+══════════════════════════════════════════════════ -->
+<section class="area" id="area">
+  <div class="wrap">
+    <div class="area-grid">
+
+      <div class="area-text" data-reveal="up">
+        <p class="eyebrow area-eyebrow">Coverage</p>
+        <h2 class="area-h2">Where We <em>Serve</em></h2>
+        <p class="area-body">Based in Merrillville, Indiana, we serve clients across Northwest Indiana and the greater Chicago metropolitan area — with capacity to deploy for regional and federal contracts across the Midwest.</p>
+        <div class="city-grid">
+          <span class="city-item">Merrillville, IN</span>
+          <span class="city-item">Portage, IN</span>
+          <span class="city-item">Hammond, IN</span>
+          <span class="city-item">Valparaiso, IN</span>
+          <span class="city-item">Gary, IN</span>
+          <span class="city-item">Chicago, IL</span>
+          <span class="city-item">Highland, IN</span>
+          <span class="city-item">Chicagoland</span>
+          <span class="city-item">Munster, IN</span>
+          <span class="city-item">&amp; Midwest Region</span>
+        </div>
+      </div>
+
+      <div class="area-visual" data-reveal="right">
+        <div class="area-pin">
+          <div class="area-ring area-ring--lg"></div>
+          <div class="area-ring area-ring--md"></div>
+          <div class="area-ring area-ring--sm"></div>
+          <div class="area-center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span class="area-center-label">Merrillville<br>IN</span>
+          </div>
+        </div>
+        <p class="area-caption">Serving a 50+ mile radius</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     PAYMENT METHODS
+══════════════════════════════════════════════════ -->
+<section class="pay-section" aria-label="Accepted payment methods">
+
+  <div class="pay-label-row">
+    <span class="pay-label">Accepted Payment Methods</span>
+  </div>
+
+  <div class="pay-strip">
+    <div class="pay-track">
+      <!-- SET A -->
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Visa</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Mastercard</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>American Express</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Discover</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>ACH Transfer</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Checks</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Purchase Orders</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Commercial Invoicing</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Net 15</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Net 30</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <!-- SET B — seamless loop duplicate -->
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Visa</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Mastercard</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>American Express</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Discover</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>ACH Transfer</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Checks</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Purchase Orders</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Commercial Invoicing</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Net 15</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+      <span class="pm-item"><span class="pm-dot" aria-hidden="true"></span>Net 30</span>
+      <span class="pm-sep" aria-hidden="true"></span>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════════════ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <div class="contact-info" data-reveal="up">
+        <p class="eyebrow contact-eyebrow">Get in Touch</p>
+        <h2 class="contact-h2">Request a <em>Quote</em></h2>
+        <p class="contact-body">Ready to elevate your facility? Tell us about your space and we'll respond within 24 hours with a customized proposal.</p>
+        <div class="contact-details">
+          <div class="cd">
+            <span class="cd-lbl">Phone</span>
+            <a href="tel:2192858345" class="cd-val">(219) 285-8345</a>
+          </div>
+          <div class="cd">
+            <span class="cd-lbl">Email</span>
+            <a href="mailto:pinkpetalsfacilitysolutions@gmail.com" class="cd-val">pinkpetalsfacilitysolutions@gmail.com</a>
+          </div>
+          <div class="cd">
+            <span class="cd-lbl">Location</span>
+            <span class="cd-val">Merrillville, Indiana</span>
+          </div>
+          <div class="cd">
+            <span class="cd-lbl">Hours</span>
+            <span class="cd-val">Mon&ndash;Fri 8am&ndash;6pm &nbsp;&middot;&nbsp; 24/7 Emergency</span>
+          </div>
+        </div>
+        <div class="cert-row">
+          <span class="cert-tag">WOSB</span>
+          <span class="cert-tag">Minority-Owned</span>
+          <span class="cert-tag">Fully Insured</span>
+        </div>
+      </div>
+
+      <div class="contact-form-box" data-reveal="up" data-delay="100">
+        <form id="quote-form" novalidate>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="f-name">Full Name <span class="form-req">*</span></label>
+              <input type="text" id="f-name" name="name" class="form-input" placeholder="Your full name" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="f-org">Organization</label>
+              <input type="text" id="f-org" name="organization" class="form-input" placeholder="Company or agency">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label" for="f-email">Email <span class="form-req">*</span></label>
+              <input type="email" id="f-email" name="email" class="form-input" placeholder="you@example.com" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="f-phone">Phone</label>
+              <input type="tel" id="f-phone" name="phone" class="form-input" placeholder="(000) 000-0000">
+            </div>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="f-service">Service Needed</label>
+            <select id="f-service" name="service" class="form-input">
+              <option value="">Select a service...</option>
+              <option>Commercial Janitorial</option>
+              <option>Healthcare Cleaning</option>
+              <option>Industrial Facilities</option>
+              <option>Floor Care</option>
+              <option>Post Construction</option>
+              <option>Day Porter Services</option>
+              <option>Move-Out Cleaning</option>
+              <option>Emergency Cleaning</option>
+              <option>Government Contract Services</option>
+              <option>Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="f-message">Tell Us About Your Facility</label>
+            <textarea id="f-message" name="message" class="form-input" placeholder="Square footage, frequency, special requirements..." rows="4"></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            <span class="submit-label">Send Request</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 14 0m-7-7 7 7-7 7"/></svg>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════ -->
+<footer class="footer">
+
+  <!-- CTA band -->
+  <div class="ft-cta">
+    <div class="wrap">
+      <h2 class="ft-cta-h2">
+        <span class="l1">Ready to Elevate</span>
+        <em class="l2">Your Facility?</em>
+      </h2>
+      <a href="#contact" class="ft-cta-btn">
+        Request Proposal
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Main columns -->
+  <div class="ft-body">
+    <div class="wrap">
+      <div class="ft-grid">
+
+        <!-- Brand -->
+        <div class="ft-brand">
+          <div class="ft-logo">
+            <img src="images/logo.png" alt="Pink Petals Facility Solutions" class="ft-logo-img" onerror="this.style.display='none'">
+            <div class="ft-logo-words">
+              <span class="ft-brand-name">Pink Petals</span>
+              <span class="ft-brand-tag">Facility Solutions</span>
+            </div>
+          </div>
+          <p class="ft-desc">Premium janitorial and facility services for government, healthcare, education, and commercial clients across Northwest Indiana and the greater Midwest.</p>
+          <div class="ft-certs">
+            <span class="ft-cert">WOSB</span>
+            <span class="ft-cert">MBE</span>
+            <span class="ft-cert">SAM</span>
+          </div>
+          <div class="ft-social">
+            <a href="#" class="ft-soc" aria-label="LinkedIn">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
-            <p class="ft-desc">Premium janitorial and facility services for government, healthcare, education, and commercial clients across Northwest Indiana and the greater Midwest.</p>
-            <div class="ft-certs">
-              <span class="ft-cert">WOSB</span>
-              <span class="ft-cert">MBE</span>
-              <span class="ft-cert">SAM</span>
-            </div>
-            <div class="ft-social">
-              <a href="#" class="ft-soc" aria-label="LinkedIn">
-                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              </a>
-              <a href="#" class="ft-soc" aria-label="Facebook">
-                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-              </a>
-              <a href="#" class="ft-soc" aria-label="Instagram">
-                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-              </a>
-            </div>
+            <a href="#" class="ft-soc" aria-label="Facebook">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="ft-soc" aria-label="Instagram">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
           </div>
-
-          <!-- Quick Links -->
-          <div class="ft-col" data-reveal="up" data-delay="70">
-            <p class="ft-col-head">Quick Links</p>
-            <ul class="ft-links">
-              <li><a href="#services">Core Services</a></li>
-              <li><a href="#industries">Industries</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#why">Why Pink Petals</a></li>
-              <li><a href="#area">Service Area</a></li>
-              <li><a href="#contact">Contact Us</a></li>
-            </ul>
-          </div>
-
-          <!-- Government -->
-          <div class="ft-col" data-reveal="up" data-delay="140">
-            <p class="ft-col-head">Government</p>
-            <ul class="ft-links ft-links--mb">
-              <li><a href="#government">Government Contracting</a></li>
-              <li><a href="#capability">Capability Statement</a></li>
-            </ul>
-            <div class="ft-gov-ids">
-              <div class="ft-id-row">
-                <span class="ft-id-label">UEI</span>
-                <span class="ft-id-val">E154ZRUAYHV1</span>
-              </div>
-              <div class="ft-id-row">
-                <span class="ft-id-label">CAGE</span>
-                <span class="ft-id-val">Pending</span>
-              </div>
-              <div class="ft-id-row">
-                <span class="ft-id-label">SAM</span>
-                <span class="ft-id-val">Registered</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Contact -->
-          <div class="ft-col" data-reveal="up" data-delay="210">
-            <p class="ft-col-head">Contact</p>
-            <div class="ft-contact-list">
-              <a href="tel:2192858345" class="ft-contact-item">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 6 6l1.27-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                (219) 285-8345
-              </a>
-              <a href="mailto:pinkpetalsfacilitysolutions@gmail.com" class="ft-contact-item">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                pinkpetalsfacilitysolutions@gmail.com
-              </a>
-              <span class="ft-contact-item">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Merrillville, Indiana
-              </span>
-            </div>
-          </div>
-
         </div>
+
+        <!-- Quick Links -->
+        <div class="ft-col">
+          <p class="ft-col-head">Quick Links</p>
+          <ul class="ft-links">
+            <li><a href="#services">Core Services</a></li>
+            <li><a href="#industries">Industries</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#why">Why Pink Petals</a></li>
+            <li><a href="#area">Service Area</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Government -->
+        <div class="ft-col">
+          <p class="ft-col-head">Government</p>
+          <ul class="ft-links">
+            <li><a href="#government">Government Contracting</a></li>
+            <li><a href="#capability">Capability Statement</a></li>
+          </ul>
+          <div class="ft-gov-ids">
+            <div class="ft-id-row">
+              <span class="ft-id-label">UEI</span>
+              <span class="ft-id-val">E154ZRUAYHV1</span>
+            </div>
+            <div class="ft-id-row">
+              <span class="ft-id-label">CAGE</span>
+              <span class="ft-id-val">Pending</span>
+            </div>
+            <div class="ft-id-row">
+              <span class="ft-id-label">SAM</span>
+              <span class="ft-id-val">Registered</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="ft-col">
+          <p class="ft-col-head">Contact</p>
+          <div class="ft-contact-list">
+            <a href="tel:2192858345" class="ft-contact-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 6 6l1.27-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              (219) 285-8345
+            </a>
+            <a href="mailto:pinkpetalsfacilitysolutions@gmail.com" class="ft-contact-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              pinkpetalsfacilitysolutions@gmail.com
+            </a>
+            <span class="ft-contact-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Merrillville, Indiana
+            </span>
+          </div>
+        </div>
+
       </div>
     </div>
+  </div>
 
-    <!-- ── Bottom bar ── -->
-    <div class="ft-bar">
-      <div class="wrap">
-        <div class="ft-bar-inner">
-          <p class="ft-bar-copy">&copy; 2025 Pink Petals Inc. All rights reserved. Registered Indiana Corporation.</p>
-          <p class="ft-bar-sectors">Federal &middot; State &middot; Local Government &middot; Healthcare &middot; Education &middot; Commercial</p>
-        </div>
-      </div>
+  <!-- Bottom bar -->
+  <div class="ft-bar">
+    <div class="ft-bar-inner">
+      <p class="ft-bar-copy">&copy; 2025 Pink Petals Inc. All rights reserved. Registered Indiana Corporation.</p>
+      <p class="ft-bar-sectors">Federal &middot; State &middot; Local Government &middot; Healthcare &middot; Education &middot; Commercial</p>
     </div>
+  </div>
 
-  </footer>
+</footer>
 
-  <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
