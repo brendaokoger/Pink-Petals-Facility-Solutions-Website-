@@ -3482,3 +3482,147 @@ a.ft-contact-item:hover svg { opacity: 0.80; }
   .ft-desc { max-width: 100%; }
   .ft-cta-btn { width: 100%; justify-content: center; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   §30  CINEMATIC HERO ENTRANCE — refined animation system
+   (These rules override earlier §18 trust bar + §23 hero rules
+    via cascade order — same specificity, later wins.)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── New keyframes ─────────────────────────────────────────────── */
+
+/* Logo bloom: scale + blur + fade */
+@keyframes enter-logo {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* Navigation slides down from above */
+@keyframes enter-nav-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* All text elements — fade-up with micro blur */
+@keyframes enter-up-blur {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0px);
+  }
+}
+
+/* Image — slides in from right */
+@keyframes enter-from-right {
+  from { opacity: 0; transform: translateX(56px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Trust bar — fade-up reveal */
+@keyframes trust-reveal {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ─── Navigation entrance ───────────────────────────────────────── */
+#site-nav {
+  animation: enter-nav-down 0.70s cubic-bezier(0.16, 1, 0.3, 1) 0s both;
+}
+
+/* ─── Logo bloom (split from hero-eyebrow group) ────────────────── */
+.hero-eyebrow {
+  /* Reset the group animation — children animate individually */
+  animation: none;
+}
+.hero-logo-mark {
+  will-change: transform, filter, opacity;
+  animation: enter-logo 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.06s both;
+}
+.hero-eyebrow-text {
+  animation: enter-up-blur 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
+}
+
+/* ─── Headline — line by line, 80ms stagger ─────────────────────── */
+.hero-hl-intro {
+  animation: enter-up-blur 0.80s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both;
+}
+/* "Clean, Safe &" — 2nd child of .hero-headline */
+.hero-hl-strong:nth-child(2) {
+  animation: enter-up-blur 0.80s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both;
+}
+/* "Healthy" */
+.hero-hl-accent {
+  animation: enter-up-blur 0.80s cubic-bezier(0.16, 1, 0.3, 1) 0.40s both;
+}
+/* "Environments" — 4th child */
+.hero-hl-strong:nth-child(4) {
+  animation: enter-up-blur 0.80s cubic-bezier(0.16, 1, 0.3, 1) 0.48s both;
+}
+
+/* ─── Sub and CTAs — after headline completes ───────────────────── */
+.hero-sub {
+  animation: enter-up-blur 0.80s cubic-bezier(0.16, 1, 0.3, 1) 0.58s both;
+}
+.hero-actions {
+  animation: enter-up-blur 0.80s cubic-bezier(0.16, 1, 0.3, 1) 0.70s both;
+}
+
+/* ─── Image column — refined right-to-left entrance ─────────────── */
+.hero-col-visual {
+  animation: enter-from-right 1.10s cubic-bezier(0.16, 1, 0.3, 1) 0.14s both;
+}
+
+/* ─── WOSB badge — last hero element ────────────────────────────── */
+.hero-badge {
+  animation: enter-up-blur 0.90s cubic-bezier(0.16, 1, 0.3, 1) 0.78s both;
+}
+
+/* ─── Trust bar — held, then appears after hero settles ─────────── */
+/* Strip fades in at 1.0s */
+.trust-strip {
+  animation: trust-reveal 0.65s ease 1.00s both;
+}
+/* Track starts scrolling at 1.3s — sits still during the 0.3s gap */
+.trust-track {
+  animation: trust-scroll 58s 1.30s linear infinite;
+}
+/* Hover pause still works after scroll begins */
+.trust-strip:hover .trust-track {
+  animation-play-state: paused;
+}
+
+/* ─── Accessibility: respect prefers-reduced-motion ─────────────── */
+@media (prefers-reduced-motion: reduce) {
+  #site-nav,
+  .hero-logo-mark,
+  .hero-eyebrow-text,
+  .hero-hl-intro,
+  .hero-hl-strong,
+  .hero-hl-accent,
+  .hero-sub,
+  .hero-actions,
+  .hero-col-visual,
+  .hero-badge,
+  .trust-strip {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+  .trust-track {
+    animation: trust-scroll 58s linear infinite;
+  }
+}

@@ -122,6 +122,44 @@
     });
   });
 
+  /* ── HERO IMAGE PARALLAX (desktop only) ────────────────── */
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!window.matchMedia('(min-width: 861px)').matches) return;
+
+    const photoWrap = document.querySelector('.hero-photo-wrap');
+    const hero      = document.querySelector('.hero');
+    if (!photoWrap || !hero) return;
+
+    let rafId    = null;
+    let isActive = true;
+
+    const onParallaxScroll = function () {
+      if (!isActive || rafId) return;
+      rafId = requestAnimationFrame(function () {
+        const y = Math.max(0, window.scrollY);
+        /* 0.09 ratio: 100px scroll → 9px shift — barely perceptible depth */
+        photoWrap.style.transform = 'translateY(' + (y * 0.09) + 'px)';
+        rafId = null;
+      });
+    };
+
+    window.addEventListener('scroll', onParallaxScroll, { passive: true });
+
+    /* Stop when hero is fully off-screen — no wasted rAF ticks */
+    if ('IntersectionObserver' in window) {
+      var ioParallax = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          isActive = e.isIntersecting;
+          if (!isActive) {
+            photoWrap.style.transform = '';
+          }
+        });
+      }, { threshold: 0 });
+      ioParallax.observe(hero);
+    }
+  }());
+
   /* ── LEGACY DRAWER (old subpages) ──────────────────────── */
   const legHamburger = document.querySelector('.nav__hamburger');
   const legDrawer    = document.querySelector('.nav__drawer');
