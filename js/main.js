@@ -74,6 +74,34 @@
     });
   }
 
+  /* ── SIGNATURE PETAL ANIMATION ───────────────────────────── */
+  function triggerPetals() {
+    if (sessionStorage.getItem('petals-shown')) return;
+    sessionStorage.setItem('petals-shown', '1');
+    var configs = [
+      { w: 32, h: 18, x: '22vw', y: '30vh', tx: '8vw',  ty: '-25vh', delay: 0,    dur: 2.6, r0: '45deg',  r1: '165deg', peak: 0.85 },
+      { w: 24, h: 13, x: '55vw', y: '65vh', tx: '-6vw', ty: '-30vh', delay: 0.22, dur: 2.4, r0: '-30deg', r1: '150deg', peak: 0.75 },
+      { w: 40, h: 22, x: '78vw', y: '22vh', tx: '-12vw',ty: '-22vh', delay: 0.44, dur: 2.8, r0: '70deg',  r1: '220deg', peak: 0.80 },
+      { w: 18, h: 10, x: '40vw', y: '55vh', tx: '14vw', ty: '-28vh', delay: 0.18, dur: 2.5, r0: '-55deg', r1: '145deg', peak: 0.70 },
+    ];
+    configs.forEach(function(cfg) {
+      var el = document.createElement('div');
+      el.className = 'petal';
+      el.style.cssText = 'width:' + cfg.w + 'px;height:' + cfg.h + 'px;left:' + cfg.x + ';top:' + cfg.y + ';--tx:' + cfg.tx + ';--ty:' + cfg.ty + ';--dur:' + cfg.dur + 's;--delay:' + cfg.delay + 's;--r0:' + cfg.r0 + ';--r1:' + cfg.r1 + ';--peak:' + cfg.peak + ';';
+      document.body.appendChild(el);
+      setTimeout(function() { el.remove(); }, (cfg.dur + cfg.delay) * 1000 + 200);
+    });
+  }
+  var trustStrip = document.querySelector('.trust-strip');
+  if (trustStrip && 'IntersectionObserver' in window) {
+    var petalObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { triggerPetals(); petalObs.disconnect(); }
+      });
+    }, { threshold: 0.5 });
+    petalObs.observe(trustStrip);
+  }
+
   /* ── CAPABILITY STATEMENT FALLBACK ───────────────────────── */
   document.querySelectorAll('[data-capability]').forEach(btn => {
     btn.addEventListener('click', (e) => {
