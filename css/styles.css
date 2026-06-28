@@ -3004,3 +3004,131 @@ a.f-contact-item:hover { color: var(--pink-300); }
     justify-content: center;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   §28  PAYMENT METHODS MARQUEE
+   ═══════════════════════════════════════════════════════════════════ */
+
+.pay-section {
+  background: var(--c-bg);
+  padding: clamp(36px, 5vw, 56px) 0;
+}
+
+/* ── Centered label with thin flanking rules ── */
+.pay-label-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: var(--max-w);
+  margin: 0 auto clamp(18px, 2.5vw, 28px);
+  padding: 0 var(--gutter);
+}
+.pay-label-row::before,
+.pay-label-row::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+}
+.pay-label {
+  font-family: var(--f-sans);
+  font-size: 10px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.28);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Marquee strip ── */
+.pay-strip {
+  position: relative;
+  overflow: hidden;
+  height: 52px;
+  display: flex;
+  align-items: center;
+}
+
+/* Edge fade — left */
+.pay-strip::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: clamp(48px, 7vw, 96px);
+  background: linear-gradient(to right, var(--c-bg) 30%, transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+/* Edge fade — right */
+.pay-strip::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; right: 0;
+  width: clamp(48px, 7vw, 96px);
+  background: linear-gradient(to left, var(--c-bg) 30%, transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ── Scrolling track ── */
+.pay-track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: pay-scroll 52s linear infinite;
+  will-change: transform;
+}
+.pay-strip:hover .pay-track {
+  animation-play-state: paused;
+}
+
+@keyframes pay-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Payment item ── */
+.pm-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 clamp(18px, 2vw, 28px);
+  font-family: var(--f-sans);
+  font-size: 13px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.055em;
+  color: rgba(0, 0, 0, 0.48);
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+.pay-strip:hover .pm-item:hover {
+  color: rgba(0, 0, 0, 0.80);
+}
+
+/* Tiny pink accent dot */
+.pm-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--c-pink);
+  opacity: 0.65;
+  flex-shrink: 0;
+}
+
+/* ── Thin vertical line separator ── */
+.pm-sep {
+  display: inline-block;
+  width: 1px;
+  height: 13px;
+  background: rgba(0, 0, 0, 0.10);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+/* Accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .pay-track {
+    animation: none;
+  }
+}
