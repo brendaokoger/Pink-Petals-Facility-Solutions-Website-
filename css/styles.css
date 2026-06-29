@@ -313,23 +313,66 @@ ul, ol { list-style: none; }
   }
 }
 
-/* ── PETAL ANIMATION ─────────────────────────────────────────────── */
-.petal {
+/* ── PETAL TRANSITION SYSTEM ─────────────────────────────────────── */
+/*
+ * Three shape variants inspired by the Pink Petals lotus logo:
+ *   v1 — elongated teardrop (standard petal)
+ *   v2 — soft wide oval (inner petal)
+ *   v3 — slim pointed (accent petal)
+ * All use a pink→transparent gradient and drift upward on entry.
+ */
+.petal-fx {
   position: fixed;
   pointer-events: none;
-  z-index: 9999;
-  border-radius: 0 100% 0 100%;
-  background: rgba(232, 56, 122, 0.16);
+  z-index: 50;           /* below nav (100), above all content */
   will-change: transform, opacity;
-  animation: petal-drift var(--dur, 2.6s) var(--delay, 0s) cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  /* v1 default: elongated teardrop, wider at base, tapering to tip */
+  border-radius: 50% 50% 38% 38% / 58% 58% 42% 42%;
+  background: linear-gradient(
+    168deg,
+    rgba(232, 56, 122, var(--peak, 0.34)) 0%,
+    rgba(232, 56, 122, 0.04)             100%
+  );
+  animation: petal-fx-float var(--dur, 2s) var(--delay, 0s)
+             cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
-@keyframes petal-drift {
-  0%   { opacity: 0; transform: translate(0, 0) rotate(var(--r0, 0deg)) scale(0.5); }
-  12%  { opacity: var(--peak, 0.9); }
-  88%  { opacity: 0.6; }
-  100% { opacity: 0; transform: translate(var(--tx, 60px), var(--ty, -80px)) rotate(var(--r1, 180deg)) scale(1.1); }
+/* v2 — softer, rounder inner petal */
+.petal-fx[data-v="2"] {
+  border-radius: 50% 50% 50% 50% / 38% 38% 62% 62%;
+  background: linear-gradient(
+    168deg,
+    rgba(220, 48, 110, var(--peak, 0.28)) 0%,
+    rgba(255, 160, 200, 0.03)             100%
+  );
 }
-@media (prefers-reduced-motion: reduce) { .petal { display: none; } }
+/* v3 — slim pointed accent petal */
+.petal-fx[data-v="3"] {
+  border-radius: 50% 50% 22% 22% / 68% 68% 32% 32%;
+  background: linear-gradient(
+    168deg,
+    rgba(232, 56, 122, var(--peak, 0.30)) 0%,
+    rgba(232, 56, 122, 0.02)              100%
+  );
+}
+
+@keyframes petal-fx-float {
+  0%   {
+    opacity: 0;
+    transform: translate(0, 0) rotate(var(--r0, 0deg)) scale(0.48);
+  }
+  14%  { opacity: 1; }
+  72%  { opacity: 0.42; }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx, 40px), var(--dy, -72px))
+               rotate(var(--r1, 160deg))
+               scale(0.86);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .petal-fx { display: none !important; }
+}
 
 /* ── TRUST BAR ───────────────────────────────────────────────────── */
 .trust-strip {

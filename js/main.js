@@ -74,33 +74,151 @@
     });
   }
 
-  /* ── SIGNATURE PETAL ANIMATION ───────────────────────────── */
-  function triggerPetals() {
-    if (sessionStorage.getItem('petals-shown')) return;
-    sessionStorage.setItem('petals-shown', '1');
-    var configs = [
-      { w: 32, h: 18, x: '22vw', y: '30vh', tx: '8vw',  ty: '-25vh', delay: 0,    dur: 2.6, r0: '45deg',  r1: '165deg', peak: 0.85 },
-      { w: 24, h: 13, x: '55vw', y: '65vh', tx: '-6vw', ty: '-30vh', delay: 0.22, dur: 2.4, r0: '-30deg', r1: '150deg', peak: 0.75 },
-      { w: 40, h: 22, x: '78vw', y: '22vh', tx: '-12vw',ty: '-22vh', delay: 0.44, dur: 2.8, r0: '70deg',  r1: '220deg', peak: 0.80 },
-      { w: 18, h: 10, x: '40vw', y: '55vh', tx: '14vw', ty: '-28vh', delay: 0.18, dur: 2.5, r0: '-55deg', r1: '145deg', peak: 0.70 },
+  /* ── PETAL TRANSITION SYSTEM ─────────────────────────────── */
+  /*
+   * Triggers a brief (1.6–2.4s) petal burst when the user scrolls
+   * DOWN into each major section boundary.
+   *
+   * Rules:
+   *  - Only fires on downward scroll
+   *  - Global cooldown: 3.2s between any two bursts
+   *  - Per-section cooldown: 5s before same section re-triggers
+   *  - Skips sections already visible on page load
+   *  - Fully disabled by prefers-reduced-motion
+   *  - pointer-events:none, z-index:50 — never blocks anything
+   */
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!('IntersectionObserver' in window)) return;
+
+    var GLOBAL_COOLDOWN  = 3200;
+    var SECTION_COOLDOWN = 5000;
+    var INIT_DELAY       = 900;   /* wait for hero animation to finish */
+    var MIN_PETALS       = 3;
+    var MAX_PETALS       = 5;
+
+    var lastFired    = 0;
+    var sectionTimes = {};
+    var inViewOnLoad = new Set();
+    var scrollDir    = 'down';
+    var lastScrollY  = window.scrollY;
+
+    /* Track scroll direction */
+    window.addEventListener('scroll', function () {
+      scrollDir  = window.scrollY > lastScrollY ? 'down' : 'up';
+      lastScrollY = window.scrollY;
+    }, { passive: true });
+
+    /* Sections that trigger a petal burst on entry */
+    var WATCH_SELECTORS = [
+      '.trust-strip',
+      '#services',
+      '#industries',
+      '#government',
+      '#capability',
+      '#about',
+      '#contact',
     ];
-    configs.forEach(function(cfg) {
+
+    /* ── Spawn a petal element ── */
+    function spawnPetal(idx, vw, vh) {
       var el = document.createElement('div');
-      el.className = 'petal';
-      el.style.cssText = 'width:' + cfg.w + 'px;height:' + cfg.h + 'px;left:' + cfg.x + ';top:' + cfg.y + ';--tx:' + cfg.tx + ';--ty:' + cfg.ty + ';--dur:' + cfg.dur + 's;--delay:' + cfg.delay + 's;--r0:' + cfg.r0 + ';--r1:' + cfg.r1 + ';--peak:' + cfg.peak + ';';
+      el.className = 'petal-fx';
+      el.setAttribute('data-v', String((idx % 3) + 1));
+
+      /* Size: slim proportions like logo petals */
+      var w   = 8 + Math.random() * 10;           /* 8–18 px */
+      var h   = w * (1.8 + Math.random() * 0.65); /* 1.8–2.45× */
+
+      /* Spawn across the viewport width, vertically centered */
+      var x   = vw * (0.07 + Math.random() * 0.86);
+      var y   = vh * (0.28 + Math.random() * 0.38);
+
+      /* Drift: always upward, gentle lateral sway */
+      var dx  = (Math.random() - 0.5) * 100;
+      var dy  = -(52 + Math.random() * 68);
+
+      /* Rotation: gentle — not a full spin */
+      var r0  = Math.random() * 70 - 35;
+      var r1  = r0 + (Math.random() * 110 - 55);
+
+      /* Stagger delays naturally */
+      var delay = idx * 0.16 + Math.random() * 0.08;
+      var dur   = 1.6 + Math.random() * 0.78;
+      var peak  = 0.26 + Math.random() * 0.18; /* 0.26–0.44 — always subtle */
+
+      el.style.cssText = [
+        'left:'     + x     + 'px',
+        'top:'      + y     + 'px',
+        'width:'    + w     + 'px',
+        'height:'   + h     + 'px',
+        '--r0:'     + r0    + 'deg',
+        '--r1:'     + r1    + 'deg',
+        '--dx:'     + dx    + 'px',
+        '--dy:'     + dy    + 'px',
+        '--delay:'  + delay + 's',
+        '--dur:'    + dur   + 's',
+        '--peak:'   + peak,
+      ].join(';');
+
       document.body.appendChild(el);
-      setTimeout(function() { el.remove(); }, (cfg.dur + cfg.delay) * 1000 + 200);
-    });
-  }
-  var trustStrip = document.querySelector('.trust-strip');
-  if (trustStrip && 'IntersectionObserver' in window) {
-    var petalObs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) { triggerPetals(); petalObs.disconnect(); }
+      setTimeout(function () {
+        if (el.parentNode) el.parentNode.removeChild(el);
+      }, (dur + delay) * 1000 + 250);
+    }
+
+    /* ── Check cooldowns, then spawn burst ── */
+    function tryTrigger(key) {
+      var now = Date.now();
+      if (now - lastFired           < GLOBAL_COOLDOWN)  return;
+      if (sectionTimes[key] && now - sectionTimes[key] < SECTION_COOLDOWN) return;
+
+      lastFired       = now;
+      sectionTimes[key] = now;
+
+      var vw    = window.innerWidth;
+      var vh    = window.innerHeight;
+      var count = MIN_PETALS + Math.floor(Math.random() * (MAX_PETALS - MIN_PETALS + 1));
+      for (var i = 0; i < count; i++) { spawnPetal(i, vw, vh); }
+    }
+
+    /* ── Boot after hero animation completes ── */
+    setTimeout(function () {
+      /* Seed which sections are already on-screen so they don't fire */
+      WATCH_SELECTORS.forEach(function (sel) {
+        var el = document.querySelector(sel);
+        if (!el) return;
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) inViewOnLoad.add(el);
       });
-    }, { threshold: 0.5 });
-    petalObs.observe(trustStrip);
-  }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            /* Only fire on downward scroll into a section not visible at load */
+            if (scrollDir === 'down' && !inViewOnLoad.has(e.target)) {
+              var key = e.target.id || e.target.className.split(' ')[0];
+              tryTrigger(key);
+            }
+            inViewOnLoad.add(e.target);
+          } else {
+            /* Allow re-trigger next time the section scrolls in from below */
+            inViewOnLoad.delete(e.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -8% 0px',
+      });
+
+      WATCH_SELECTORS.forEach(function (sel) {
+        var el = document.querySelector(sel);
+        if (el) io.observe(el);
+      });
+
+    }, INIT_DELAY);
+
+  }());
 
   /* ── CAPABILITY STATEMENT FALLBACK ───────────────────────── */
   document.querySelectorAll('[data-capability]').forEach(btn => {
