@@ -94,8 +94,8 @@
     var GLOBAL_COOLDOWN  = 3200;
     var SECTION_COOLDOWN = 5000;
     var INIT_DELAY       = 900;   /* wait for hero animation to finish */
-    var MIN_PETALS       = 3;
-    var MAX_PETALS       = 5;
+    var MIN_PETALS       = 5;
+    var MAX_PETALS       = 8;
 
     var lastFired    = 0;
     var sectionTimes = {};
@@ -126,13 +126,13 @@
       el.className = 'petal-fx';
       el.setAttribute('data-v', String((idx % 3) + 1));
 
-      /* Size: slim proportions like logo petals */
-      var w   = 8 + Math.random() * 10;           /* 8–18 px */
+      /* Size: clearly visible petal shapes */
+      var w   = 18 + Math.random() * 18;           /* 18–36 px */
       var h   = w * (1.8 + Math.random() * 0.65); /* 1.8–2.45× */
 
-      /* Spawn across the viewport width, vertically centered */
-      var x   = vw * (0.07 + Math.random() * 0.86);
-      var y   = vh * (0.28 + Math.random() * 0.38);
+      /* Spawn across viewport width, in upper portion (lighter backgrounds) */
+      var x   = vw * (0.06 + Math.random() * 0.88);
+      var y   = vh * (0.10 + Math.random() * 0.30);
 
       /* Drift: always upward, gentle lateral sway */
       var dx  = (Math.random() - 0.5) * 100;
@@ -145,7 +145,7 @@
       /* Stagger delays naturally */
       var delay = idx * 0.16 + Math.random() * 0.08;
       var dur   = 1.6 + Math.random() * 0.78;
-      var peak  = 0.26 + Math.random() * 0.18; /* 0.26–0.44 — always subtle */
+      var peak  = 0.52 + Math.random() * 0.22; /* 0.52–0.74 — clearly visible */
 
       el.style.cssText = [
         'left:'     + x     + 'px',
