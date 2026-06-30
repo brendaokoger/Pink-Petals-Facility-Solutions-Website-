@@ -881,10 +881,79 @@ a.ft-contact-item:hover { color: var(--c-white); }
   .nav-links { display: none; }
   .nav-cta   { display: none; }
   .nav-burger { display: flex; }
+  /* Slightly larger logo icon on mobile to match reference */
+  .nav-logo-img { height: 60px; }
+  .nav-brand    { font-size: 1.375rem; }
 
-  .hero { align-items: flex-start; padding-top: var(--nav-h); }
-  .hero-layout { grid-template-columns: 1fr; padding-top: 52px; padding-bottom: 48px; }
-  .hero-photo-col { display: none; }
+  /* ── MOBILE HERO: photo on top, text below ── */
+  .hero {
+    align-items: stretch;
+    padding-top: var(--nav-h);
+    min-height: 100svh;
+  }
+
+  /* Switch from grid to flex column, remove all padding */
+  .hero-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    max-width: 100%;
+    gap: 0;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  /* Photo column: show, full-bleed, comes FIRST via order */
+  .hero-photo-col {
+    display: flex !important;
+    order: 1;
+    width: 100%;
+    height: clamp(280px, 55svh, 480px);
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero-photo-wrap {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    height: 100% !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    width: 100%;
+  }
+
+  .hero-photo { object-position: center 12%; }
+
+  /* Remove bottom fade on mobile — cleaner edge */
+  .hero-photo-fade { display: none; }
+
+  /* Text section: comes SECOND, gets padding */
+  .hero-text {
+    order: 2;
+    padding: 32px clamp(20px, 6vw, 32px) 52px;
+  }
+
+  .hero-eyebrow { margin-bottom: 16px; }
+
+  .hero-sub {
+    max-width: 100%;
+    margin-bottom: 28px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .btn-primary,
+  .btn-ghost {
+    width: 100%;
+    justify-content: center;
+    padding: 17px 24px;
+    font-size: 0.8125rem;
+  }
 
   .gov-top { grid-template-columns: 1fr; }
   .gov-cert-list { min-width: auto; }
@@ -907,8 +976,6 @@ a.ft-contact-item:hover { color: var(--c-white); }
   .ind-grid  { grid-template-columns: 1fr 1fr; }
   .why-grid  { grid-template-columns: 1fr; }
   .form-row  { grid-template-columns: 1fr; }
-  .hero-actions { flex-direction: column; }
-  .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
   .gov-creds { grid-template-columns: 1fr; }
   .about-feature-grid { grid-template-columns: 1fr; }
   .ft-grid   { grid-template-columns: 1fr; }
