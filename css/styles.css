@@ -1141,10 +1141,118 @@ a.ft-contact-item:hover { color: var(--c-white); }
   margin-top: 2px;
 }
 
+/* ── TRUST CARDS (Why Choose — 4-card row) ─────────────────────── */
+.trust-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(14px, 2vw, 24px);
+}
+.tc {
+  padding: clamp(26px, 3vw, 38px) clamp(20px, 2.5vw, 28px);
+  background: var(--c-white);
+  border: 1px solid var(--c-border-soft);
+  border-radius: var(--radius-lg);
+  display: flex; flex-direction: column;
+  transition: transform 0.30s var(--ease-spring), box-shadow 0.30s var(--ease-spring), border-color 0.2s;
+}
+.tc:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--c-emerald-border); }
+.tc-icon {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--c-emerald-subtle);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--c-emerald);
+  margin-bottom: 18px;
+  flex-shrink: 0;
+}
+.tc-title {
+  font-size: 1rem; font-weight: var(--fw-semibold);
+  color: var(--c-text);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.tc-body {
+  font-size: 0.9375rem; color: var(--c-text-3);
+  line-height: 1.6;
+}
+
+/* ── PROFESSIONAL STANDARDS ─────────────────────────────────────── */
+.standards {
+  padding: var(--section-py) 0;
+  background: var(--c-white);
+}
+.standards-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: clamp(48px, 7vw, 96px);
+  align-items: center;
+}
+.standards-eyebrow {
+  display: block;
+  font-size: 0.6875rem; font-weight: var(--fw-semibold);
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--c-pink);
+  margin-bottom: 18px;
+}
+.standards-h2 {
+  font-family: var(--f-display);
+  font-size: clamp(2.25rem, 3.5vw, 3.25rem);
+  font-weight: var(--fw-semibold);
+  line-height: 1.08; letter-spacing: -0.025em;
+  color: var(--c-text);
+  margin-bottom: 16px;
+}
+.standards-h2 em { font-style: italic; font-weight: var(--fw-regular); color: var(--c-text-3); }
+.standards-sub {
+  font-size: 1rem; color: var(--c-text-3);
+  line-height: 1.65;
+}
+.standards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(12px, 1.6vw, 18px);
+}
+.std-item {
+  padding: clamp(20px, 2.5vw, 28px) clamp(18px, 2vw, 22px);
+  background: var(--c-bg-subtle);
+  border: 1px solid var(--c-border-soft);
+  border-radius: var(--radius-lg);
+  display: flex; flex-direction: column; gap: 5px;
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s var(--ease-spring), border-color 0.2s;
+}
+.std-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); border-color: var(--c-emerald-border); }
+.std-icon {
+  width: 38px; height: 38px;
+  border-radius: var(--radius-md);
+  background: var(--c-emerald-subtle);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--c-emerald);
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+.std-label {
+  font-size: 0.9375rem; font-weight: var(--fw-semibold);
+  color: var(--c-text); line-height: 1.3;
+}
+.std-desc {
+  font-size: 0.8125rem; color: var(--c-text-3); line-height: 1.5;
+}
+
+/* ── FOOTER CTA subtitle ─────────────────────────────────────────── */
+.ft-cta-h2 { margin-bottom: 14px; }
+.ft-cta-sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.40);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
 /* ── Responsive: new homepage sections ─────────────────────────── */
 @media (max-width: 1024px) {
-  .svc-grid--3 { grid-template-columns: repeat(2, 1fr); }
-  .ind-grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .svc-grid--3   { grid-template-columns: repeat(2, 1fr); }
+  .ind-grid--3   { grid-template-columns: repeat(2, 1fr); }
+  .trust-cards   { grid-template-columns: repeat(2, 1fr); }
+  .standards-inner { grid-template-columns: 1fr; }
 }
 @media (max-width: 860px) {
   .govp-layout      { grid-template-columns: 1fr; gap: clamp(36px, 5vw, 52px); }
@@ -1152,6 +1260,12 @@ a.ft-contact-item:hover { color: var(--c-white); }
   .svc-grid--3      { grid-template-columns: 1fr 1fr; }
   .ind-grid--3      { grid-template-columns: 1fr 1fr; }
   .govp-lead        { max-width: 100%; }
+  .trust-cards      { grid-template-columns: 1fr 1fr; }
+  .standards-inner  { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .trust-cards      { grid-template-columns: 1fr; }
+  .standards-grid   { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
   .govp-credentials { grid-template-columns: 1fr; }

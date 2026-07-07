@@ -115,7 +115,7 @@
       '#services',
       '#why',
       '#industries',
-      '#government',
+      '#standards',
       '#contact',
     ];
 
