@@ -5,6 +5,7 @@
 
 /* ── TOKENS ──────────────────────────────────────────────────────── */
 :root {
+  /* luxury section spacing — generous white space */
   --c-white:           #ffffff;
   --c-bg:              #ffffff;
   --c-bg-subtle:       #fafafa;
@@ -32,7 +33,7 @@
   --fw-semibold: 600;
   --fw-bold:     700;
 
-  --section-py: clamp(80px, 10vw, 128px);
+  --section-py: clamp(96px, 11vw, 144px);
   --max-w:      1200px;
   --nav-h:      76px;
 
@@ -999,4 +1000,161 @@ a.ft-contact-item:hover { color: var(--c-white); }
 @media (max-width: 420px) {
   .svc-grid { grid-template-columns: 1fr; }
   .ind-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   LUXURY HOMEPAGE — simplified sections
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Section footer link (below service/industry grids) ─────────── */
+.section-foot {
+  text-align: center;
+  margin-top: clamp(36px, 5vw, 56px);
+}
+.section-foot-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.875rem; font-weight: var(--fw-semibold);
+  color: var(--c-emerald);
+  border-bottom: 1.5px solid var(--c-emerald-border);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.section-foot-link:hover { color: var(--c-emerald-hover); border-color: var(--c-emerald); }
+
+/* ── 3-column grid modifiers ─────────────────────────────────────── */
+.svc-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.ind-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+  /* wider cards look better at 4/3 in landscape */
+}
+.ind-grid--3 .ind-photo-card { aspect-ratio: 4/3; }
+
+/* ── GOVERNMENT READY PREVIEW ────────────────────────────────────── */
+.govp {
+  padding: var(--section-py) 0;
+  background: #0A2218;
+  position: relative; overflow: hidden;
+}
+.govp::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(45deg,
+    rgba(255,255,255,0.018) 0px, rgba(255,255,255,0.018) 1px,
+    transparent 1px, transparent 10px);
+  pointer-events: none;
+}
+.govp-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 7vw, 96px);
+  align-items: center;
+  position: relative; z-index: 1;
+}
+.govp-eyebrow {
+  display: block;
+  font-size: 0.6875rem; font-weight: var(--fw-semibold);
+  letter-spacing: 0.20em; text-transform: uppercase;
+  color: var(--c-pink);
+  margin-bottom: 18px;
+}
+.govp-h2 {
+  font-family: var(--f-display);
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-weight: var(--fw-semibold);
+  color: var(--c-white);
+  line-height: 1.06; letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.govp-h2 em {
+  font-style: italic; font-weight: var(--fw-regular);
+  color: rgba(255,255,255,0.42);
+}
+.govp-lead {
+  font-size: 1rem; line-height: 1.72;
+  color: rgba(255,255,255,0.52);
+  max-width: 440px;
+  margin-bottom: 36px;
+}
+.govp-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.govp-btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 26px;
+  background: var(--c-pink); color: var(--c-white);
+  font-size: 0.75rem; font-weight: var(--fw-bold);
+  text-transform: uppercase; letter-spacing: 0.10em;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s, transform 0.18s, box-shadow 0.2s;
+}
+.govp-btn-primary:hover {
+  background: var(--c-pink-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232,56,122,0.32);
+}
+.govp-btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 26px;
+  color: rgba(255,255,255,0.75);
+  font-size: 0.75rem; font-weight: var(--fw-semibold);
+  text-transform: uppercase; letter-spacing: 0.10em;
+  border: 1.5px solid rgba(255,255,255,0.18);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.govp-btn-ghost:hover {
+  border-color: rgba(255,255,255,0.45);
+  color: var(--c-white);
+  background: rgba(255,255,255,0.04);
+}
+
+.govp-credentials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.govp-cred {
+  padding: 24px 26px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,0.03);
+  display: flex; flex-direction: column; gap: 6px;
+  transition: background 0.25s, border-color 0.25s;
+}
+.govp-cred:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.17);
+}
+.govp-cred-code {
+  font-family: var(--f-mono);
+  font-size: 0.6875rem; font-weight: var(--fw-bold);
+  color: var(--c-pink); letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.govp-cred-name {
+  font-size: 0.9375rem;
+  color: rgba(255,255,255,0.72); line-height: 1.35;
+}
+.govp-cred-value {
+  font-family: var(--f-mono);
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.88); letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+/* ── Responsive: new homepage sections ─────────────────────────── */
+@media (max-width: 1024px) {
+  .svc-grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .ind-grid--3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 860px) {
+  .govp-layout      { grid-template-columns: 1fr; gap: clamp(36px, 5vw, 52px); }
+  .govp-credentials { grid-template-columns: 1fr 1fr; }
+  .svc-grid--3      { grid-template-columns: 1fr 1fr; }
+  .ind-grid--3      { grid-template-columns: 1fr 1fr; }
+  .govp-lead        { max-width: 100%; }
+}
+@media (max-width: 480px) {
+  .govp-credentials { grid-template-columns: 1fr; }
+  .svc-grid--3      { grid-template-columns: 1fr; }
+  .ind-grid--3      { grid-template-columns: 1fr; }
 }

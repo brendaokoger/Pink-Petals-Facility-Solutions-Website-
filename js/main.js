@@ -113,10 +113,9 @@
     var WATCH_SELECTORS = [
       '.trust-strip',
       '#services',
+      '#why',
       '#industries',
       '#government',
-      '#capability',
-      '#about',
       '#contact',
     ];
 
