@@ -2,6 +2,33 @@
 (function () {
   'use strict';
 
+  /* ── INTRO OVERLAY ────────────────────────────────────────── */
+  /*
+   * Plays once per session (sessionStorage flag 'pp-intro').
+   * The logo lifecycle is entirely CSS-driven (@keyframes intro-logo).
+   * JS only triggers the overlay fade and marks the session.
+   * Hero animation delays are offset by --intro-off (set in <head>).
+   */
+  (function () {
+    var overlay = document.getElementById('intro-overlay');
+    if (!overlay) return;
+
+    var seen = false, reduced = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    try { seen = sessionStorage.getItem('pp-intro') === '1'; } catch (e) {}
+
+    if (seen || reduced) { overlay.classList.add('io-gone'); return; }
+
+    /* Overlay fade at 1.65 s — synced with CSS logo dissolve (~1.61 s) */
+    setTimeout(function () { overlay.classList.add('io-exit'); }, 1650);
+    setTimeout(function () {
+      overlay.classList.add('io-gone');
+      /* Leave --intro-off intact — removing mid-animation could cause jumps.
+         On return visits the head script never sets it, so it won't interfere. */
+      try { sessionStorage.setItem('pp-intro', '1'); } catch (e) {}
+    }, 2250);
+  }());
+
   /* ── MOBILE DRAWER ────────────────────────────────────────── */
   const burger   = document.querySelector('.nav-burger');
   const drawer   = document.getElementById('drawer');
@@ -125,17 +152,17 @@
       el.className = 'petal-fx';
       el.setAttribute('data-v', String((idx % 3) + 1));
 
-      /* Size: clearly visible petal shapes */
-      var w   = 18 + Math.random() * 18;           /* 18–36 px */
-      var h   = w * (1.8 + Math.random() * 0.65); /* 1.8–2.45× */
+      /* Size: elongated petal shapes closer to the logo silhouette */
+      var w   = 20 + Math.random() * 16;           /* 20–36 px */
+      var h   = w * (2.0 + Math.random() * 0.80); /* 2.0–2.8× */
 
       /* Spawn across viewport width, in upper portion (lighter backgrounds) */
       var x   = vw * (0.06 + Math.random() * 0.88);
       var y   = vh * (0.10 + Math.random() * 0.30);
 
-      /* Drift: always upward, gentle lateral sway */
-      var dx  = (Math.random() - 0.5) * 100;
-      var dy  = -(52 + Math.random() * 68);
+      /* Drift: graceful upward float with gentle lateral sway */
+      var dx  = (Math.random() - 0.5) * 88;
+      var dy  = -(58 + Math.random() * 72);
 
       /* Rotation: gentle — not a full spin */
       var r0  = Math.random() * 70 - 35;
@@ -143,7 +170,7 @@
 
       /* Stagger delays naturally */
       var delay = idx * 0.16 + Math.random() * 0.08;
-      var dur   = 1.6 + Math.random() * 0.78;
+      var dur   = 1.8 + Math.random() * 0.90;
       var peak  = 0.52 + Math.random() * 0.22; /* 0.52–0.74 — clearly visible */
 
       el.style.cssText = [

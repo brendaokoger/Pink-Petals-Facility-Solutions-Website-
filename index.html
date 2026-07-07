@@ -10,8 +10,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="images/logo.png" type="image/png">
+  <!-- Set --intro-off before first paint so hero animations wait for the overlay -->
+  <script>(function(){try{var s=sessionStorage.getItem('pp-intro'),r=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;if(s!=='1'&&!r)document.documentElement.style.setProperty('--intro-off','1.65s');}catch(e){}})();</script>
 </head>
 <body>
+
+
+<!-- ══════════════════════════════════════════════════
+     INTRO OVERLAY — first visit this session only
+══════════════════════════════════════════════════ -->
+<div id="intro-overlay" role="presentation" aria-hidden="true">
+  <div id="intro-logo-wrap">
+    <img src="images/logo.png" alt="" class="intro-logo-img" draggable="false"
+         onerror="this.style.display='none'">
+  </div>
+</div>
 
 
 <!-- ══════════════════════════════════════════════════

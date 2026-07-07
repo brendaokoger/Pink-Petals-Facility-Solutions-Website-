@@ -236,6 +236,49 @@ ul, ol { list-style: none; }
 }
 .drawer-scrim.open { opacity: 1; pointer-events: all; }
 
+/* ── INTRO OVERLAY ──────────────────────────────────────────────── */
+/*
+ * Full-screen brand splash — plays once per session.
+ * Logo blooms via CSS keyframe; overlay fades via JS-triggered class.
+ * Skipped when prefers-reduced-motion is set or session flag is found.
+ */
+#intro-overlay {
+  position: fixed; inset: 0;
+  z-index: 9999;
+  background: var(--c-white);
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+  transition: opacity 0.60s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#intro-overlay.io-exit { opacity: 0; }
+#intro-overlay.io-gone { display: none; }
+
+/* Logo lifecycle: bloom in → hold → dissolve out — pure CSS, no JS required */
+#intro-logo-wrap {
+  animation: intro-logo 2.08s cubic-bezier(0.22, 1, 0.36, 1) 0.22s forwards;
+}
+.intro-logo-img {
+  width: clamp(200px, 24vw, 280px);
+  height: auto; display: block;
+}
+
+@keyframes intro-logo {
+  /* Bloom in (0 → 43%) */
+  0%   { opacity: 0; transform: scale(0.86) translateY(10px); filter: blur(14px); }
+  10%  { opacity: 0.55; }
+  43%  { opacity: 1;  transform: scale(1) translateY(0); filter: blur(0); }
+  /* Hold (43 → 67%) */
+  67%  { opacity: 1;  transform: scale(1); filter: blur(0); }
+  /* Fade out (67 → 93%), synchronized with overlay CSS transition */
+  93%  { opacity: 0;  transform: scale(1.05); filter: blur(7px); }
+  100% { opacity: 0;  transform: scale(1.05); filter: blur(7px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #intro-overlay { transition: none !important; display: none !important; }
+  #intro-logo-wrap { animation: none !important; }
+}
+
 /* ── HERO ────────────────────────────────────────────────────────── */
 .hero {
   position: relative;
@@ -366,60 +409,78 @@ ul, ol { list-style: none; }
   }
 }
 
+/* ── HERO INTRO ANIMATION OFFSETS ───────────────────────────────── */
+/*
+ * When --intro-off is set (first-visit, set by head script), hero
+ * elements defer their animations until the intro overlay clears.
+ * Defaults to 0s — return visits use the original timing unchanged.
+ */
+.hero-photo-col { animation-delay: calc(var(--intro-off, 0s) + 0.16s); }
+.hero-eyebrow   { animation-delay: calc(var(--intro-off, 0s) + 0.20s); }
+.hh-intro       { animation-delay: calc(var(--intro-off, 0s) + 0.28s); }
+.hh-strong      { animation-delay: calc(var(--intro-off, 0s) + 0.38s); }
+.hh-accent      { animation-delay: calc(var(--intro-off, 0s) + 0.48s); }
+.hh-strong2     { animation-delay: calc(var(--intro-off, 0s) + 0.58s); }
+.hero-sub       { animation-delay: calc(var(--intro-off, 0s) + 0.68s); }
+.hero-actions   { animation-delay: calc(var(--intro-off, 0s) + 0.78s); }
+
 /* ── PETAL TRANSITION SYSTEM ─────────────────────────────────────── */
 /*
- * Three shape variants inspired by the Pink Petals lotus logo:
- *   v1 — elongated teardrop (standard petal)
- *   v2 — soft wide oval (inner petal)
- *   v3 — slim pointed (accent petal)
- * All use a pink→transparent gradient and drift upward on entry.
+ * Three petal variants, refined to more closely echo the Pink Petals
+ * logo — elongated shoulders, tapered tips, richer gradient.
+ *   v1 — classic elongated petal (primary)
+ *   v2 — fuller inner petal (softer)
+ *   v3 — slim pointed accent (lightest)
  */
 .petal-fx {
   position: fixed;
   pointer-events: none;
-  z-index: 50;           /* below nav (100), above all content */
+  z-index: 50;
   will-change: transform, opacity;
-  /* v1 default: elongated teardrop, wider at base, tapering to tip */
-  border-radius: 50% 50% 38% 38% / 58% 58% 42% 42%;
+  /* v1: rounded shoulders → tapered tip, closely mirrors logo petal silhouette */
+  border-radius: 48% 48% 28% 28% / 64% 64% 36% 36%;
   background: linear-gradient(
-    168deg,
-    rgba(232, 56, 122, var(--peak, 0.62)) 0%,
-    rgba(232, 56, 122, 0.06)             100%
+    163deg,
+    rgba(232, 56, 122, var(--peak, 0.65)) 0%,
+    rgba(220, 48, 110, 0.22)              48%,
+    rgba(232, 56, 122, 0.03)              100%
   );
   animation: petal-fx-float var(--dur, 2s) var(--delay, 0s)
-             cubic-bezier(0.22, 0.61, 0.36, 1) both;
+             cubic-bezier(0.20, 0.62, 0.36, 1) both;
 }
-/* v2 — softer, rounder inner petal */
+/* v2 — fuller inner petal, wider and rounder */
 .petal-fx[data-v="2"] {
-  border-radius: 50% 50% 50% 50% / 38% 38% 62% 62%;
+  border-radius: 50% 50% 42% 42% / 44% 44% 56% 56%;
   background: linear-gradient(
-    168deg,
-    rgba(220, 48, 110, var(--peak, 0.58)) 0%,
-    rgba(255, 160, 200, 0.05)             100%
+    163deg,
+    rgba(218, 44, 108, var(--peak, 0.60)) 0%,
+    rgba(236, 88, 150, 0.18)              52%,
+    rgba(255, 140, 190, 0.03)             100%
   );
 }
 /* v3 — slim pointed accent petal */
 .petal-fx[data-v="3"] {
-  border-radius: 50% 50% 22% 22% / 68% 68% 32% 32%;
+  border-radius: 42% 42% 16% 16% / 74% 74% 26% 26%;
   background: linear-gradient(
-    168deg,
-    rgba(232, 56, 122, var(--peak, 0.60)) 0%,
-    rgba(232, 56, 122, 0.04)              100%
+    163deg,
+    rgba(232, 56, 122, var(--peak, 0.62)) 0%,
+    rgba(232, 56, 122, 0.16)              52%,
+    rgba(232, 56, 122, 0.02)              100%
   );
 }
 
 @keyframes petal-fx-float {
   0%   {
     opacity: 0;
-    transform: translate(0, 0) rotate(var(--r0, 0deg)) scale(0.55);
+    transform: translate(0, 0) rotate(var(--r0, 0deg)) scale(0.50);
   }
-  12%  { opacity: 1; }
-  65%  { opacity: 0.80; }
+  10%  { opacity: 1; }
+  62%  { opacity: 0.82; }
   100% {
     opacity: 0;
     transform: translate(var(--dx, 40px), var(--dy, -72px))
                rotate(var(--r1, 160deg))
-               scale(0.92);
+               scale(0.96);
   }
 }
 
