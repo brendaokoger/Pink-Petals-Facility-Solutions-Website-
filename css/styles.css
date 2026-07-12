@@ -557,6 +557,8 @@ ul, ol { list-style: none; }
 .svc-photo-card:hover { box-shadow: 0 20px 56px rgba(0,0,0,0.22), 0 6px 18px rgba(0,0,0,0.12); transform: translateY(-6px); }
 .svc-photo-bg {
   position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
   transition: transform 0.75s var(--ease-spring);
   will-change: transform;
 }
@@ -606,15 +608,15 @@ ul, ol { list-style: none; }
 }
 .svc-photo-card:hover .svc-photo-cta { opacity: 1; transform: none; }
 
-/* Service card gradient backgrounds */
-.svc-bg-1 { background: linear-gradient(155deg, #0a2e1a 0%, #1a5535 100%); }
-.svc-bg-2 { background: linear-gradient(155deg, #062020 0%, #0f4040 100%); }
-.svc-bg-3 { background: linear-gradient(155deg, #141520 0%, #252840 100%); }
-.svc-bg-4 { background: linear-gradient(155deg, #1a120a 0%, #3a2818 100%); }
-.svc-bg-5 { background: linear-gradient(155deg, #101218 0%, #202535 100%); }
-.svc-bg-6 { background: linear-gradient(155deg, #06111e 0%, #102540 100%); }
-.svc-bg-7 { background: linear-gradient(155deg, #071808 0%, #133518 100%); }
-.svc-bg-8 { background: linear-gradient(155deg, #1a0608 0%, #350f14 100%); }
+/* Service card photo backgrounds */
+.svc-bg-1 { background: #0a2e1a url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&auto=format&fit=crop&q=80') center/cover no-repeat; } /* Commercial Janitorial */
+.svc-bg-2 { background: #062020 url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&auto=format&fit=crop&q=80') center/cover no-repeat; } /* Healthcare */
+.svc-bg-3 { background: #141520 url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&auto=format&fit=crop&q=80') center/cover no-repeat; } /* Industrial */
+.svc-bg-4 { background: #1a120a url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&auto=format&fit=crop&q=80') center/cover no-repeat; } /* Floor Care */
+.svc-bg-5 { background: #101218 url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&auto=format&fit=crop&q=80') center/cover no-repeat; } /* Post-Construction */
+.svc-bg-6 { background: #06111e url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&auto=format&fit=crop&q=80') center/cover no-repeat; } /* Day Porter */
+.svc-bg-7 { background: #071808 url('https://images.unsplash.com/photo-1560440021-33f9b867899d?w=1200&auto=format&fit=crop&q=80') center/cover no-repeat; } /* Move-In/Out */
+.svc-bg-8 { background: #1a0608 url('https://images.unsplash.com/photo-1563453392212-326f5e854473?w=1200&auto=format&fit=crop&q=80') center/cover no-repeat; } /* Emergency */
 
 /* ── INDUSTRIES — photo cards with gradient backgrounds ──────────── */
 .industries {
@@ -1088,6 +1090,7 @@ a.ft-contact-item:hover { color: var(--c-white); }
 
 /* ── 3-column grid modifiers ─────────────────────────────────────── */
 .svc-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.svc-grid--4 { grid-template-columns: repeat(4, 1fr); }
 .ind-grid--3 {
   grid-template-columns: repeat(3, 1fr);
   /* wider cards look better at 4/3 in landscape */
@@ -1315,6 +1318,7 @@ a.ft-contact-item:hover { color: var(--c-white); }
 /* ── Responsive: new homepage sections ─────────────────────────── */
 @media (max-width: 1024px) {
   .svc-grid--3   { grid-template-columns: repeat(2, 1fr); }
+  .svc-grid--4   { grid-template-columns: repeat(2, 1fr); }
   .ind-grid--3   { grid-template-columns: repeat(2, 1fr); }
   .trust-cards   { grid-template-columns: repeat(2, 1fr); }
   .standards-inner { grid-template-columns: 1fr; }
@@ -1323,6 +1327,7 @@ a.ft-contact-item:hover { color: var(--c-white); }
   .govp-layout      { grid-template-columns: 1fr; gap: clamp(36px, 5vw, 52px); }
   .govp-credentials { grid-template-columns: 1fr 1fr; }
   .svc-grid--3      { grid-template-columns: 1fr 1fr; }
+  .svc-grid--4      { grid-template-columns: 1fr 1fr; }
   .ind-grid--3      { grid-template-columns: 1fr 1fr; }
   .govp-lead        { max-width: 100%; }
   .trust-cards      { grid-template-columns: 1fr 1fr; }
@@ -1335,5 +1340,6 @@ a.ft-contact-item:hover { color: var(--c-white); }
 @media (max-width: 480px) {
   .govp-credentials { grid-template-columns: 1fr; }
   .svc-grid--3      { grid-template-columns: 1fr; }
+  .svc-grid--4      { grid-template-columns: 1fr; }
   .ind-grid--3      { grid-template-columns: 1fr; }
 }

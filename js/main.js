@@ -142,6 +142,7 @@
       '#services',
       '#why',
       '#industries',
+      '#gov-ready',
       '#standards',
       '#contact',
     ];
