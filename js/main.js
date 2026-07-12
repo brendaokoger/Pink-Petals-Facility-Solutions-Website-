@@ -10,7 +10,7 @@
     var reduced = window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var seen = false;
-    try { seen = sessionStorage.getItem('pp-intro-v3') === '1'; } catch (e) {}
+    try { seen = sessionStorage.getItem('pp-intro-v4') === '1'; } catch (e) {}
     if (seen || reduced) { overlay.classList.add('io-gone'); return; }
 
     /* Lock body scroll for the duration of the animation */
@@ -234,7 +234,7 @@
             cvs.remove();
             window.removeEventListener('resize', setSize);
             document.body.style.overflow = '';
-            try { sessionStorage.setItem('pp-intro-v3', '1'); } catch (e) {}
+            try { sessionStorage.setItem('pp-intro-v4', '1'); } catch (e) {}
           }, 380);
           return;
         }
@@ -370,7 +370,7 @@
       '#services',
       '#why',
       '#industries',
-      '#gov-ready',
+
       '#standards',
       '#contact',
     ];
