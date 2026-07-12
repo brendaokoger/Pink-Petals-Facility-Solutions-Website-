@@ -10,7 +10,7 @@
     var reduced = window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var seen = false;
-    try { seen = sessionStorage.getItem('pp-intro') === '1'; } catch (e) {}
+    try { seen = sessionStorage.getItem('pp-intro-v2') === '1'; } catch (e) {}
     if (seen || reduced) { overlay.classList.add('io-gone'); return; }
 
     /* Create canvas — sits above overlay (z 9999 vs overlay's 9998) */
@@ -167,6 +167,12 @@
 
       ctx.clearRect(0, 0, W, H);
 
+      /* Canvas owns its own black background during logo phases */
+      if (phase === 'fadein' || phase === 'glow') {
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0, 0, W, H);
+      }
+
       /* ─── Phase 1: logo fades in (0–520 ms) ─── */
       if (phase === 'fadein') {
         var p = Math.min(1, el / 520);
@@ -223,7 +229,7 @@
           setTimeout(function () {
             cvs.remove();
             window.removeEventListener('resize', setSize);
-            try { sessionStorage.setItem('pp-intro', '1'); } catch (e) {}
+            try { sessionStorage.setItem('pp-intro-v2', '1'); } catch (e) {}
           }, 380);
           return;
         }
@@ -234,6 +240,7 @@
 
     /* Load → process → animate */
     var imgEl  = new Image();
+    imgEl.crossOrigin = 'anonymous';
     imgEl.onload = function () {
       processLogo(imgEl, function (processed) {
         logoBitmap = processed;
