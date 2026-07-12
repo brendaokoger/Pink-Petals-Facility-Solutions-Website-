@@ -121,6 +121,7 @@ ul, ol { list-style: none; }
   width: auto;
   object-fit: contain;
   display: block;
+  mix-blend-mode: multiply;
   animation: logo-bloom 1.0s var(--ease-spring) 0.06s both;
 }
 .nav-logo-wordmark {
@@ -214,7 +215,7 @@ ul, ol { list-style: none; }
 }
 .drawer.open { transform: translateX(0); }
 .drawer-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
-.drawer-logo { height: 38px; width: auto; object-fit: contain; }
+.drawer-logo { height: 38px; width: auto; object-fit: contain; mix-blend-mode: multiply; }
 .drawer-x { font-size: 1.1rem; color: var(--c-text-3); padding: 8px; border-radius: var(--radius-sm); transition: color 0.2s, background 0.2s; }
 .drawer-x:hover { color: var(--c-text); background: var(--c-bg-alt); }
 .drawer-nav { display: flex; flex-direction: column; gap: 2px; }
@@ -260,6 +261,7 @@ ul, ol { list-style: none; }
 .intro-logo-img {
   width: clamp(200px, 24vw, 280px);
   height: auto; display: block;
+  mix-blend-mode: multiply;
 }
 
 @keyframes intro-logo {
@@ -636,6 +638,8 @@ ul, ol { list-style: none; }
 .ind-photo-card:hover { box-shadow: 0 20px 56px rgba(0,0,0,0.22); transform: translateY(-4px); }
 .ind-photo-bg {
   position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
   transition: transform 0.75s var(--ease-spring);
   will-change: transform;
 }
@@ -669,15 +673,15 @@ ul, ol { list-style: none; }
 }
 .ind-photo-card:hover .ind-photo-learn { opacity: 1; transform: none; }
 
-/* Industry card gradient backgrounds */
-.ind-bg-1 { background: linear-gradient(155deg, #0f1520 0%, #202d40 100%); } /* Government */
-.ind-bg-2 { background: linear-gradient(155deg, #062525 0%, #104545 100%); } /* Healthcare */
-.ind-bg-3 { background: linear-gradient(155deg, #1a1008 0%, #382518 100%); } /* Education */
-.ind-bg-4 { background: linear-gradient(155deg, #121420 0%, #222638 100%); } /* Corporate */
-.ind-bg-5 { background: linear-gradient(155deg, #0e0e12 0%, #201e28 100%); } /* Industrial */
-.ind-bg-6 { background: linear-gradient(155deg, #0a1005 0%, #1a2210 100%); } /* Warehouses */
-.ind-bg-7 { background: linear-gradient(155deg, #180a1c 0%, #321838 100%); } /* Property Mgmt */
-.ind-bg-8 { background: linear-gradient(155deg, #051510 0%, #0f3028 100%); } /* Medical */
+/* Industry card photo backgrounds */
+.ind-bg-1 { background-image: url('https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=1200&auto=format&fit=crop&q=80'); } /* Federal Government */
+.ind-bg-2 { background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&auto=format&fit=crop&q=80'); } /* Healthcare */
+.ind-bg-3 { background-image: url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&auto=format&fit=crop&q=80'); } /* Education */
+.ind-bg-4 { background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&auto=format&fit=crop&q=80'); } /* Corporate */
+.ind-bg-5 { background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&auto=format&fit=crop&q=80'); } /* Industrial */
+.ind-bg-6 { background-image: url('https://images.unsplash.com/photo-1553413077-190dd305871c?w=1200&auto=format&fit=crop&q=80'); } /* Warehouses */
+.ind-bg-7 { background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&auto=format&fit=crop&q=80'); } /* Property Mgmt */
+.ind-bg-8 { background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&auto=format&fit=crop&q=80'); } /* Medical */
 
 /* ── GOVERNMENT CONTRACTING ──────────────────────────────────────── */
 .government {
@@ -908,7 +912,7 @@ textarea.form-input { resize: vertical; min-height: 96px; }
 .ft-body { padding: clamp(48px, 7vw, 80px) 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .ft-grid { display: grid; grid-template-columns: 1.8fr 1fr 1.1fr 1.2fr; gap: clamp(28px, 4vw, 52px); }
 .ft-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-.ft-logo-img { height: 48px; width: auto; object-fit: contain; flex-shrink: 0; }
+.ft-logo-img { display: none; }
 .ft-logo-words { display: flex; flex-direction: column; line-height: 1.25; }
 .ft-brand-name { font-size: 1rem; font-weight: var(--fw-bold); color: var(--c-white); }
 .ft-brand-tag  { font-size: 0.6875rem; color: rgba(255,255,255,0.38); }
