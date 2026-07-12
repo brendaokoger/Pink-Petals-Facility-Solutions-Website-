@@ -243,42 +243,16 @@ ul, ol { list-style: none; }
  * Logo blooms via CSS keyframe; overlay fades via JS-triggered class.
  * Skipped when prefers-reduced-motion is set or session flag is found.
  */
+/* Cinematic petal-explosion intro — canvas-driven, JS-controlled */
 #intro-overlay {
-  position: fixed; inset: 0;
-  z-index: 9999;
-  background: var(--c-white);
-  display: flex; align-items: center; justify-content: center;
+  position: fixed; inset: 0; z-index: 9998;
+  background: #000;
   pointer-events: none;
-  transition: opacity 0.60s cubic-bezier(0.4, 0, 0.2, 1);
 }
-#intro-overlay.io-exit { opacity: 0; }
 #intro-overlay.io-gone { display: none; }
 
-/* Logo lifecycle: bloom in → hold → dissolve out — pure CSS, no JS required */
-#intro-logo-wrap {
-  animation: intro-logo 2.08s cubic-bezier(0.22, 1, 0.36, 1) 0.22s forwards;
-}
-.intro-logo-img {
-  width: clamp(200px, 24vw, 280px);
-  height: auto; display: block;
-  mix-blend-mode: multiply;
-}
-
-@keyframes intro-logo {
-  /* Bloom in (0 → 43%) */
-  0%   { opacity: 0; transform: scale(0.86) translateY(10px); filter: blur(14px); }
-  10%  { opacity: 0.55; }
-  43%  { opacity: 1;  transform: scale(1) translateY(0); filter: blur(0); }
-  /* Hold (43 → 67%) */
-  67%  { opacity: 1;  transform: scale(1); filter: blur(0); }
-  /* Fade out (67 → 93%), synchronized with overlay CSS transition */
-  93%  { opacity: 0;  transform: scale(1.05); filter: blur(7px); }
-  100% { opacity: 0;  transform: scale(1.05); filter: blur(7px); }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  #intro-overlay { transition: none !important; display: none !important; }
-  #intro-logo-wrap { animation: none !important; }
+  #intro-overlay { display: none !important; }
 }
 
 /* ── HERO ────────────────────────────────────────────────────────── */

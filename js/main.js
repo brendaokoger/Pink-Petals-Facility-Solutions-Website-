@@ -2,31 +2,248 @@
 (function () {
   'use strict';
 
-  /* ── INTRO OVERLAY ────────────────────────────────────────── */
-  /*
-   * Plays once per session (sessionStorage flag 'pp-intro').
-   * The logo lifecycle is entirely CSS-driven (@keyframes intro-logo).
-   * JS only triggers the overlay fade and marks the session.
-   * Hero animation delays are offset by --intro-off (set in <head>).
-   */
+  /* ── CINEMATIC INTRO — logo blooms then shatters into petals ── */
   (function () {
     var overlay = document.getElementById('intro-overlay');
     if (!overlay) return;
 
-    var seen = false, reduced = window.matchMedia &&
+    var reduced = window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var seen = false;
     try { seen = sessionStorage.getItem('pp-intro') === '1'; } catch (e) {}
-
     if (seen || reduced) { overlay.classList.add('io-gone'); return; }
 
-    /* Overlay fade at 1.65 s — synced with CSS logo dissolve (~1.61 s) */
-    setTimeout(function () { overlay.classList.add('io-exit'); }, 1650);
-    setTimeout(function () {
-      overlay.classList.add('io-gone');
-      /* Leave --intro-off intact — removing mid-animation could cause jumps.
-         On return visits the head script never sets it, so it won't interfere. */
-      try { sessionStorage.setItem('pp-intro', '1'); } catch (e) {}
-    }, 2250);
+    /* Create canvas — sits above overlay (z 9999 vs overlay's 9998) */
+    var cvs = document.createElement('canvas');
+    cvs.setAttribute('aria-hidden', 'true');
+    cvs.style.cssText =
+      'position:fixed;top:0;left:0;width:100%;height:100%;' +
+      'z-index:9999;pointer-events:none;';
+    document.body.appendChild(cvs);
+    var ctx = cvs.getContext('2d');
+
+    function setSize() {
+      cvs.width  = window.innerWidth;
+      cvs.height = window.innerHeight;
+    }
+    setSize();
+    window.addEventListener('resize', setSize);
+
+    /* Strip white/near-white pixels from logo so it shows cleanly on black */
+    function processLogo(img, cb) {
+      var oc  = document.createElement('canvas');
+      oc.width  = img.naturalWidth  || 512;
+      oc.height = img.naturalHeight || 512;
+      var ox = oc.getContext('2d');
+      ox.drawImage(img, 0, 0);
+      try {
+        var id = ox.getImageData(0, 0, oc.width, oc.height);
+        var d  = id.data;
+        for (var i = 0; i < d.length; i += 4) {
+          var r = d[i], g = d[i+1], b = d[i+2];
+          var luma = 0.299*r + 0.587*g + 0.114*b;
+          var maxC = Math.max(r,g,b), minC = Math.min(r,g,b);
+          var sat  = maxC === 0 ? 0 : (maxC - minC) / maxC;
+          /* Near-white, low-saturation → transparent */
+          if (sat < 0.20 && luma > 205) {
+            var t = Math.min(1, (luma - 205) / 50);
+            d[i+3] = Math.round(d[i+3] * (1 - t));
+          }
+        }
+        ox.putImageData(id, 0, 0);
+        cb(oc);
+      } catch (e) {
+        cb(img); /* CORS fallback — use original image */
+      }
+    }
+
+    /* Draw petal shape (bezier oval) */
+    var PETAL_COLORS = [
+      '#E8387A','#F27BA5','#C82060','#B83268',
+      '#0E5032','#1A7A4A','#FAF9F7'
+    ];
+
+    function drawPetal(x, y, w, h, rot, color, alpha) {
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, Math.min(1, alpha));
+      ctx.translate(x, y);
+      ctx.rotate(rot);
+      ctx.beginPath();
+      ctx.moveTo(0, -h * 0.5);
+      ctx.bezierCurveTo( w*0.55, -h*0.25,  w*0.55,  h*0.25, 0,  h*0.5);
+      ctx.bezierCurveTo(-w*0.55,  h*0.25, -w*0.55, -h*0.25, 0, -h*0.5);
+      ctx.shadowColor = color;
+      ctx.shadowBlur  = 5;
+      ctx.fillStyle   = color;
+      ctx.fill();
+      ctx.restore();
+    }
+
+    /* Draw logo with optional glow passes */
+    function drawLogo(logo, cx, cy, size, alpha, rot, glowAmt) {
+      if (!logo || alpha <= 0) return;
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(rot);
+      if (glowAmt > 0) {
+        ctx.globalAlpha = Math.min(1, alpha * 0.5);
+        ctx.shadowColor = '#E8387A';
+        ctx.shadowBlur  = 65 * glowAmt;
+        ctx.drawImage(logo, -size/2, -size/2, size, size);
+        ctx.globalAlpha = Math.min(1, alpha * 0.75);
+        ctx.shadowBlur  = 22 * glowAmt;
+        ctx.drawImage(logo, -size/2, -size/2, size, size);
+      }
+      ctx.globalAlpha = Math.min(1, alpha);
+      ctx.shadowBlur  = 0;
+      ctx.drawImage(logo, -size/2, -size/2, size, size);
+      ctx.restore();
+    }
+
+    /* Easing helpers */
+    function easeOutCubic(t)  { return 1 - Math.pow(1 - t, 3); }
+    function easeInOutSine(t) { return -(Math.cos(Math.PI * t) - 1) / 2; }
+
+    /* Build particle arrays */
+    function createParticles() {
+      var cx = cvs.width / 2, cy = cvs.height / 2;
+      var arr = [];
+
+      /* Fast burst — scatter and fade */
+      for (var i = 0; i < 62; i++) {
+        var ang = (Math.PI * 2 * i / 62) + (Math.random() - 0.5) * 0.4;
+        var spd = 3.5 + Math.random() * 11;
+        arr.push({
+          x: cx + (Math.random()-0.5)*55, y: cy + (Math.random()-0.5)*55,
+          vx: Math.cos(ang)*spd,          vy: Math.sin(ang)*spd,
+          rot:  Math.random()*Math.PI*2,  rotSpd: (Math.random()-0.5)*0.30,
+          w:    7  + Math.random()*17,    h: 11 + Math.random()*28,
+          color: PETAL_COLORS[Math.floor(Math.random()*PETAL_COLORS.length)],
+          alpha: 1,
+          decay: 0.009 + Math.random()*0.016,
+          drag:  0.94  + Math.random()*0.04,
+          grav:  0.04  + Math.random()*0.07,
+          delay: Math.random()*90,
+          trailer: false
+        });
+      }
+
+      /* Slow trailers — drift across the hero section 2–3 s */
+      for (var j = 0; j < 18; j++) {
+        var ta  = Math.random() * Math.PI * 2;
+        var tsp = 0.5 + Math.random() * 2.0;
+        arr.push({
+          x: cx + (Math.random()-0.5)*130, y: cy + (Math.random()-0.5)*70,
+          vx: Math.cos(ta)*tsp,            vy: Math.sin(ta)*tsp - 0.5,
+          rot:  Math.random()*Math.PI*2,   rotSpd: (Math.random()-0.5)*0.05,
+          w:    8  + Math.random()*13,     h: 13 + Math.random()*21,
+          color: PETAL_COLORS[Math.floor(Math.random()*4)],
+          alpha: 0.88,
+          decay: 0.0016 + Math.random()*0.0020,
+          drag:  0.993, grav: 0.008,
+          delay: 200 + Math.random()*480,
+          trailer: true
+        });
+      }
+      return arr;
+    }
+
+    /* Animation state */
+    var logoBitmap = null;
+    var phase      = 'fadein';   /* fadein | glow | explode */
+    var startTs    = null;
+    var glowStart  = null;
+    var xplodeTs   = null;
+    var particles  = [];
+    var raf;
+
+    function tick(ts) {
+      if (!startTs) startTs = ts;
+      var el = ts - startTs;
+
+      var W  = cvs.width,  H  = cvs.height;
+      var cx = W / 2,      cy = H / 2;
+      var sz = Math.min(W * 0.36, H * 0.40, 268);
+
+      ctx.clearRect(0, 0, W, H);
+
+      /* ─── Phase 1: logo fades in (0–520 ms) ─── */
+      if (phase === 'fadein') {
+        var p = Math.min(1, el / 520);
+        var scale = 0.85 + 0.15 * easeOutCubic(p);
+        drawLogo(logoBitmap, cx, cy, sz * scale, easeOutCubic(p), 0, 0);
+        if (el >= 520) { phase = 'glow'; glowStart = ts; }
+      }
+
+      /* ─── Phase 2: glow + slow rotation (520 ms → 1120 ms) ─── */
+      else if (phase === 'glow') {
+        var gt = ts - glowStart;
+        var gp = Math.min(1, gt / 600);
+        var glw = Math.sin(gp * Math.PI) * 1.0;          /* peaks mid-phase */
+        var rot = Math.sin(easeInOutSine(gp) * Math.PI) * 0.13; /* ≈7.5° */
+        drawLogo(logoBitmap, cx, cy, sz, 1, rot, glw);
+        if (gt >= 600) {
+          phase    = 'explode';
+          xplodeTs = ts;
+          particles = createParticles();
+          /* Begin revealing the page behind */
+          overlay.style.transition = 'opacity 0.42s ease';
+          overlay.style.opacity    = '0';
+          setTimeout(function () { overlay.classList.add('io-gone'); }, 460);
+        }
+      }
+
+      /* ─── Phase 3: explosion + trailer petals (1120 ms → ~4000 ms) ─── */
+      else if (phase === 'explode') {
+        var et = ts - xplodeTs;
+
+        /* Logo dissolves out in first 220 ms of explosion */
+        var lf = Math.max(0, 1 - et / 220);
+        if (lf > 0) drawLogo(logoBitmap, cx, cy, sz, lf, 0, lf * 0.25);
+
+        /* Update and draw each particle */
+        var alive = 0;
+        for (var i = 0; i < particles.length; i++) {
+          var pr = particles[i];
+          if (pr.alpha <= 0.01) continue;
+          if (et < pr.delay) { alive++; continue; }
+          alive++;
+          pr.x += pr.vx;  pr.y  += pr.vy;
+          pr.vy += pr.grav;
+          pr.vx *= pr.drag; pr.vy *= pr.drag;
+          pr.rot += pr.rotSpd;
+          pr.alpha -= pr.decay;
+          drawPetal(pr.x, pr.y, pr.w, pr.h, pr.rot, pr.color, Math.max(0, pr.alpha));
+        }
+
+        if (alive === 0 || et > 4400) {
+          /* All petals gone — fade canvas out and clean up */
+          cvs.style.transition = 'opacity 0.35s';
+          cvs.style.opacity    = '0';
+          setTimeout(function () {
+            cvs.remove();
+            window.removeEventListener('resize', setSize);
+            try { sessionStorage.setItem('pp-intro', '1'); } catch (e) {}
+          }, 380);
+          return;
+        }
+      }
+
+      raf = requestAnimationFrame(tick);
+    }
+
+    /* Load → process → animate */
+    var imgEl  = new Image();
+    imgEl.onload = function () {
+      processLogo(imgEl, function (processed) {
+        logoBitmap = processed;
+        raf = requestAnimationFrame(tick);
+      });
+    };
+    imgEl.onerror = function () {
+      raf = requestAnimationFrame(tick); /* animate without logo */
+    };
+    imgEl.src = 'images/logo.png';
   }());
 
   /* ── MOBILE DRAWER ────────────────────────────────────────── */
