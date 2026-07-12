@@ -13,6 +13,9 @@
     try { seen = sessionStorage.getItem('pp-intro-v2') === '1'; } catch (e) {}
     if (seen || reduced) { overlay.classList.add('io-gone'); return; }
 
+    /* Lock body scroll for the duration of the animation */
+    document.body.style.overflow = 'hidden';
+
     /* Create canvas — sits above overlay (z 9999 vs overlay's 9998) */
     var cvs = document.createElement('canvas');
     cvs.setAttribute('aria-hidden', 'true');
@@ -23,6 +26,7 @@
     var ctx = cvs.getContext('2d');
 
     function setSize() {
+      /* Use innerWidth/innerHeight so mobile browser chrome is excluded */
       cvs.width  = window.innerWidth;
       cvs.height = window.innerHeight;
     }
@@ -60,7 +64,7 @@
     /* Draw petal shape (bezier oval) */
     var PETAL_COLORS = [
       '#E8387A','#F27BA5','#C82060','#B83268',
-      '#0E5032','#1A7A4A','#FAF9F7'
+      '#0E5032','#1A7A4A','#D4A0C0'
     ];
 
     function drawPetal(x, y, w, h, rot, color, alpha) {
@@ -86,12 +90,12 @@
       ctx.translate(cx, cy);
       ctx.rotate(rot);
       if (glowAmt > 0) {
-        ctx.globalAlpha = Math.min(1, alpha * 0.5);
+        ctx.globalAlpha = Math.min(1, alpha * 0.35);
         ctx.shadowColor = '#E8387A';
-        ctx.shadowBlur  = 65 * glowAmt;
+        ctx.shadowBlur  = 44 * glowAmt;
         ctx.drawImage(logo, -size/2, -size/2, size, size);
-        ctx.globalAlpha = Math.min(1, alpha * 0.75);
-        ctx.shadowBlur  = 22 * glowAmt;
+        ctx.globalAlpha = Math.min(1, alpha * 0.65);
+        ctx.shadowBlur  = 16 * glowAmt;
         ctx.drawImage(logo, -size/2, -size/2, size, size);
       }
       ctx.globalAlpha = Math.min(1, alpha);
@@ -167,9 +171,9 @@
 
       ctx.clearRect(0, 0, W, H);
 
-      /* Canvas owns its own black background during logo phases */
+      /* Canvas owns its own background during logo phases */
       if (phase === 'fadein' || phase === 'glow') {
-        ctx.fillStyle = '#000';
+        ctx.fillStyle = '#FAF9F7';
         ctx.fillRect(0, 0, W, H);
       }
 
@@ -229,6 +233,7 @@
           setTimeout(function () {
             cvs.remove();
             window.removeEventListener('resize', setSize);
+            document.body.style.overflow = '';
             try { sessionStorage.setItem('pp-intro-v2', '1'); } catch (e) {}
           }, 380);
           return;

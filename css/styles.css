@@ -246,7 +246,7 @@ ul, ol { list-style: none; }
 /* Cinematic petal-explosion intro — canvas-driven, JS-controlled */
 #intro-overlay {
   position: fixed; inset: 0; z-index: 9998;
-  background: #000;
+  background: #FAF9F7;
   pointer-events: none;
 }
 #intro-overlay.io-gone { display: none; }
