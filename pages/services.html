@@ -1,433 +1,713 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="../images/logo.png" />
-  <title>Services | Pink Petals Facility Solutions</title>
-  <meta name="description" content="Comprehensive commercial cleaning and facility services: Commercial Cleaning, Janitorial, Green Cleaning, Disinfection, Floor Care, Day Porter, Post-Construction, and more." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services — Pink Petals Facility Solutions</title>
+  <meta name="description" content="Pink Petals Facility Solutions offers six specialized commercial cleaning services: Commercial Janitorial, Healthcare Cleaning, Post-Construction Cleanup, Day Porter Services, Move-In/Move-Out Cleaning, and 24/7 Emergency Cleaning.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/logo.png" type="image/png">
+
   <style>
-    .service-detail {
-      padding: 80px 0;
-      border-bottom: 1px solid var(--gray-200);
+    /* ── SERVICES PAGE — page-specific styles ────────────────────── */
+
+    /* ── Service sections ─────────────────────────────────────────── */
+    .svc-section {
+      padding: 96px 0;
     }
-    .service-detail:nth-child(even) { background: var(--off-white); }
-    .service-detail-grid {
+    .svc-section--even {
+      background: #fafafa;
+    }
+
+    /* Two-column layout — desktop */
+    .svc-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 56px;
+      gap: clamp(40px, 5vw, 80px);
       align-items: center;
     }
-    .service-detail:nth-child(even) .service-detail-grid { direction: rtl; }
-    .service-detail:nth-child(even) .service-detail-content { direction: ltr; }
-    .service-detail-content h2 { margin-bottom: 16px; }
-    .service-detail-content p { color: var(--gray-600); margin-bottom: 24px; }
-    .service-includes { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
-    .service-include {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 0.9rem; color: var(--gray-700); font-weight: 500;
+
+    /* ── Visual block ─────────────────────────────────────────────── */
+    .svc-visual {
+      border-radius: 16px;
+      overflow: hidden;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
     }
-    .service-include svg { color: var(--green); flex-shrink: 0; }
-    .service-visual {
-      background: linear-gradient(135deg, var(--dark), #1a3022);
-      border-radius: var(--radius-lg);
-      padding: 48px 40px;
-      color: white;
-      direction: ltr;
+
+    .svc-icon-wrap {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.80);
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
     }
-    .service-visual h3 { color: white; margin-bottom: 12px; }
-    .service-visual p { color: rgba(255,255,255,0.65); font-size:0.9rem; margin-bottom:20px; }
-    .service-stat { display: flex; align-items: center; gap: 16px; padding: 14px; background: rgba(255,255,255,0.06); border-radius: 8px; border:1px solid rgba(255,255,255,0.08); margin-bottom:10px; }
-    .service-stat-num { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; color:var(--pink); min-width:60px; }
-    .service-stat-label { font-size:0.82rem; color:rgba(255,255,255,0.65); }
-    @media(max-width:768px) {
-      .service-detail-grid { grid-template-columns: 1fr; }
-      .service-detail:nth-child(even) .service-detail-grid { direction: ltr; }
+
+    /* Subtle radial glow behind icon */
+    .svc-icon-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -32px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ── Content block ────────────────────────────────────────────── */
+    .svc-num {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: #E8387A;
+      margin-bottom: 14px;
+    }
+
+    .svc-h2 {
+      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #111116;
+      margin-bottom: 20px;
+    }
+
+    .svc-desc {
+      font-size: 1rem;
+      line-height: 1.72;
+      color: #76767E;
+      margin-bottom: 28px;
+      max-width: 52ch;
+    }
+
+    .svc-includes-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #3A3A42;
+      margin-bottom: 14px;
+    }
+
+    .svc-bullets {
+      list-style: none;
+      margin: 0 0 32px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .svc-bullet {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9375rem;
+      color: #3A3A42;
+      line-height: 1.5;
+    }
+
+    .svc-bullet-check {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: #0E5032;
+    }
+
+    .svc-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      background: #0E5032;
+      color: #FAF9F7;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.18s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+    .svc-cta:hover {
+      background: #093D25;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(14, 80, 50, 0.22);
+    }
+    .svc-cta svg {
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+    .svc-cta:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* ── Mobile — stack vertically, visual always on top ─────────── */
+    @media (max-width: 860px) {
+      .svc-section {
+        padding: 64px 0;
+      }
+      .svc-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+      }
+      /* Even sections: visual is second in DOM — bring it first on mobile */
+      .svc-section--even .svc-visual {
+        order: -1;
+      }
+      .svc-visual {
+        min-height: 240px;
+        border-radius: 12px;
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="topbar">
-    <div class="container">
-      <div class="topbar__inner">
-        <div class="topbar__left">
-          <div class="topbar__chip">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            Eco-Friendly Products
-          </div>
-          <div class="topbar__chip">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-            Background-Checked Staff
-          </div>
-          <div class="topbar__chip">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Fully Insured &amp; Bonded
-          </div>
-        </div>
-        <div class="topbar__right">
-          <a href="tel:2192858345" class="topbar__phone">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.39 2 2 0 0 1 3.59 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            (219) 285-8345
-          </a>
-          <a href="contact.html" class="topbar__cta">Request a Quote</a>
-        </div>
-      </div>
-    </div>
+
+<!-- ══════════════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════════════ -->
+<header class="nav" id="site-nav">
+  <div class="nav-inner">
+
+    <a href="../index.html" class="nav-logo" aria-label="Pink Petals Facility Solutions — Home">
+      <img src="../images/logo.png" alt="Pink Petals Facility Solutions" class="nav-logo-img"
+           onerror="this.style.display='none'">
+    </a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="../index.html" class="nav-link">Home
+        <svg class="nav-link-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+      </a>
+      <a href="services.html" class="nav-link" aria-current="page">Services
+        <svg class="nav-link-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+      </a>
+      <a href="../government.html" class="nav-link">Government
+        <svg class="nav-link-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+      </a>
+      <a href="../index.html#contact" class="nav-link">Contact
+        <svg class="nav-link-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+      </a>
+    </nav>
+
+    <a href="../index.html#contact" class="nav-cta">Request a Quote</a>
+
+    <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
   </div>
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="container">
-      <div class="nav__inner">
-        <a href="../index.html" class="nav__logo" aria-label="Pink Petals Facility Solutions home">
-          <img src="../images/logo.png" alt="Pink Petals Facility Solutions" class="nav__logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-          <div class="nav__logo-mark" style="display:none">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div class="nav__logo-text">
-            <span class="nav__brand">Pink Petals</span>
-            <span class="nav__sub">Facility Solutions</span>
-          </div>
-        </a>
-        <ul class="nav__links" role="list">
-          <li><a href="../index.html" class="nav__link">Home</a></li>
-          <li><a href="about.html" class="nav__link">About</a></li>
-          <li><a href="services.html" class="nav__link">Services</a></li>
-          <li><a href="industries.html" class="nav__link">Industries</a></li>
-          <li><a href="../government.html" class="nav__link">Government</a></li>
-          <li><a href="contact.html" class="nav__link">Contact</a></li>
-        </ul>
-        <div class="nav__cta">
-          <a href="contact.html" class="btn btn-primary" style="padding:11px 24px;font-size:.82rem;min-height:44px;">Get a Quote</a>
-        </div>
-        <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-top">
+    <img src="../images/logo.png" class="drawer-logo"
+         alt="Pink Petals" onerror="this.style.display='none'">
+    <button class="drawer-x" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <nav class="drawer-nav" aria-label="Mobile navigation">
+    <a href="../index.html"         class="drawer-link">Home</a>
+    <a href="services.html"         class="drawer-link" aria-current="page">Services</a>
+    <a href="../government.html"    class="drawer-link">Government</a>
+    <a href="../index.html#contact" class="drawer-link">Contact</a>
   </nav>
-  <div class="nav__drawer-overlay" role="presentation"></div>
-  <div class="nav__drawer" role="dialog" aria-label="Navigation menu">
-    <button class="nav__drawer-close" aria-label="Close menu">&times;</button>
-    <div class="nav__drawer-links">
-      <a href="../index.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Home</a>
-      <a href="about.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About Us</a>
-      <a href="services.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/></svg>Services</a>
-      <a href="industries.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/></svg>Industries</a>
-      <a href="eco-friendly.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>Why Eco-Friendly</a>
-      <a href="../government.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>Government</a>
-      <a href="contact.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>Contact</a>
-    </div>
-    <div class="nav__drawer-cta">
-      <a href="contact.html" class="btn btn-primary" style="justify-content:center;">Request a Quote</a>
-      <a href="tel:2192858345" class="btn btn-outline-green" style="justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.39 2 2 0 0 1 3.59 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(219) 285-8345</a>
+  <div class="drawer-foot">
+    <a href="../index.html#contact" class="drawer-btn">Request a Quote</a>
+    <a href="tel:2192858345" class="drawer-tel">(219) 285-8345</a>
+  </div>
+</div>
+<div class="drawer-scrim" id="drawer-scrim"></div>
+
+
+<!-- ══════════════════════════════════════════════════
+     PAGE HERO — emerald background via .government
+══════════════════════════════════════════════════ -->
+<section class="government" aria-labelledby="services-hero-h1">
+  <div class="wrap">
+    <div class="gov-top">
+
+      <span class="gov-eyebrow">Our Services</span>
+
+      <h1 class="gov-h2" id="services-hero-h1">
+        Six Ways We <em>Serve You</em>
+      </h1>
+
+      <p class="gov-lead">
+        From daily office cleaning programs to 24/7 emergency response — every service
+        is delivered with the same standard of excellence, fully insured and
+        inspection-ready.
+      </p>
+
     </div>
   </div>
+</section>
 
-  <!-- Page Hero -->
-  <div class="page-hero">
-    <div class="container">
-      <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><span>Services</span></div>
-      <div class="section-label">What We Offer</div>
-      <h1>Comprehensive Facility Services</h1>
-      <p>Eight specialized services designed to keep your building clean, healthy, and well-maintained — every day.</p>
-    </div>
-  </div>
 
-  <!-- Commercial Cleaning -->
-  <div class="service-detail" id="commercial">
-    <div class="container">
-      <div class="service-detail-grid">
-        <div class="service-detail-content fade-in">
-          <div class="section-label">Service 01</div>
-          <h2 class="section-title">Commercial <span>Cleaning</span></h2>
-          <p>Our commercial cleaning service provides thorough, reliable cleaning tailored to your business needs. Whether daily, weekly, or custom-scheduled, we ensure your workspace is consistently clean, professional, and welcoming.</p>
-          <div class="service-includes">
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Office, lobby, and conference room cleaning</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Dusting, vacuuming, and hard floor care</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Kitchen and breakroom sanitation</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Window sill and surface disinfection</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Customizable frequency and scope</div>
-          </div>
-          <a href="contact.html" class="btn btn-primary">Get a Quote</a>
-        </div>
-        <div class="service-visual fade-in fade-in-delay-2">
-          <h3>Trusted for Commercial Spaces</h3>
-          <p>We service offices, retail locations, and multi-tenant properties across Northwest Indiana and Chicagoland.</p>
-          <div class="service-stat"><div class="service-stat-num">100%</div><div class="service-stat-label">Eco-friendly cleaning products used in every job</div></div>
-          <div class="service-stat"><div class="service-stat-num">24/7</div><div class="service-stat-label">Flexible scheduling — before, during, or after business hours</div></div>
-          <div class="service-stat"><div class="service-stat-num">✓</div><div class="service-stat-label">Fully insured, bonded, and background-checked team</div></div>
+<!-- ══════════════════════════════════════════════════
+     01 — COMMERCIAL JANITORIAL
+     Odd: visual left · content right
+══════════════════════════════════════════════════ -->
+<section class="svc-section svc-section--odd" id="commercial-janitorial">
+  <div class="wrap">
+    <div class="svc-layout">
+
+      <!-- Visual -->
+      <div class="svc-visual svc-bg-1" aria-hidden="true">
+        <div class="svc-icon-wrap">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <line x1="2" y1="8" x2="22" y2="8"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
         </div>
       </div>
+
+      <!-- Content -->
+      <div class="svc-content" data-reveal="up">
+        <span class="svc-num">01</span>
+        <h2 class="svc-h2">Commercial Janitorial</h2>
+        <p class="svc-desc">Daily and custom cleaning programs for offices, lobbies, conference rooms, and restrooms — designed around your schedule and delivered with the consistency your business demands. We use eco-friendly, non-toxic products that keep occupants healthy without compromising cleaning performance.</p>
+        <p class="svc-includes-label">What's included</p>
+        <ul class="svc-bullets">
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Office, lobby, and conference room cleaning
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Restroom sanitation and consumable restocking
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Dusting, vacuuming, and hard floor maintenance
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Kitchen and breakroom cleaning and sanitation
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Flexible daily, weekly, or custom-frequency scheduling
+          </li>
+        </ul>
+        <a href="../index.html#contact" class="svc-cta">
+          Get a Quote &rarr;
+        </a>
+      </div>
+
     </div>
   </div>
+</section>
 
-  <!-- Janitorial Services -->
-  <div class="service-detail" id="janitorial">
-    <div class="container">
-      <div class="service-detail-grid">
-        <div class="service-detail-content fade-in">
-          <div class="section-label">Service 02</div>
-          <h2 class="section-title">Janitorial <span>Services</span></h2>
-          <p>Day-to-day janitorial operations keep your building running smoothly. Our trained janitors handle the routine tasks that create a consistently clean and organized environment for employees and visitors alike.</p>
-          <div class="service-includes">
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Restroom cleaning and sanitization</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Trash and recycling removal</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Supply restocking (paper, soap, etc.)</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>General area upkeep and tidying</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Elevator and common area maintenance</div>
-          </div>
-          <a href="contact.html" class="btn btn-primary">Get a Quote</a>
-        </div>
-        <div class="service-visual fade-in fade-in-delay-2">
-          <h3>Consistent Daily Operations</h3>
-          <p>Our janitorial programs are designed to create a clean, healthy baseline every single day your facility operates.</p>
-          <div class="service-stat"><div class="service-stat-num">Daily</div><div class="service-stat-label">Service options available for high-traffic facilities</div></div>
-          <div class="service-stat"><div class="service-stat-num">✓</div><div class="service-stat-label">Restrooms meeting OSHA-recommended cleanliness standards</div></div>
-          <div class="service-stat"><div class="service-stat-num">✓</div><div class="service-stat-label">Inspection-ready logs maintained for every visit</div></div>
+
+<!-- ══════════════════════════════════════════════════
+     02 — HEALTHCARE CLEANING
+     Even: content left · visual right
+══════════════════════════════════════════════════ -->
+<section class="svc-section svc-section--even" id="healthcare-cleaning">
+  <div class="wrap">
+    <div class="svc-layout">
+
+      <!-- Content (left on desktop) -->
+      <div class="svc-content" data-reveal="up">
+        <span class="svc-num">02</span>
+        <h2 class="svc-h2">Healthcare Cleaning</h2>
+        <p class="svc-desc">Hospital-grade disinfection protocols for clinical environments, patient rooms, surgical prep areas, and high-touch surfaces. Our trained teams follow strict infection control procedures that meet HIPAA-compliant cleanliness standards and support the safe delivery of patient care at every level.</p>
+        <p class="svc-includes-label">What's included</p>
+        <ul class="svc-bullets">
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Patient room terminal cleaning and disinfection
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            EPA-registered, hospital-grade disinfectants throughout
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Infection control protocols for isolation areas
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Waiting rooms, common areas, and corridor cleaning
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Documented service logs maintained for compliance records
+          </li>
+        </ul>
+        <a href="../index.html#contact" class="svc-cta">
+          Get a Quote &rarr;
+        </a>
+      </div>
+
+      <!-- Visual (right on desktop, top on mobile via CSS order) -->
+      <div class="svc-visual svc-bg-2" aria-hidden="true">
+        <div class="svc-icon-wrap">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5 4.5-1.35 8-6.25 8-11.5V6L12 2z"/>
+            <line x1="12" y1="8" x2="12" y2="16"/>
+            <line x1="8" y1="12" x2="16" y2="12"/>
+          </svg>
         </div>
       </div>
+
     </div>
   </div>
+</section>
 
-  <!-- Green Cleaning -->
-  <div class="service-detail" id="green">
-    <div class="container">
-      <div class="service-detail-grid">
-        <div class="service-detail-content fade-in">
-          <div class="section-label">Service 03</div>
-          <h2 class="section-title">Green Cleaning <span>Programs</span></h2>
-          <p>Our Green Cleaning Programs use non-toxic, biodegradable, and environmentally responsible products that protect both people and the planet — without sacrificing cleaning effectiveness.</p>
-          <div class="service-includes">
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>EPA-registered and Green Seal-compatible products</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Microfiber technology for reduced chemical use</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>LEED and sustainability program compatible</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Improved indoor air quality documentation</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Reduced allergens and chemical irritants</div>
-          </div>
-          <a href="contact.html" class="btn btn-primary">Get a Quote</a>
-        </div>
-        <div class="service-visual fade-in fade-in-delay-2">
-          <h3>Better for People &amp; Planet</h3>
-          <p>Green cleaning isn't just the right thing to do — it creates measurably healthier spaces for your employees and visitors.</p>
-          <div class="service-stat"><div class="service-stat-num">40%</div><div class="service-stat-label">Fewer sick days in facilities using green cleaning programs</div></div>
-          <div class="service-stat"><div class="service-stat-num">60%</div><div class="service-stat-label">Lower VOC exposure vs. conventional cleaning products</div></div>
-          <div class="service-stat"><div class="service-stat-num">Zero</div><div class="service-stat-label">Harsh chemicals — all products are non-toxic and biodegradable</div></div>
+
+<!-- ══════════════════════════════════════════════════
+     03 — POST-CONSTRUCTION CLEANUP
+     Odd: visual left · content right
+══════════════════════════════════════════════════ -->
+<section class="svc-section svc-section--odd" id="post-construction">
+  <div class="wrap">
+    <div class="svc-layout">
+
+      <!-- Visual -->
+      <div class="svc-visual svc-bg-5" aria-hidden="true">
+        <div class="svc-icon-wrap">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="2 22 8 16 14 22 22 8"/>
+            <line x1="6" y1="18" x2="10" y2="14"/>
+            <circle cx="19" cy="5" r="2"/>
+            <line x1="17.5" y1="6.5" x2="14" y2="9"/>
+          </svg>
         </div>
       </div>
+
+      <!-- Content -->
+      <div class="svc-content" data-reveal="up">
+        <span class="svc-num">03</span>
+        <h2 class="svc-h2">Post-Construction Cleanup</h2>
+        <p class="svc-desc">Detailed multi-phase cleanup after renovation or new construction — removing debris, dust, adhesive residue, and construction byproducts to make spaces fully inspection-ready and occupancy-safe. We coordinate with contractors and developers to support your project timeline without delays.</p>
+        <p class="svc-includes-label">What's included</p>
+        <ul class="svc-bullets">
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Rough, final, and punch-list touch-up cleaning phases
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Construction dust, debris, and waste removal
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Paint, adhesive, and residue removal from all surfaces
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Window, glass, and fixture detail polishing
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Final inspection walkthrough to confirm space is ready
+          </li>
+        </ul>
+        <a href="../index.html#contact" class="svc-cta">
+          Get a Quote &rarr;
+        </a>
+      </div>
+
     </div>
   </div>
+</section>
 
-  <!-- Disinfection Services -->
-  <div class="service-detail" id="disinfection">
-    <div class="container">
-      <div class="service-detail-grid">
-        <div class="service-detail-content fade-in">
-          <div class="section-label">Service 04</div>
-          <h2 class="section-title">Disinfection <span>Services</span></h2>
-          <p>Our hospital-grade disinfection services target high-touch surfaces and shared spaces to minimize pathogen spread and protect the health of building occupants — especially in healthcare, education, and government facilities.</p>
-          <div class="service-includes">
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>High-touch surface disinfection protocols</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Electrostatic spraying technology available</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>EPA List N approved disinfectants used</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Post-illness and outbreak response cleaning</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Documented service logs provided</div>
-          </div>
-          <a href="contact.html" class="btn btn-primary">Get a Quote</a>
-        </div>
-        <div class="service-visual fade-in fade-in-delay-2">
-          <h3>Hospital-Grade Protection</h3>
-          <p>Protect your people with proven disinfection methods used in the most demanding healthcare and public environments.</p>
-          <div class="service-stat"><div class="service-stat-num">99.9%</div><div class="service-stat-label">Pathogen elimination rate with EPA-registered products</div></div>
-          <div class="service-stat"><div class="service-stat-num">✓</div><div class="service-stat-label">Ideal for healthcare, schools, government, and offices</div></div>
-          <div class="service-stat"><div class="service-stat-num">✓</div><div class="service-stat-label">Recurring or one-time disinfection scheduling available</div></div>
+
+<!-- ══════════════════════════════════════════════════
+     04 — DAY PORTER SERVICES
+     Even: content left · visual right
+══════════════════════════════════════════════════ -->
+<section class="svc-section svc-section--even" id="day-porter">
+  <div class="wrap">
+    <div class="svc-layout">
+
+      <!-- Content (left on desktop) -->
+      <div class="svc-content" data-reveal="up">
+        <span class="svc-num">04</span>
+        <h2 class="svc-h2">Day Porter Services</h2>
+        <p class="svc-desc">A uniformed, on-site attendant providing continuous facility upkeep throughout the business day — performing restroom checks, responding to spills immediately, restocking supplies, and maintaining a consistently clean and professional environment from the moment your doors open to close.</p>
+        <p class="svc-includes-label">What's included</p>
+        <ul class="svc-bullets">
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Continuous lobby and common area upkeep
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Scheduled restroom inspections and supply restocking
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Immediate spill response and cleanup
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Conference room turnover and event support
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Flexible part-time or full-day coverage options
+          </li>
+        </ul>
+        <a href="../index.html#contact" class="svc-cta">
+          Get a Quote &rarr;
+        </a>
+      </div>
+
+      <!-- Visual (right on desktop, top on mobile via CSS order) -->
+      <div class="svc-visual svc-bg-6" aria-hidden="true">
+        <div class="svc-icon-wrap">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="7" r="4"/>
+            <path d="M5.5 21a6.5 6.5 0 0 1 13 0"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
         </div>
       </div>
+
     </div>
   </div>
+</section>
 
-  <!-- Floor Care -->
-  <div class="service-detail" id="floor">
-    <div class="container">
-      <div class="service-detail-grid">
-        <div class="service-detail-content fade-in">
-          <div class="section-label">Service 05</div>
-          <h2 class="section-title">Floor <span>Care</span></h2>
-          <p>Floors are the first thing people notice — and the first to show wear. Our professional floor care services restore and protect all floor types, extending their life and maintaining a polished, professional appearance.</p>
-          <div class="service-includes">
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>VCT stripping and waxing (strip &amp; recoat)</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>High-speed buffing and burnishing</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Tile and grout scrubbing</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Hardwood and laminate care</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Carpet deep-cleaning and extraction</div>
-          </div>
-          <a href="contact.html" class="btn btn-primary">Get a Quote</a>
-        </div>
-        <div class="service-visual fade-in fade-in-delay-2">
-          <h3>Floors That Impress</h3>
-          <p>Professional floor care protects your investment and creates a lasting first impression for every client who walks through your door.</p>
-          <div class="service-stat"><div class="service-stat-num">All</div><div class="service-stat-label">Floor types: VCT, tile, hardwood, laminate, concrete, carpet</div></div>
-          <div class="service-stat"><div class="service-stat-num">✓</div><div class="service-stat-label">Scheduled maintenance programs to protect floor investment</div></div>
-          <div class="service-stat"><div class="service-stat-num">✓</div><div class="service-stat-label">Commercial-grade equipment for superior results</div></div>
+
+<!-- ══════════════════════════════════════════════════
+     05 — MOVE-IN / MOVE-OUT CLEANING
+     Odd: visual left · content right
+══════════════════════════════════════════════════ -->
+<section class="svc-section svc-section--odd" id="move-in-out">
+  <div class="wrap">
+    <div class="svc-layout">
+
+      <!-- Visual -->
+      <div class="svc-visual svc-bg-7" aria-hidden="true">
+        <div class="svc-icon-wrap">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
         </div>
       </div>
+
+      <!-- Content -->
+      <div class="svc-content" data-reveal="up">
+        <span class="svc-num">05</span>
+        <h2 class="svc-h2">Move-In / Move-Out Cleaning</h2>
+        <p class="svc-desc">Deep cleaning for vacant units, new tenants, and property turnover — covering appliances, cabinets, bathrooms, floors, and everything in between. We help property managers and landlords minimize turnaround time between occupants while ensuring every space meets true move-in-ready standards.</p>
+        <p class="svc-includes-label">What's included</p>
+        <ul class="svc-bullets">
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Full deep clean of all rooms, walls, and surfaces
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Interior appliance cleaning — oven, fridge, dishwasher
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Cabinet and drawer interiors wiped and sanitized
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Bathroom scrubbing, grout cleaning, and disinfection
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Floor cleaning, baseboard wiping, and window sills
+          </li>
+        </ul>
+        <a href="../index.html#contact" class="svc-cta">
+          Get a Quote &rarr;
+        </a>
+      </div>
+
     </div>
   </div>
+</section>
 
-  <!-- Facility Support -->
-  <div class="service-detail" id="facility">
-    <div class="container">
-      <div class="service-detail-grid">
-        <div class="service-detail-content fade-in">
-          <div class="section-label">Service 06</div>
-          <h2 class="section-title">Facility <span>Support</span></h2>
-          <p>Beyond cleaning, we offer comprehensive facility support services to help property and facility managers maintain safe, functional, and well-managed buildings — serving as a true facilities partner.</p>
-          <div class="service-includes">
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Light maintenance coordination</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Property walkthroughs and inspections</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Vendor coordination support</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Emergency response and on-call availability</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Consumable supply management</div>
-          </div>
-          <a href="contact.html" class="btn btn-primary">Get a Quote</a>
-        </div>
-        <div class="service-visual fade-in fade-in-delay-2">
-          <h3>Your Facilities Partner</h3>
-          <p>We become an extension of your facilities team — proactively managing building needs so you can focus on running your business.</p>
-          <div class="service-stat"><div class="service-stat-num">One</div><div class="service-stat-label">Point of contact for all your facility maintenance needs</div></div>
-          <div class="service-stat"><div class="service-stat-num">✓</div><div class="service-stat-label">Tailored support programs for any facility type or size</div></div>
-          <div class="service-stat"><div class="service-stat-num">✓</div><div class="service-stat-label">Transparent reporting and service documentation</div></div>
+
+<!-- ══════════════════════════════════════════════════
+     06 — EMERGENCY CLEANING
+     Even: content left · visual right
+══════════════════════════════════════════════════ -->
+<section class="svc-section svc-section--even" id="emergency-cleaning">
+  <div class="wrap">
+    <div class="svc-layout">
+
+      <!-- Content (left on desktop) -->
+      <div class="svc-content" data-reveal="up">
+        <span class="svc-num">06</span>
+        <h2 class="svc-h2">Emergency Cleaning</h2>
+        <p class="svc-desc">Rapid 24/7 response to biohazards, flood cleanup, sewage incidents, and unplanned facility events. When an emergency strikes, our trained crews deploy fast with the right equipment and protocols to remediate the situation thoroughly and restore your facility to safe, operational condition — fast.</p>
+        <p class="svc-includes-label">What's included</p>
+        <ul class="svc-bullets">
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            24/7 on-call response — any day, any hour
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Biohazard cleanup and proper containment and disposal
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Flood and water damage surface remediation
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Sewage spill cleanup and full area disinfection
+          </li>
+          <li class="svc-bullet">
+            <svg class="svc-bullet-check" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><polyline points="2 8.5 5.5 12 14 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Fast deployment with thorough remediation documentation
+          </li>
+        </ul>
+        <a href="../index.html#contact" class="svc-cta">
+          Get a Quote &rarr;
+        </a>
+      </div>
+
+      <!-- Visual (right on desktop, top on mobile via CSS order) -->
+      <div class="svc-visual svc-bg-8" aria-hidden="true">
+        <div class="svc-icon-wrap">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
         </div>
       </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════ -->
+<footer class="footer">
+
+  <div class="ft-cta">
+    <div class="wrap">
+      <h2 class="ft-cta-h2">
+        <span class="l1">Ready for a Cleaner,</span>
+        <em class="l2">Healthier Facility?</em>
+      </h2>
+      <p class="ft-cta-sub">Get a free quote within 24 hours — no commitment required.</p>
+      <a href="../index.html#contact" class="ft-cta-btn">
+        Request a Quote
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
 
-  <!-- Day Porter -->
-  <div class="service-detail" id="dayporter">
-    <div class="container">
-      <div class="service-detail-grid">
-        <div class="service-detail-content fade-in">
-          <div class="section-label">Service 07</div>
-          <h2 class="section-title">Day Porter <span>Services</span></h2>
-          <p>Our Day Porter program places a dedicated professional on-site during your business hours to provide continuous, real-time cleaning and facility support — keeping your space guest-ready all day long.</p>
-          <div class="service-includes">
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Continuous lobby and common area maintenance</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Restroom checks and restocking throughout the day</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Spill response and immediate cleanup</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Event and conference room setup support</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Professional, uniformed, and discreet service</div>
+  <div class="ft-body">
+    <div class="wrap">
+      <div class="ft-grid">
+
+        <!-- Col 1: Brand -->
+        <div class="ft-brand">
+          <div class="ft-logo">
+            <img src="../images/logo.png" alt="Pink Petals Facility Solutions" class="ft-logo-img" onerror="this.style.display='none'">
           </div>
-          <a href="contact.html" class="btn btn-primary">Get a Quote</a>
-        </div>
-        <div class="service-visual fade-in fade-in-delay-2">
-          <h3>Always Presentation-Ready</h3>
-          <p>Ideal for high-traffic buildings, medical offices, hotels, and government facilities that need consistent daytime cleanliness.</p>
-          <div class="service-stat"><div class="service-stat-num">On-Site</div><div class="service-stat-label">Dedicated professional available during your business hours</div></div>
-          <div class="service-stat"><div class="service-stat-num">✓</div><div class="service-stat-label">Part-time or full-day coverage based on your needs</div></div>
-          <div class="service-stat"><div class="service-stat-num">✓</div><div class="service-stat-label">Uniformed, professional, and background-checked porters</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Post-Construction -->
-  <div class="service-detail" id="postconstruction">
-    <div class="container">
-      <div class="service-detail-grid">
-        <div class="service-detail-content fade-in">
-          <div class="section-label">Service 08</div>
-          <h2 class="section-title">Post-Construction <span>Cleaning</span></h2>
-          <p>Newly constructed or renovated spaces require specialized deep cleaning before they're occupancy-ready. Our post-construction cleaning teams remove dust, debris, adhesive residue, and construction byproducts — safely and efficiently.</p>
-          <div class="service-includes">
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Construction dust and debris removal</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Window, glass, and mirror cleaning</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Adhesive, paint, and residue removal</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Deep sanitization of all surfaces</div>
-            <div class="service-include"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Final inspection and punch-list ready</div>
+          <div class="ft-certs">
+            <span class="ft-cert">Women-Owned</span>
+            <span class="ft-cert">Minority-Owned</span>
           </div>
-          <a href="contact.html" class="btn btn-primary">Get a Quote</a>
-        </div>
-        <div class="service-visual fade-in fade-in-delay-2">
-          <h3>Ready for Occupancy</h3>
-          <p>We partner with contractors, developers, and property managers to deliver move-in-ready spaces that impress from day one.</p>
-          <div class="service-stat"><div class="service-stat-num">3-Phase</div><div class="service-stat-label">Rough, final, and touch-up cleaning phases available</div></div>
-          <div class="service-stat"><div class="service-stat-num">✓</div><div class="service-stat-label">Residential, commercial, and government construction projects</div></div>
-          <div class="service-stat"><div class="service-stat-num">✓</div><div class="service-stat-label">Fast turnaround to support your construction timeline</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <div class="cta-banner">
-    <div class="container">
-      <h2>Not Sure Which Service You Need?</h2>
-      <p>Contact us for a free consultation. We'll assess your facility and recommend the right cleaning program.</p>
-      <div class="cta-buttons">
-        <a href="contact.html" class="btn" style="background:white;color:var(--pink);font-weight:700;">Contact Us Today</a>
-        <a href="tel:2192858345" class="btn btn-outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.39 2 2 0 0 1 3.59 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(219) 285-8345</a>
-      </div>
-    </div>
-  </div>
-
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="../index.html" class="nav__logo" style="margin-bottom:4px;">
-            <img src="../images/logo.png" alt="Pink Petals Facility Solutions" class="nav__logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-            <div class="nav__logo-mark" style="display:none;width:40px;height:40px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <div class="nav__logo-text"><span class="nav__brand">Pink Petals</span><span class="nav__sub">Facility Solutions</span></div>
-          </a>
-          <p class="footer-tagline">Healthy Buildings. Cleaner Air. Better Environments.</p>
-          <p>Premium eco-friendly commercial cleaning and facility services across Northwest Indiana and Chicagoland.</p>
-          <div class="footer-social">
-            <a href="#" class="social-icon" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-            <a href="#" class="social-icon" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
-            <a href="#" class="social-icon" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <div class="ft-gov-ids">
+            <div class="ft-id-row">
+              <span class="ft-id-label">CAGE</span>
+              <span class="ft-id-val">21Q93</span>
+            </div>
+          </div>
+          <div class="ft-social">
+            <a href="#" class="ft-soc" aria-label="LinkedIn">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="ft-soc" aria-label="Facebook">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="ft-soc" aria-label="Instagram">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
           </div>
         </div>
-        <div class="footer-col">
-          <h5>Services</h5>
-          <ul class="footer-links">
-            <li><a href="services.html#commercial">Commercial Cleaning</a></li>
-            <li><a href="services.html#janitorial">Janitorial Services</a></li>
-            <li><a href="services.html#green">Green Cleaning</a></li>
-            <li><a href="services.html#disinfection">Disinfection Services</a></li>
-            <li><a href="services.html#floor">Floor Care</a></li>
-            <li><a href="services.html#facility">Facility Support</a></li>
-            <li><a href="services.html#dayporter">Day Porter</a></li>
-            <li><a href="services.html#postconstruction">Post-Construction</a></li>
+
+        <!-- Col 2: Services -->
+        <div class="ft-col">
+          <p class="ft-col-head">Services</p>
+          <ul class="ft-links">
+            <li><a href="services.html#commercial-janitorial">Commercial Janitorial</a></li>
+            <li><a href="services.html#healthcare-cleaning">Healthcare Cleaning</a></li>
+            <li><a href="services.html#post-construction">Post-Construction Cleanup</a></li>
+            <li><a href="services.html#day-porter">Day Porter Services</a></li>
+            <li><a href="services.html#move-in-out">Move-In / Move-Out</a></li>
+            <li><a href="services.html#emergency-cleaning">Emergency Cleaning</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h5>Company</h5>
-          <ul class="footer-links">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="industries.html">Industries</a></li>
-            <li><a href="eco-friendly.html">Why Eco-Friendly</a></li>
+
+        <!-- Col 3: Company -->
+        <div class="ft-col">
+          <p class="ft-col-head">Company</p>
+          <ul class="ft-links">
+            <li><a href="../index.html#why">Why Pink Petals</a></li>
             <li><a href="../government.html">Government Contracting</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="../index.html#contact">Request a Quote</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h5>Contact</h5>
-          <ul class="footer-contact-list">
-            <li class="footer-contact-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.39 2 2 0 0 1 3.59 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:2192858345">(219) 285-8345</a></li>
-            <li class="footer-contact-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:pinkpetalsfacilitysolutions@gmail.com">pinkpetalsfacilitysolutions@gmail.com</a></li>
-            <li class="footer-contact-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>3618 W 80th Ln, Unit 219<br>Merrillville, IN 46410</span></li>
-          </ul>
+
+        <!-- Col 4: Contact -->
+        <div class="ft-col">
+          <p class="ft-col-head">Contact</p>
+          <div class="ft-contact-list">
+            <a href="tel:2192858345" class="ft-contact-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 6 6l1.27-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              (219) 285-8345
+            </a>
+            <a href="mailto:pinkpetalsfacilitysolutions@gmail.com" class="ft-contact-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              pinkpetalsfacilitysolutions@gmail.com
+            </a>
+            <span class="ft-contact-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Merrillville, Indiana
+            </span>
+          </div>
         </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Pink Petals Inc. All rights reserved.</p>
-        <p>CEO &amp; Founder: Brenda O. Koger &nbsp;&middot;&nbsp; Women-Owned Business &nbsp;&middot;&nbsp; Fully Insured</p>
+
       </div>
     </div>
-  </footer>
-  <script src="../js/main.js"></script>
+  </div>
+
+  <div class="ft-bar">
+    <div class="ft-bar-inner">
+      <p class="ft-bar-copy">&copy; 2026 Pink Petals Inc. All rights reserved.</p>
+      <p class="ft-bar-sectors">Commercial &middot; Healthcare &middot; Education &middot; Government &middot; Property Management</p>
+    </div>
+  </div>
+
+</footer>
+
+<script src="../js/main.js"></script>
 </body>
 </html>
