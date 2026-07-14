@@ -521,7 +521,7 @@ ul, ol { list-style: none; }
 .svc-photo-card {
   position: relative; overflow: hidden;
   border-radius: var(--radius-lg);
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/3;
   display: block;
   cursor: pointer;
   box-shadow: var(--shadow-sm);
@@ -575,11 +575,9 @@ ul, ol { list-style: none; }
   font-size: 0.6875rem; font-weight: var(--fw-bold);
   letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--c-pink);
-  opacity: 0; transform: translateY(5px);
   display: block;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin-top: 10px;
 }
-.svc-photo-card:hover .svc-photo-cta { opacity: 1; transform: none; }
 
 /* Service card photo backgrounds */
 .svc-bg-1 { background: #0a2e1a url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&auto=format&fit=crop&q=80') center/cover no-repeat; } /* Commercial Janitorial */
@@ -1055,6 +1053,7 @@ a.ft-contact-item:hover { color: var(--c-white); }
 /* ── 3-column grid modifiers ─────────────────────────────────────── */
 .svc-grid--3 { grid-template-columns: repeat(3, 1fr); }
 .svc-grid--4 { grid-template-columns: repeat(4, 1fr); }
+.svc-grid--3 .svc-photo-content { padding: clamp(14px, 1.8vw, 20px); }
 .ind-grid--3 {
   grid-template-columns: repeat(3, 1fr);
   /* wider cards look better at 4/3 in landscape */
@@ -1096,67 +1095,6 @@ a.ft-contact-item:hover { color: var(--c-white); }
   line-height: 1.6;
 }
 
-/* ── PROFESSIONAL STANDARDS ─────────────────────────────────────── */
-.standards {
-  padding: var(--section-py) 0;
-  background: var(--c-white);
-}
-.standards-inner {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: clamp(48px, 7vw, 96px);
-  align-items: center;
-}
-.standards-eyebrow {
-  display: block;
-  font-size: 0.6875rem; font-weight: var(--fw-semibold);
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--c-pink);
-  margin-bottom: 18px;
-}
-.standards-h2 {
-  font-family: var(--f-display);
-  font-size: clamp(2.25rem, 3.5vw, 3.25rem);
-  font-weight: var(--fw-semibold);
-  line-height: 1.08; letter-spacing: -0.025em;
-  color: var(--c-text);
-  margin-bottom: 16px;
-}
-.standards-h2 em { font-style: italic; font-weight: var(--fw-regular); color: var(--c-text-3); }
-.standards-sub {
-  font-size: 1rem; color: var(--c-text-3);
-  line-height: 1.65;
-}
-.standards-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(12px, 1.6vw, 18px);
-}
-.std-item {
-  padding: clamp(20px, 2.5vw, 28px) clamp(18px, 2vw, 22px);
-  background: var(--c-bg-subtle);
-  border: 1px solid var(--c-border-soft);
-  border-radius: var(--radius-lg);
-  display: flex; flex-direction: column; gap: 5px;
-  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s var(--ease-spring), border-color 0.2s;
-}
-.std-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); border-color: var(--c-emerald-border); }
-.std-icon {
-  width: 38px; height: 38px;
-  border-radius: var(--radius-md);
-  background: var(--c-emerald-subtle);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--c-emerald);
-  margin-bottom: 8px;
-  flex-shrink: 0;
-}
-.std-label {
-  font-size: 0.9375rem; font-weight: var(--fw-semibold);
-  color: var(--c-text); line-height: 1.3;
-}
-.std-desc {
-  font-size: 0.8125rem; color: var(--c-text-3); line-height: 1.5;
-}
 
 /* ── FOOTER CTA subtitle ─────────────────────────────────────────── */
 .ft-cta-h2 { margin-bottom: 14px; }
@@ -1173,23 +1111,17 @@ a.ft-contact-item:hover { color: var(--c-white); }
   .svc-grid--4   { grid-template-columns: repeat(2, 1fr); }
   .ind-grid--3   { grid-template-columns: repeat(2, 1fr); }
   .trust-cards   { grid-template-columns: repeat(2, 1fr); }
-  .standards-inner { grid-template-columns: 1fr; }
 }
 @media (max-width: 860px) {
-  .svc-grid--3      { grid-template-columns: 1fr 1fr; }
   .svc-grid--4      { grid-template-columns: 1fr 1fr; }
   .ind-grid--3      { grid-template-columns: 1fr 1fr; }
   .trust-cards      { grid-template-columns: 1fr 1fr; }
-  .standards-inner  { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
-  .trust-cards      { grid-template-columns: 1fr; }
-  .standards-grid   { grid-template-columns: 1fr; }
-}
-@media (max-width: 480px) {
   .svc-grid--3      { grid-template-columns: 1fr; }
   .svc-grid--4      { grid-template-columns: 1fr; }
   .ind-grid--3      { grid-template-columns: 1fr; }
+  .trust-cards      { grid-template-columns: 1fr; }
 }
 
 /* ════════════════════════════════════════════════════════════════════
