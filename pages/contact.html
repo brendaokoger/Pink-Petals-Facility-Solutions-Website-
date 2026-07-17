@@ -3,357 +3,1043 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us &amp; Request a Free Quote | Pink Petals Facility Solutions</title>
+  <meta name="description" content="Request a free, no-commitment quote from Pink Petals Facility Solutions. Commercial cleaning for offices, healthcare, government &amp; more. Call (219) 285-8345 or complete our quick online form." />
   <link rel="icon" type="image/png" href="../images/logo.png" />
-  <title>Contact Us | Pink Petals Facility Solutions</title>
-  <meta name="description" content="Request a free quote or contact Pink Petals Facility Solutions. Serving Northwest Indiana and Chicagoland. Call (219) 285-8345 or complete our online form." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/styles.css" />
+
+  <style>
+    /* ════════════════════════════════════════════════════════════════
+       CONTACT PAGE — page-specific styles
+       ════════════════════════════════════════════════════════════════ */
+
+    /* ── PAGE HERO ─────────────────────────────────────────────────── */
+    .contact-hero {
+      background: var(--c-emerald);
+      padding: calc(var(--nav-h) + clamp(64px, 9vw, 112px)) 0 clamp(64px, 9vw, 112px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle grid texture */
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg,   rgba(255,255,255,0.028) 0px, rgba(255,255,255,0.028) 1px, transparent 1px, transparent 64px),
+        repeating-linear-gradient(90deg,  rgba(255,255,255,0.028) 0px, rgba(255,255,255,0.028) 1px, transparent 1px, transparent 64px);
+      pointer-events: none;
+    }
+
+    /* Radial glow */
+    .contact-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 30% 60%, rgba(232,56,122,0.10) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .contact-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .contact-hero .eyebrow {
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 20px;
+    }
+
+    .contact-hero-h1 {
+      font-family: var(--f-display);
+      font-size: clamp(2.75rem, 5.5vw, 5rem);
+      font-weight: var(--fw-semibold);
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+      color: var(--c-white);
+      margin-bottom: 22px;
+    }
+
+    .contact-hero-h1 em {
+      font-style: italic;
+      font-weight: var(--fw-light);
+      color: var(--c-pink);
+    }
+
+    .contact-hero-lead {
+      font-size: clamp(1rem, 1.4vw, 1.125rem);
+      line-height: 1.7;
+      color: rgba(255,255,255,0.58);
+      max-width: 560px;
+    }
+
+    /* ── MAIN CONTACT SECTION ───────────────────────────────────────── */
+    .contact-main {
+      padding: clamp(80px, 10vw, 128px) 0;
+      background: var(--c-bg);
+    }
+
+    .contact-main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: clamp(48px, 7vw, 96px);
+      align-items: start;
+    }
+
+    /* ── CONTACT INFO COLUMN ────────────────────────────────────────── */
+    .ci-heading {
+      font-family: var(--f-display);
+      font-size: clamp(1.875rem, 3vw, 2.75rem);
+      font-weight: var(--fw-semibold);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--c-text);
+      margin-bottom: 36px;
+    }
+
+    .ci-heading em {
+      font-style: italic;
+      font-weight: var(--fw-regular);
+      color: var(--c-text-3);
+    }
+
+    .ci-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 40px;
+    }
+
+    .ci-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--c-border-soft);
+    }
+
+    .ci-item:first-child {
+      padding-top: 0;
+    }
+
+    .ci-item:last-child {
+      border-bottom: none;
+    }
+
+    .ci-icon-wrap {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: var(--c-emerald-subtle);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--c-emerald);
+      margin-top: 1px;
+    }
+
+    .ci-text {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .ci-label {
+      font-size: 0.6875rem;
+      font-weight: var(--fw-semibold);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c-text-4);
+    }
+
+    .ci-value {
+      font-size: 1rem;
+      font-weight: var(--fw-medium);
+      color: var(--c-text-2);
+      line-height: 1.5;
+    }
+
+    .ci-value a {
+      color: var(--c-text-2);
+      transition: color 0.2s;
+    }
+
+    .ci-value a:hover {
+      color: var(--c-emerald);
+    }
+
+    .ci-phone-link {
+      font-size: 1.3125rem;
+      font-weight: var(--fw-semibold);
+      color: var(--c-emerald) !important;
+      transition: color 0.2s, opacity 0.2s;
+    }
+
+    .ci-phone-link:hover {
+      opacity: 0.8;
+    }
+
+    .ci-sub {
+      font-size: 0.8125rem;
+      color: var(--c-text-3);
+      margin-top: 3px;
+    }
+
+    /* Government callout */
+    .gov-callout {
+      background: var(--c-emerald-subtle);
+      border-left: 3px solid var(--c-emerald);
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+    }
+
+    .gov-callout-head {
+      font-size: 0.75rem;
+      font-weight: var(--fw-bold);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c-emerald);
+      margin-bottom: 12px;
+    }
+
+    .gov-callout-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(14,80,50,0.08);
+    }
+
+    .gov-callout-row:last-of-type {
+      border-bottom: none;
+    }
+
+    .gov-callout-key {
+      font-size: 0.75rem;
+      font-weight: var(--fw-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--c-text-3);
+    }
+
+    .gov-callout-val {
+      font-family: var(--f-mono, monospace);
+      font-size: 0.9375rem;
+      font-weight: var(--fw-semibold);
+      color: var(--c-emerald);
+      letter-spacing: 0.06em;
+    }
+
+    .gov-callout-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 0.8125rem;
+      font-weight: var(--fw-semibold);
+      color: var(--c-emerald);
+      border-bottom: 1.5px solid rgba(14,80,50,0.22);
+      padding-bottom: 1px;
+      transition: opacity 0.2s, border-color 0.2s;
+    }
+
+    .gov-callout-link:hover {
+      opacity: 0.75;
+      border-color: var(--c-emerald);
+    }
+
+    /* ── FORM CARD ──────────────────────────────────────────────────── */
+    .quote-form-card {
+      background: var(--c-bg);
+      border: 1px solid var(--c-border-soft);
+      border-radius: var(--radius-lg);
+      padding: clamp(32px, 4vw, 52px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .qf-title {
+      font-family: var(--f-display);
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      font-weight: var(--fw-semibold);
+      letter-spacing: -0.02em;
+      color: var(--c-text);
+      margin-bottom: 6px;
+    }
+
+    .qf-sub {
+      font-size: 0.9375rem;
+      color: var(--c-text-3);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    /* Form layout */
+    .qf-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .qf-field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 16px;
+    }
+
+    .qf-row .qf-field {
+      margin-bottom: 0;
+    }
+
+    .qf-row-wrap {
+      margin-bottom: 16px;
+    }
+
+    .qf-label {
+      font-size: 0.8125rem;
+      font-weight: var(--fw-medium);
+      color: var(--c-text-2);
+    }
+
+    .qf-req {
+      color: var(--c-pink);
+      margin-left: 2px;
+    }
+
+    .qf-input,
+    .qf-select,
+    .qf-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: var(--f-sans);
+      font-size: 0.9375rem;
+      color: var(--c-text);
+      background: var(--c-bg);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius-md);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .qf-input::placeholder,
+    .qf-textarea::placeholder {
+      color: var(--c-text-4);
+    }
+
+    .qf-input:focus,
+    .qf-select:focus,
+    .qf-textarea:focus {
+      outline: 2px solid var(--c-pink);
+      outline-offset: 2px;
+      border-color: transparent;
+    }
+
+    /* Custom select arrow */
+    .qf-select-wrap {
+      position: relative;
+    }
+
+    .qf-select-wrap::after {
+      content: '';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid var(--c-text-3);
+      pointer-events: none;
+    }
+
+    .qf-select {
+      padding-right: 36px;
+      cursor: pointer;
+      background-image: none;
+    }
+
+    .qf-textarea {
+      resize: vertical;
+      min-height: 130px;
+      line-height: 1.6;
+    }
+
+    .qf-optional {
+      font-size: 0.75rem;
+      color: var(--c-text-4);
+      font-weight: var(--fw-regular);
+      margin-left: 4px;
+    }
+
+    /* Submit button */
+    .qf-submit {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 24px;
+      background: var(--c-emerald);
+      color: var(--c-white);
+      font-family: var(--f-sans);
+      font-size: 1rem;
+      font-weight: var(--fw-semibold);
+      letter-spacing: 0.02em;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      margin-top: 6px;
+    }
+
+    .qf-submit:hover {
+      background: var(--c-emerald-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(14,80,50,0.22);
+    }
+
+    .qf-submit:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .qf-submit svg {
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .qf-submit:hover svg {
+      transform: translateX(3px);
+    }
+
+    .qf-privacy {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--c-text-4);
+      line-height: 1.5;
+    }
+
+    /* ── PROCESS STEPS ──────────────────────────────────────────────── */
+    .process {
+      padding: clamp(80px, 10vw, 120px) 0;
+      background: var(--c-bg-alt);
+    }
+
+    .process-head {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto clamp(52px, 7vw, 72px);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(16px, 2.5vw, 28px);
+      position: relative;
+    }
+
+    /* Connector line between steps */
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(12.5% + 24px);
+      right: calc(12.5% + 24px);
+      height: 1px;
+      background: linear-gradient(to right, var(--c-border-soft), var(--c-border), var(--c-border-soft));
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .process-step {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: clamp(28px, 3.5vw, 40px) clamp(16px, 2vw, 24px) clamp(28px, 3.5vw, 40px);
+      background: var(--c-bg);
+      border: 1px solid var(--c-border-soft);
+      border-radius: var(--radius-lg);
+      transition: transform 0.30s var(--ease-spring), box-shadow 0.30s var(--ease-spring);
+    }
+
+    .process-step:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .process-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--c-emerald);
+      color: var(--c-white);
+      font-family: var(--f-display);
+      font-size: 1.5rem;
+      font-weight: var(--fw-semibold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(14,80,50,0.22);
+    }
+
+    .process-step-title {
+      font-family: var(--f-display);
+      font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+      font-weight: var(--fw-semibold);
+      color: var(--c-text);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .process-step-desc {
+      font-size: 0.9rem;
+      color: var(--c-text-3);
+      line-height: 1.6;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────────────── */
+
+    /* Tablet — stack contact info / form */
+    @media (max-width: 1024px) {
+      .contact-main-grid {
+        grid-template-columns: 1fr;
+        gap: clamp(48px, 6vw, 64px);
+      }
+
+      /* On mobile/tablet, form comes first per spec */
+      .contact-info-col  { order: 2; }
+      .contact-form-col  { order: 1; }
+
+      .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-steps::before {
+        display: none;
+      }
+    }
+
+    /* Narrow form — 2-col row → 1-col */
+    @media (max-width: 640px) {
+      .qf-row {
+        grid-template-columns: 1fr;
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .quote-form-card {
+        padding: 28px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── REDUCED MOTION ────────────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .process-step,
+      .qf-submit,
+      .gov-callout-link,
+      .ci-phone-link {
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <div class="topbar">
-    <div class="container">
-      <div class="topbar__inner">
-        <div class="topbar__left">
-          <div class="topbar__chip">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            Eco-Friendly Products
-          </div>
-          <div class="topbar__chip">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-            Background-Checked Staff
-          </div>
-          <div class="topbar__chip">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Fully Insured &amp; Bonded
-          </div>
-        </div>
-        <div class="topbar__right">
-          <a href="tel:2192858345" class="topbar__phone">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.39 2 2 0 0 1 3.59 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            (219) 285-8345
-          </a>
-          <a href="contact.html" class="topbar__cta">Request a Quote</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="container">
-      <div class="nav__inner">
-        <a href="../index.html" class="nav__logo" aria-label="Pink Petals Facility Solutions home">
-          <img src="../images/logo.png" alt="Pink Petals Facility Solutions" class="nav__logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-          <div class="nav__logo-mark" style="display:none">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div class="nav__logo-text">
-            <span class="nav__brand">Pink Petals</span>
-            <span class="nav__sub">Facility Solutions</span>
-          </div>
+  <!-- ═══════════════════════════════════════════════════════════════
+       NAVIGATION (verbatim)
+       ═══════════════════════════════════════════════════════════════ -->
+  <header class="nav" id="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="Pink Petals Facility Solutions — Home">
+        <img src="../images/logo.png" alt="Pink Petals Facility Solutions" class="nav-logo-img" onerror="this.style.display='none'">
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="../index.html" class="nav-link">Home
+          <svg class="nav-link-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
         </a>
-        <ul class="nav__links" role="list">
-          <li><a href="../index.html" class="nav__link">Home</a></li>
-          <li><a href="about.html" class="nav__link">About</a></li>
-          <li><a href="services.html" class="nav__link">Services</a></li>
-          <li><a href="industries.html" class="nav__link">Industries</a></li>
-          <li><a href="../government.html" class="nav__link">Government</a></li>
-          <li><a href="contact.html" class="nav__link">Contact</a></li>
-        </ul>
-        <div class="nav__cta">
-          <a href="contact.html" class="btn btn-primary" style="padding:11px 24px;font-size:.82rem;min-height:44px;">Get a Quote</a>
-        </div>
-        <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+        <a href="services.html" class="nav-link">Services
+          <svg class="nav-link-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+        </a>
+        <a href="../government.html" class="nav-link">Government
+          <svg class="nav-link-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+        </a>
+        <a href="contact.html" class="nav-link" aria-current="page">Contact
+          <svg class="nav-link-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+        </a>
+      </nav>
+      <a href="contact.html" class="nav-cta">Request a Quote</a>
+      <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </nav>
-  <div class="nav__drawer-overlay" role="presentation"></div>
-  <div class="nav__drawer" role="dialog" aria-label="Navigation menu">
-    <button class="nav__drawer-close" aria-label="Close menu">&times;</button>
-    <div class="nav__drawer-links">
-      <a href="../index.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Home</a>
-      <a href="about.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About Us</a>
-      <a href="services.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/></svg>Services</a>
-      <a href="industries.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/></svg>Industries</a>
-      <a href="eco-friendly.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>Why Eco-Friendly</a>
-      <a href="../government.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>Government</a>
-      <a href="contact.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>Contact</a>
+  </header>
+
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-top">
+      <img src="../images/logo.png" alt="Pink Petals" class="drawer-logo" onerror="this.style.display='none'">
+      <button class="drawer-x" aria-label="Close menu">&#x2715;</button>
     </div>
-    <div class="nav__drawer-cta">
-      <a href="contact.html" class="btn btn-primary" style="justify-content:center;">Request a Quote</a>
-      <a href="tel:2192858345" class="btn btn-outline-green" style="justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.39 2 2 0 0 1 3.59 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(219) 285-8345</a>
+    <nav class="drawer-nav" aria-label="Mobile navigation">
+      <a href="../index.html"      class="drawer-link">Home</a>
+      <a href="services.html"      class="drawer-link">Services</a>
+      <a href="../government.html" class="drawer-link">Government</a>
+      <a href="contact.html"       class="drawer-link" aria-current="page">Contact</a>
+    </nav>
+    <div class="drawer-foot">
+      <a href="contact.html" class="drawer-btn">Request a Quote</a>
+      <a href="tel:2192858345" class="drawer-tel">(219) 285-8345</a>
     </div>
   </div>
+  <div class="drawer-scrim" id="drawer-scrim"></div>
 
-  <!-- Page Hero -->
-  <div class="page-hero">
-    <div class="container">
-      <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><span>Contact</span></div>
-      <div class="section-label">Get in Touch</div>
-      <h1>Request a Free Quote</h1>
-      <p>Tell us about your facility and we'll get back to you within 24 hours with a tailored service proposal.</p>
-    </div>
-  </div>
-
-  <!-- Contact Section -->
-  <section class="section">
-    <div class="container">
-      <div class="contact-grid">
-        <!-- Contact Info -->
-        <div class="contact-info fade-in">
-          <div class="section-label">Contact Information</div>
-          <h2 class="section-title">Let's Talk About <span>Your Facility</span></h2>
-          <p>Whether you need a one-time deep clean or an ongoing facility maintenance program, we're here to help. Reach out and we'll put together a custom solution for you.</p>
-          <div class="contact-details">
-            <div class="contact-detail">
-              <div class="contact-detail-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.39 2 2 0 0 1 3.59 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </div>
-              <div>
-                <div class="contact-detail-label">Phone</div>
-                <div class="contact-detail-value"><a href="tel:2192858345">(219) 285-8345</a></div>
-              </div>
-            </div>
-            <div class="contact-detail">
-              <div class="contact-detail-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </div>
-              <div>
-                <div class="contact-detail-label">Email</div>
-                <div class="contact-detail-value"><a href="mailto:pinkpetalsfacilitysolutions@gmail.com">pinkpetalsfacilitysolutions@gmail.com</a></div>
-              </div>
-            </div>
-            <div class="contact-detail">
-              <div class="contact-detail-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <div>
-                <div class="contact-detail-label">Address</div>
-                <div class="contact-detail-value">3618 W 80th Ln, Unit 219<br>Merrillville, IN 46410</div>
-              </div>
-            </div>
-            <div class="contact-detail">
-              <div class="contact-detail-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-              </div>
-              <div>
-                <div class="contact-detail-label">Service Area</div>
-                <div class="contact-detail-value">Northwest Indiana &amp; Chicagoland</div>
-              </div>
-            </div>
-            <div class="contact-detail">
-              <div class="contact-detail-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              </div>
-              <div>
-                <div class="contact-detail-label">Business Hours</div>
-                <div class="contact-detail-value">Mon – Fri: 8:00 AM – 6:00 PM<br><span style="font-size:0.85rem;color:var(--gray-600);">After-hours service available</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Contact Form -->
-        <div class="contact-form-card fade-in fade-in-delay-2">
-          <h3 class="form-title">Request a Free Quote</h3>
-          <p class="form-subtitle">Fill out the form below and we'll respond within 24 hours with a custom quote for your facility.</p>
-          <form id="contact-form" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="first-name">First Name *</label>
-                <input type="text" id="first-name" name="first_name" placeholder="Jane" required />
-              </div>
-              <div class="form-group">
-                <label for="last-name">Last Name *</label>
-                <input type="text" id="last-name" name="last_name" placeholder="Smith" required />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="company">Company / Organization</label>
-              <input type="text" id="company" name="company" placeholder="ABC Corporation" />
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" id="email" name="email" placeholder="jane@company.com" required />
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="service">Service Interested In *</label>
-              <select id="service" name="service" required>
-                <option value="" disabled selected>Select a service...</option>
-                <option>Commercial Cleaning</option>
-                <option>Janitorial Services</option>
-                <option>Green Cleaning Programs</option>
-                <option>Disinfection Services</option>
-                <option>Floor Care</option>
-                <option>Facility Support</option>
-                <option>Day Porter Services</option>
-                <option>Post-Construction Cleaning</option>
-                <option>Multiple Services / Not Sure</option>
-                <option>Government Contract Inquiry</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="facility-type">Facility Type</label>
-                <select id="facility-type" name="facility_type">
-                  <option value="" disabled selected>Select type...</option>
-                  <option>Office Building</option>
-                  <option>Healthcare / Medical</option>
-                  <option>School / Education</option>
-                  <option>Retail Space</option>
-                  <option>Government / Municipal</option>
-                  <option>Industrial / Warehouse</option>
-                  <option>Property Management</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="frequency">Cleaning Frequency</label>
-                <select id="frequency" name="frequency">
-                  <option value="" disabled selected>Select frequency...</option>
-                  <option>Daily</option>
-                  <option>Weekly</option>
-                  <option>Bi-Weekly</option>
-                  <option>Monthly</option>
-                  <option>One-Time</option>
-                  <option>Custom Schedule</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="facility-size">Approximate Facility Size (sq ft)</label>
-              <input type="text" id="facility-size" name="facility_size" placeholder="e.g., 5,000 sq ft" />
-            </div>
-            <div class="form-group">
-              <label for="message">Tell Us About Your Needs</label>
-              <textarea id="message" name="message" placeholder="Describe your facility, specific cleaning needs, any concerns, or questions you have..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:16px;">
-              Send Message
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            </button>
-            <p style="margin-top:14px;font-size:0.8rem;color:var(--gray-400);text-align:center;">We respect your privacy and will never share your information.</p>
-          </form>
-        </div>
+  <!-- ═══════════════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="contact-hero" aria-labelledby="hero-h1">
+    <div class="wrap">
+      <div class="contact-hero-inner" data-reveal="up">
+        <p class="eyebrow" aria-hidden="true">Get in Touch</p>
+        <h1 class="contact-hero-h1" id="hero-h1">
+          Request a <em>Free Quote</em>
+        </h1>
+        <p class="contact-hero-lead">
+          Tell us about your facility and we'll respond within 24 hours with a customized proposal — no commitment required.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Why Contact Us -->
-  <section class="section section-bg">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">What to Expect</div>
-        <h2 class="section-title">Our <span>Response Process</span></h2>
-        <div class="section-divider"></div>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;" class="fade-in">
-        <div style="text-align:center;padding:32px 24px;">
-          <div style="width:64px;height:64px;background:var(--pink-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--pink);">1</div>
-          <h4 style="font-family:'Playfair Display',serif;margin-bottom:10px;">You Contact Us</h4>
-          <p style="font-size:0.88rem;color:var(--gray-600);">Submit the form, call us, or email. We're ready to hear about your facility's needs.</p>
+  <!-- ═══════════════════════════════════════════════════════════════
+       MAIN — CONTACT INFO + FORM
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="contact-main" aria-label="Contact information and quote request form">
+    <div class="wrap">
+      <div class="contact-main-grid">
+
+        <!-- ── Contact info (right-ordered to second on mobile) ──── -->
+        <div class="contact-info-col" data-reveal="up" data-delay="80">
+
+          <h2 class="ci-heading">How to <em>Reach Us</em></h2>
+
+          <ul class="ci-list" role="list">
+
+            <!-- Phone -->
+            <li class="ci-item">
+              <div class="ci-icon-wrap" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 6 6l1.27-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div class="ci-text">
+                <span class="ci-label">Phone</span>
+                <a href="tel:2192858345" class="ci-value ci-phone-link" aria-label="Call Pink Petals at (219) 285-8345">(219) 285-8345</a>
+                <span class="ci-sub">Mon – Fri, 8 AM – 6 PM</span>
+              </div>
+            </li>
+
+            <!-- Email -->
+            <li class="ci-item">
+              <div class="ci-icon-wrap" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+              </div>
+              <div class="ci-text">
+                <span class="ci-label">Email</span>
+                <a href="mailto:pinkpetalsfacilitysolutions@gmail.com" class="ci-value" aria-label="Email Pink Petals">pinkpetalsfacilitysolutions@gmail.com</a>
+              </div>
+            </li>
+
+            <!-- Address -->
+            <li class="ci-item">
+              <div class="ci-icon-wrap" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div class="ci-text">
+                <span class="ci-label">Address</span>
+                <span class="ci-value">
+                  3618 W 80th Ln, Unit 219<br>
+                  Merrillville, IN 46410
+                </span>
+              </div>
+            </li>
+
+            <!-- Hours -->
+            <li class="ci-item">
+              <div class="ci-icon-wrap" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div class="ci-text">
+                <span class="ci-label">Business Hours</span>
+                <span class="ci-value">Monday – Friday, 8:00 AM – 6:00 PM</span>
+                <span class="ci-sub">After-hours emergency service available 24/7</span>
+              </div>
+            </li>
+
+          </ul>
+
+          <!-- Government callout -->
+          <div class="gov-callout" role="complementary" aria-label="Government contracting information">
+            <p class="gov-callout-head">Government Contracting Inquiries</p>
+            <div class="gov-callout-row">
+              <span class="gov-callout-key">CAGE Code</span>
+              <span class="gov-callout-val">21Q93</span>
+            </div>
+            <a href="../government.html" class="gov-callout-link" aria-label="Learn more about our government contracting capabilities">
+              View contracting credentials
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+            </a>
+          </div>
+
         </div>
-        <div style="text-align:center;padding:32px 24px;">
-          <div style="width:64px;height:64px;background:var(--pink-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--pink);">2</div>
-          <h4 style="font-family:'Playfair Display',serif;margin-bottom:10px;">Free Consultation</h4>
-          <p style="font-size:0.88rem;color:var(--gray-600);">We discuss your needs, tour your facility if needed, and assess what service program fits best.</p>
+
+        <!-- ── Quote form (first on mobile) ───────────────────────── -->
+        <div class="contact-form-col" data-reveal="up" data-delay="160">
+          <div class="quote-form-card">
+            <h2 class="qf-title">Request a Free Quote</h2>
+            <p class="qf-sub">Complete the form below and a member of our team will respond within 24 hours with a custom proposal tailored to your facility.</p>
+
+            <form id="quote-form" novalidate aria-label="Quote request form">
+
+              <!-- First & Last Name -->
+              <div class="qf-row-wrap">
+                <div class="qf-row">
+                  <div class="qf-field">
+                    <label for="first-name" class="qf-label">First Name<span class="qf-req" aria-hidden="true">*</span></label>
+                    <input
+                      type="text"
+                      id="first-name"
+                      name="first_name"
+                      class="qf-input"
+                      placeholder="Jane"
+                      autocomplete="given-name"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                  <div class="qf-field">
+                    <label for="last-name" class="qf-label">Last Name<span class="qf-req" aria-hidden="true">*</span></label>
+                    <input
+                      type="text"
+                      id="last-name"
+                      name="last_name"
+                      class="qf-input"
+                      placeholder="Smith"
+                      autocomplete="family-name"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Company -->
+              <div class="qf-field">
+                <label for="company" class="qf-label">Company / Organization Name<span class="qf-req" aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  class="qf-input"
+                  placeholder="ABC Corporation or City of Merrillville"
+                  autocomplete="organization"
+                  required
+                  aria-required="true"
+                />
+              </div>
+
+              <!-- Email & Phone -->
+              <div class="qf-row-wrap">
+                <div class="qf-row">
+                  <div class="qf-field">
+                    <label for="email" class="qf-label">Email Address<span class="qf-req" aria-hidden="true">*</span></label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="qf-input"
+                      placeholder="jane@yourcompany.com"
+                      autocomplete="email"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                  <div class="qf-field">
+                    <label for="phone" class="qf-label">Phone Number<span class="qf-req" aria-hidden="true">*</span></label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      class="qf-input"
+                      placeholder="(555) 000-0000"
+                      autocomplete="tel"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Service Needed -->
+              <div class="qf-field">
+                <label for="service-needed" class="qf-label">Service Needed<span class="qf-req" aria-hidden="true">*</span></label>
+                <div class="qf-select-wrap">
+                  <select
+                    id="service-needed"
+                    name="service_needed"
+                    class="qf-select"
+                    required
+                    aria-required="true"
+                  >
+                    <option value="" disabled selected>Select a service…</option>
+                    <option value="commercial-janitorial">Commercial Janitorial</option>
+                    <option value="healthcare-cleaning">Healthcare Cleaning</option>
+                    <option value="post-construction">Post-Construction Cleanup</option>
+                    <option value="day-porter">Day Porter Services</option>
+                    <option value="move-in-out">Move-In / Move-Out Cleaning</option>
+                    <option value="emergency-cleaning">Emergency Cleaning</option>
+                    <option value="government-inquiry">Government Contract Inquiry</option>
+                    <option value="multiple-services">Multiple Services</option>
+                    <option value="consultation">Not Sure / Consultation</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Facility Type -->
+              <div class="qf-field">
+                <label for="facility-type" class="qf-label">Facility Type<span class="qf-req" aria-hidden="true">*</span></label>
+                <div class="qf-select-wrap">
+                  <select
+                    id="facility-type"
+                    name="facility_type"
+                    class="qf-select"
+                    required
+                    aria-required="true"
+                  >
+                    <option value="" disabled selected>Select your facility type…</option>
+                    <option value="office-building">Office Building</option>
+                    <option value="healthcare-medical">Healthcare / Medical</option>
+                    <option value="educational">Educational Institution</option>
+                    <option value="government-municipal">Government / Municipal</option>
+                    <option value="retail-commercial">Retail / Commercial</option>
+                    <option value="property-management">Property Management</option>
+                    <option value="industrial-warehouse">Industrial / Warehouse</option>
+                    <option value="religious">Religious Institution</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Facility Size -->
+              <div class="qf-field">
+                <label for="facility-size" class="qf-label">
+                  Facility Size
+                  <span class="qf-optional">(optional)</span>
+                </label>
+                <div class="qf-select-wrap">
+                  <select
+                    id="facility-size"
+                    name="facility_size"
+                    class="qf-select"
+                    aria-describedby="facility-size-hint"
+                  >
+                    <option value="" selected>Select approximate square footage…</option>
+                    <option value="under-5k">Under 5,000 sq ft</option>
+                    <option value="5k-20k">5,000 – 20,000 sq ft</option>
+                    <option value="20k-50k">20,000 – 50,000 sq ft</option>
+                    <option value="over-50k">Over 50,000 sq ft</option>
+                  </select>
+                </div>
+                <span id="facility-size-hint" style="font-size:0.75rem;color:var(--c-text-4);margin-top:4px;">Helps us prepare a more accurate initial estimate.</span>
+              </div>
+
+              <!-- Message -->
+              <div class="qf-field">
+                <label for="message" class="qf-label">
+                  Message / Additional Details
+                  <span class="qf-optional">(optional)</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="qf-textarea"
+                  rows="5"
+                  placeholder="Tell us about your facility, cleaning frequency, any special requirements, or questions you have. The more detail you share, the faster we can tailor a proposal for you."
+                  aria-label="Additional details about your facility and cleaning needs"
+                ></textarea>
+              </div>
+
+              <!-- Submit -->
+              <button type="submit" class="qf-submit" aria-label="Submit quote request form">
+                <span class="submit-label">Send My Request</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </button>
+
+              <p class="qf-privacy">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:inline;vertical-align:middle;margin-right:4px;opacity:.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Your information is kept private and will never be shared or sold.
+              </p>
+
+            </form>
+          </div>
         </div>
-        <div style="text-align:center;padding:32px 24px;">
-          <div style="width:64px;height:64px;background:var(--pink-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--pink);">3</div>
-          <h4 style="font-family:'Playfair Display',serif;margin-bottom:10px;">Custom Quote</h4>
-          <p style="font-size:0.88rem;color:var(--gray-600);">You receive a detailed, transparent quote tailored to your facility's size, needs, and schedule.</p>
-        </div>
-        <div style="text-align:center;padding:32px 24px;">
-          <div style="width:64px;height:64px;background:var(--pink-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--pink);">4</div>
-          <h4 style="font-family:'Playfair Display',serif;margin-bottom:10px;">Service Begins</h4>
-          <p style="font-size:0.88rem;color:var(--gray-600);">Once agreed, we schedule your first clean and put your facility on our regular service calendar.</p>
-        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <div class="cta-banner">
-    <div class="container">
-      <h2>Prefer to Call Us Directly?</h2>
-      <p>Our team is ready to help. Call us Monday–Friday, 8 AM–6 PM, or leave a message anytime.</p>
-      <div class="cta-buttons">
-        <a href="tel:2192858345" class="btn" style="background:white;color:var(--pink);font-weight:700;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.39 2 2 0 0 1 3.59 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          (219) 285-8345
-        </a>
-        <a href="mailto:pinkpetalsfacilitysolutions@gmail.com" class="btn btn-outline">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Email Us
-        </a>
+  <!-- ═══════════════════════════════════════════════════════════════
+       PROCESS STEPS
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="process" aria-labelledby="process-heading">
+    <div class="wrap">
+
+      <div class="process-head" data-reveal="up">
+        <p class="eyebrow" aria-hidden="true">What Happens Next</p>
+        <h2 class="section-h2" id="process-heading">From First Contact to <em>Service Day</em></h2>
+        <p class="section-sub">We make the process simple and transparent from start to finish.</p>
+      </div>
+
+      <div class="process-steps" role="list">
+
+        <div class="process-step" role="listitem" data-reveal="up" data-delay="0">
+          <div class="process-num" aria-hidden="true">1</div>
+          <h3 class="process-step-title">You Reach Out</h3>
+          <p class="process-step-desc">Submit this form or give us a call. We're ready to hear about your facility's needs and answer any initial questions.</p>
+        </div>
+
+        <div class="process-step" role="listitem" data-reveal="up" data-delay="100">
+          <div class="process-num" aria-hidden="true">2</div>
+          <h3 class="process-step-title">Free Consultation</h3>
+          <p class="process-step-desc">We assess your facility, discuss your schedule and priorities, and identify exactly the right service program for your space.</p>
+        </div>
+
+        <div class="process-step" role="listitem" data-reveal="up" data-delay="200">
+          <div class="process-num" aria-hidden="true">3</div>
+          <h3 class="process-step-title">Custom Proposal</h3>
+          <p class="process-step-desc">You receive a detailed scope of work and transparent, itemized pricing — no hidden fees, no vague estimates.</p>
+        </div>
+
+        <div class="process-step" role="listitem" data-reveal="up" data-delay="300">
+          <div class="process-num" aria-hidden="true">4</div>
+          <h3 class="process-step-title">Service Begins</h3>
+          <p class="process-step-desc">Our team arrives prepared, uniformed, and on time. Your facility is in experienced, professional hands from day one.</p>
+        </div>
+
       </div>
     </div>
-  </div>
+  </section>
 
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="../index.html" class="nav__logo" style="margin-bottom:4px;">
-            <img src="../images/logo.png" alt="Pink Petals Facility Solutions" class="nav__logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-            <div class="nav__logo-mark" style="display:none;width:40px;height:40px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <div class="nav__logo-text"><span class="nav__brand">Pink Petals</span><span class="nav__sub">Facility Solutions</span></div>
-          </a>
-          <p class="footer-tagline">Healthy Buildings. Cleaner Air. Better Environments.</p>
-          <p>Premium eco-friendly commercial cleaning and facility services across Northwest Indiana and Chicagoland.</p>
-          <div class="footer-social">
-            <a href="#" class="social-icon" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-            <a href="#" class="social-icon" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
-            <a href="#" class="social-icon" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+  <!-- ═══════════════════════════════════════════════════════════════
+       FOOTER (verbatim)
+       ═══════════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="ft-body">
+      <div class="wrap">
+        <div class="ft-grid">
+          <div class="ft-brand">
+            <div class="ft-logo">
+              <img src="../images/logo.png" alt="Pink Petals Facility Solutions" class="ft-logo-img" onerror="this.style.display='none'">
+            </div>
+            <div class="ft-certs">
+              <span class="ft-cert">Women-Owned</span>
+              <span class="ft-cert">Minority-Owned</span>
+            </div>
+            <div class="ft-gov-ids">
+              <div class="ft-id-row">
+                <span class="ft-id-label">CAGE</span>
+                <span class="ft-id-val">21Q93</span>
+              </div>
+            </div>
+            <div class="ft-social">
+              <a href="#" class="ft-soc" aria-label="LinkedIn"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+              <a href="#" class="ft-soc" aria-label="Facebook"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+              <a href="#" class="ft-soc" aria-label="Instagram"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            </div>
+          </div>
+          <div class="ft-col">
+            <p class="ft-col-head">Services</p>
+            <ul class="ft-links">
+              <li><a href="services.html#commercial-janitorial">Commercial Janitorial</a></li>
+              <li><a href="services.html#healthcare-cleaning">Healthcare Cleaning</a></li>
+              <li><a href="services.html#post-construction">Post-Construction Cleanup</a></li>
+              <li><a href="services.html#day-porter">Day Porter Services</a></li>
+              <li><a href="services.html#move-in-out">Move-In / Move-Out</a></li>
+              <li><a href="services.html#emergency-cleaning">Emergency Cleaning</a></li>
+            </ul>
+          </div>
+          <div class="ft-col">
+            <p class="ft-col-head">Company</p>
+            <ul class="ft-links">
+              <li><a href="../index.html#why">Why Pink Petals</a></li>
+              <li><a href="../government.html">Government Contracting</a></li>
+              <li><a href="contact.html">Request a Quote</a></li>
+            </ul>
+          </div>
+          <div class="ft-col">
+            <p class="ft-col-head">Contact</p>
+            <div class="ft-contact-list">
+              <a href="tel:2192858345" class="ft-contact-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 6 6l1.27-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                (219) 285-8345
+              </a>
+              <a href="mailto:pinkpetalsfacilitysolutions@gmail.com" class="ft-contact-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                pinkpetalsfacilitysolutions@gmail.com
+              </a>
+              <span class="ft-contact-item">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Merrillville, Indiana
+              </span>
+            </div>
           </div>
         </div>
-        <div class="footer-col">
-          <h5>Services</h5>
-          <ul class="footer-links">
-            <li><a href="services.html#commercial">Commercial Cleaning</a></li>
-            <li><a href="services.html#janitorial">Janitorial Services</a></li>
-            <li><a href="services.html#green">Green Cleaning</a></li>
-            <li><a href="services.html#disinfection">Disinfection Services</a></li>
-            <li><a href="services.html#floor">Floor Care</a></li>
-            <li><a href="services.html#facility">Facility Support</a></li>
-            <li><a href="services.html#dayporter">Day Porter</a></li>
-            <li><a href="services.html#postconstruction">Post-Construction</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Company</h5>
-          <ul class="footer-links">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="industries.html">Industries</a></li>
-            <li><a href="eco-friendly.html">Why Eco-Friendly</a></li>
-            <li><a href="../government.html">Government Contracting</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Contact</h5>
-          <ul class="footer-contact-list">
-            <li class="footer-contact-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.39 2 2 0 0 1 3.59 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:2192858345">(219) 285-8345</a></li>
-            <li class="footer-contact-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:pinkpetalsfacilitysolutions@gmail.com">pinkpetalsfacilitysolutions@gmail.com</a></li>
-            <li class="footer-contact-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>3618 W 80th Ln, Unit 219<br>Merrillville, IN 46410</span></li>
-          </ul>
-        </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Pink Petals Inc. All rights reserved.</p>
-        <p>CEO &amp; Founder: Brenda O. Koger &nbsp;&middot;&nbsp; Women-Owned Business &nbsp;&middot;&nbsp; Fully Insured</p>
+    </div>
+    <div class="ft-bar">
+      <div class="ft-bar-inner">
+        <p class="ft-bar-copy">&copy; 2026 Pink Petals Inc. All rights reserved.</p>
+        <p class="ft-bar-sectors">Commercial &middot; Healthcare &middot; Education &middot; Government &middot; Property Management</p>
       </div>
     </div>
   </footer>
+
   <script src="../js/main.js"></script>
 </body>
 </html>

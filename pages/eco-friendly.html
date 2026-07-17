@@ -1,293 +1,727 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="../images/logo.png" />
-  <title>Why Eco-Friendly | Pink Petals Facility Solutions</title>
-  <meta name="description" content="Learn why Pink Petals uses only eco-friendly, non-toxic cleaning products. Better air quality, safer for people, and reduced environmental impact." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco-Friendly Cleaning — Pink Petals Facility Solutions</title>
+  <meta name="description" content="Pink Petals uses EPA-registered, non-toxic cleaning products that eliminate pathogens without leaving harmful residues — safer for your occupants, your building, and the environment.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../images/logo.png" type="image/png">
+
+  <style>
+    /* ── ECO-FRIENDLY PAGE — page-specific styles ──────────────────── */
+
+    /* ── Hero ─────────────────────────────────────────────────────── */
+    .eco-hero {
+      padding-top: var(--nav-h);
+      background: var(--c-emerald);
+      position: relative;
+      overflow: hidden;
+    }
+    /* subtle texture overlay */
+    .eco-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 40%, rgba(255,255,255,0.04) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 90%, rgba(14,80,50,0.6) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .eco-hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: clamp(72px, 9vw, 120px) 0 clamp(80px, 10vw, 128px);
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .eco-hero .eyebrow {
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .eco-hero-h1 {
+      font-family: var(--f-display);
+      font-size: clamp(2.75rem, 5.5vw, 5rem);
+      font-weight: var(--fw-light);
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin-bottom: 28px;
+    }
+    .eco-hero-h1 em {
+      font-style: italic;
+      font-weight: var(--fw-regular);
+      color: rgba(255, 255, 255, 0.72);
+    }
+    .eco-hero-lead {
+      font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
+      line-height: 1.72;
+      color: rgba(255, 255, 255, 0.70);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ── Section common ────────────────────────────────────────────── */
+    .eco-section {
+      padding: var(--section-py) 0;
+    }
+    .eco-section--alt {
+      background: var(--c-bg-alt);
+    }
+
+    /* ── Why It Matters — two-column ───────────────────────────────── */
+    .why-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(48px, 6vw, 88px);
+      align-items: start;
+    }
+    .why-left .eyebrow {
+      display: block;
+      margin-bottom: 16px;
+    }
+    .why-h2 {
+      font-family: var(--f-display);
+      font-size: clamp(2rem, 3vw, 2.875rem);
+      font-weight: var(--fw-semibold);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--c-text);
+      margin-bottom: 22px;
+    }
+    .why-h2 em {
+      font-style: italic;
+      font-weight: var(--fw-regular);
+      color: var(--c-emerald);
+    }
+    .why-desc {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--c-text-2);
+    }
+
+    /* stat tiles */
+    .why-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .stat-tile {
+      background: var(--c-white);
+      border: 1px solid var(--c-border-soft);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 28px 28px 26px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .stat-tile-num {
+      font-family: var(--f-display);
+      font-size: clamp(2.25rem, 4vw, 3rem);
+      font-weight: var(--fw-semibold);
+      line-height: 1;
+      color: var(--c-emerald);
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-width: 72px;
+    }
+    .stat-tile-body {
+      padding-top: 6px;
+    }
+    .stat-tile-desc {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--c-text-2);
+    }
+
+    /* ── Our Approach — 6 cards ─────────────────────────────────────── */
+    .approach-head {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto clamp(48px, 6vw, 72px);
+    }
+    .approach-head .eyebrow {
+      display: block;
+      margin-bottom: 14px;
+    }
+    .approach-h2 {
+      font-family: var(--f-display);
+      font-size: clamp(2rem, 3.2vw, 3rem);
+      font-weight: var(--fw-semibold);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--c-text);
+    }
+    .approach-h2 em {
+      font-style: italic;
+      font-weight: var(--fw-regular);
+      color: var(--c-emerald);
+    }
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .approach-card {
+      background: var(--c-white);
+      border: 1px solid var(--c-border-soft);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 28px 24px;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .approach-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+    .approach-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--c-emerald);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      margin-bottom: 18px;
+      flex-shrink: 0;
+    }
+    .approach-card-h3 {
+      font-family: var(--f-sans);
+      font-size: 0.9375rem;
+      font-weight: var(--fw-semibold);
+      color: var(--c-text);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .approach-card-p {
+      font-size: 0.875rem;
+      line-height: 1.68;
+      color: var(--c-text-2);
+    }
+
+    /* ── Comparison Table ───────────────────────────────────────────── */
+    .table-head {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto clamp(48px, 5vw, 64px);
+    }
+    .table-h2 {
+      font-family: var(--f-display);
+      font-size: clamp(2rem, 3.2vw, 3rem);
+      font-weight: var(--fw-semibold);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--c-text);
+    }
+    .table-h2 em {
+      font-style: italic;
+      font-weight: var(--fw-regular);
+      color: var(--c-emerald);
+    }
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+    .eco-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--c-white);
+      font-size: 0.9375rem;
+      min-width: 560px;
+    }
+    .eco-table thead tr th {
+      padding: 16px 24px;
+      text-align: left;
+      font-size: 0.75rem;
+      font-weight: var(--fw-semibold);
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      background: var(--c-emerald);
+      color: #ffffff;
+    }
+    .eco-table thead tr th:first-child {
+      border-radius: var(--radius-lg) 0 0 0;
+    }
+    .eco-table thead tr th:last-child {
+      border-radius: 0 var(--radius-lg) 0 0;
+    }
+    .eco-table tbody tr td {
+      padding: 15px 24px;
+      border-bottom: 1px solid var(--c-border-soft);
+      color: var(--c-text-2);
+      vertical-align: middle;
+      line-height: 1.55;
+    }
+    .eco-table tbody tr td:first-child {
+      font-weight: var(--fw-semibold);
+      color: var(--c-text);
+    }
+    .eco-table tbody tr:nth-child(even) td {
+      background: var(--c-bg-alt);
+    }
+    .eco-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .eco-table tbody tr:last-child td:first-child {
+      border-radius: 0 0 0 var(--radius-lg);
+    }
+    .eco-table tbody tr:last-child td:last-child {
+      border-radius: 0 0 var(--radius-lg) 0;
+    }
+    .eco-table .cell-green {
+      color: var(--c-emerald);
+      font-weight: var(--fw-medium);
+    }
+    .eco-table .cell-muted {
+      color: var(--c-text-3);
+    }
+
+    /* ── CTA Banner ─────────────────────────────────────────────────── */
+    .eco-cta {
+      background: var(--c-emerald);
+      padding: clamp(72px, 9vw, 108px) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .eco-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 100% at 85% 50%, rgba(255,255,255,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .eco-cta-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .eco-cta-quote {
+      font-family: var(--f-display);
+      font-size: clamp(1.5rem, 2.8vw, 2.375rem);
+      font-weight: var(--fw-light);
+      font-style: italic;
+      line-height: 1.42;
+      color: rgba(255, 255, 255, 0.88);
+      margin-bottom: 36px;
+    }
+    .eco-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 32px;
+      background: #ffffff;
+      color: var(--c-emerald);
+      font-family: var(--f-sans);
+      font-size: 0.8125rem;
+      font-weight: var(--fw-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .eco-cta-btn:hover {
+      background: var(--c-bg-alt);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    }
+    .eco-cta-btn svg {
+      transition: transform 0.2s ease;
+    }
+    .eco-cta-btn:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* ── Responsive ─────────────────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .why-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .approach-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 560px) {
+      .approach-grid {
+        grid-template-columns: 1fr;
+      }
+      .eco-table thead tr th:first-child { border-radius: 0; }
+      .eco-table thead tr th:last-child  { border-radius: 0; }
+    }
+
+    /* ── Mobile nav show ────────────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-burger { display: flex; }
+    }
+  </style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="container">
-      <div class="topbar__inner">
-        <div class="topbar__left">
-          <div class="topbar__chip">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            Eco-Friendly Products
-          </div>
-          <div class="topbar__chip">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-            Background-Checked Staff
-          </div>
-          <div class="topbar__chip">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Fully Insured &amp; Bonded
-          </div>
-        </div>
-        <div class="topbar__right">
-          <a href="tel:2192858345" class="topbar__phone">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.39 2 2 0 0 1 3.59 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            (219) 285-8345
-          </a>
-          <a href="contact.html" class="topbar__cta">Request a Quote</a>
-        </div>
-      </div>
-    </div>
+
+<!-- ══════════════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════════════ -->
+<header class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo" aria-label="Pink Petals Facility Solutions — Home">
+      <img src="../images/logo.png" alt="Pink Petals Facility Solutions" class="nav-logo-img" onerror="this.style.display='none'">
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="../index.html" class="nav-link">Home
+        <svg class="nav-link-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+      </a>
+      <a href="services.html" class="nav-link">Services
+        <svg class="nav-link-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+      </a>
+      <a href="../government.html" class="nav-link">Government
+        <svg class="nav-link-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+      </a>
+      <a href="contact.html" class="nav-link">Contact
+        <svg class="nav-link-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
+      </a>
+    </nav>
+    <a href="contact.html" class="nav-cta">Request a Quote</a>
+    <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="container">
-      <div class="nav__inner">
-        <a href="../index.html" class="nav__logo" aria-label="Pink Petals Facility Solutions home">
-          <img src="../images/logo.png" alt="Pink Petals Facility Solutions" class="nav__logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-          <div class="nav__logo-mark" style="display:none">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div class="nav__logo-text">
-            <span class="nav__brand">Pink Petals</span>
-            <span class="nav__sub">Facility Solutions</span>
-          </div>
-        </a>
-        <ul class="nav__links" role="list">
-          <li><a href="../index.html" class="nav__link">Home</a></li>
-          <li><a href="about.html" class="nav__link">About</a></li>
-          <li><a href="services.html" class="nav__link">Services</a></li>
-          <li><a href="industries.html" class="nav__link">Industries</a></li>
-          <li><a href="../government.html" class="nav__link">Government</a></li>
-          <li><a href="contact.html" class="nav__link">Contact</a></li>
-        </ul>
-        <div class="nav__cta">
-          <a href="contact.html" class="btn btn-primary" style="padding:11px 24px;font-size:.82rem;min-height:44px;">Get a Quote</a>
-        </div>
-        <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
+</header>
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-top">
+    <img src="../images/logo.png" alt="Pink Petals" class="drawer-logo" onerror="this.style.display='none'">
+    <button class="drawer-x" aria-label="Close menu">&#x2715;</button>
+  </div>
+  <nav class="drawer-nav" aria-label="Mobile navigation">
+    <a href="../index.html"      class="drawer-link">Home</a>
+    <a href="services.html"      class="drawer-link">Services</a>
+    <a href="../government.html" class="drawer-link">Government</a>
+    <a href="contact.html"       class="drawer-link">Contact</a>
   </nav>
-  <div class="nav__drawer-overlay" role="presentation"></div>
-  <div class="nav__drawer" role="dialog" aria-label="Navigation menu">
-    <button class="nav__drawer-close" aria-label="Close menu">&times;</button>
-    <div class="nav__drawer-links">
-      <a href="../index.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Home</a>
-      <a href="about.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>About Us</a>
-      <a href="services.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/></svg>Services</a>
-      <a href="industries.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/></svg>Industries</a>
-      <a href="eco-friendly.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>Why Eco-Friendly</a>
-      <a href="../government.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>Government</a>
-      <a href="contact.html" class="nav__drawer-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>Contact</a>
-    </div>
-    <div class="nav__drawer-cta">
-      <a href="contact.html" class="btn btn-primary" style="justify-content:center;">Request a Quote</a>
-      <a href="tel:2192858345" class="btn btn-outline-green" style="justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.39 2 2 0 0 1 3.59 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(219) 285-8345</a>
+  <div class="drawer-foot">
+    <a href="contact.html" class="drawer-btn">Request a Quote</a>
+    <a href="tel:2192858345" class="drawer-tel">(219) 285-8345</a>
+  </div>
+</div>
+<div class="drawer-scrim" id="drawer-scrim"></div>
+
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 1 — HERO
+══════════════════════════════════════════════════ -->
+<section class="eco-hero">
+  <div class="wrap">
+    <div class="eco-hero-inner">
+      <span class="eyebrow" data-reveal="up">Sustainable Cleaning</span>
+      <h1 class="eco-hero-h1" data-reveal="up">
+        Clean Spaces Shouldn't<br><em>Cost the Earth</em>
+      </h1>
+      <p class="eco-hero-lead" data-reveal="up">
+        We use EPA-registered, non-toxic products that eliminate pathogens without leaving harmful residues — safer for your occupants, your building, and the environment.
+      </p>
     </div>
   </div>
+</section>
 
-  <!-- Page Hero -->
-  <div class="page-hero" style="background:linear-gradient(135deg,#0F1A14,#1B5E38);">
-    <div class="container">
-      <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><span>Why Eco-Friendly</span></div>
-      <div class="section-label">Our Green Commitment</div>
-      <h1>Clean Spaces Shouldn't Cost the Earth</h1>
-      <p>At Pink Petals, eco-friendly isn't a marketing term — it's a core operating principle. Every product we use, every method we employ, is chosen with health and sustainability in mind.</p>
-    </div>
-  </div>
 
-  <!-- Why It Matters -->
-  <section class="section section-bg">
-    <div class="container">
-      <div class="eco-grid">
-        <div class="fade-in">
-          <div class="section-label">Why It Matters</div>
-          <h2 class="section-title">The Problem with <span>Conventional Cleaning</span></h2>
-          <p style="color:var(--gray-600);margin:16px 0 24px;">Traditional commercial cleaning products often contain harsh chemicals — ammonia, chlorine bleach, synthetic fragrances, and VOCs — that can cause respiratory irritation, skin reactions, and long-term health problems for building occupants and cleaning staff.</p>
-          <div style="display:flex;flex-direction:column;gap:16px;">
-            <div style="display:flex;align-items:flex-start;gap:16px;padding:20px;background:white;border-radius:8px;border:1px solid var(--gray-200);">
-              <div style="width:44px;height:44px;background:#FFE0E0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#D32F2F;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-              <div><div style="font-weight:600;margin-bottom:4px;">Indoor Air Pollution</div><p style="font-size:0.88rem;color:var(--gray-600);">Conventional cleaners release VOCs that pollute indoor air — often worse than outdoor air pollution in commercial buildings.</p></div>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:16px;padding:20px;background:white;border-radius:8px;border:1px solid var(--gray-200);">
-              <div style="width:44px;height:44px;background:#FFE0E0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#D32F2F;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-              <div><div style="font-weight:600;margin-bottom:4px;">Health Risks to Occupants</div><p style="font-size:0.88rem;color:var(--gray-600);">Chemical residues on surfaces and in the air contribute to headaches, asthma, allergies, and eye/skin irritation.</p></div>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:16px;padding:20px;background:white;border-radius:8px;border:1px solid var(--gray-200);">
-              <div style="width:44px;height:44px;background:#FFE0E0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#D32F2F;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 2v6h6M2.66 15.57a10 10 0 1 0 .57-8.38"/></svg></div>
-              <div><div style="font-weight:600;margin-bottom:4px;">Environmental Damage</div><p style="font-size:0.88rem;color:var(--gray-600);">Harsh chemicals wash into waterways and contribute to ecosystem damage and pollution when products are disposed of.</p></div>
-            </div>
+<!-- ══════════════════════════════════════════════════
+     SECTION 2 — WHY IT MATTERS
+══════════════════════════════════════════════════ -->
+<section class="eco-section" aria-labelledby="why-h2">
+  <div class="wrap">
+    <div class="why-layout">
+
+      <!-- Left: content -->
+      <div class="why-left" data-reveal="up">
+        <span class="eyebrow">The Problem with Conventional Cleaning</span>
+        <h2 class="why-h2" id="why-h2">
+          Toxic Chemicals Have<br><em>Real Consequences</em>
+        </h2>
+        <p class="why-desc">
+          Most commercial cleaning products contain volatile organic compounds (VOCs), harsh disinfectants, and synthetic fragrances that degrade indoor air quality, irritate respiratory systems, and leave chemical residues on surfaces. In healthcare, education, and food-service environments, these compounds pose measurable health risks — particularly for sensitive populations.
+        </p>
+      </div>
+
+      <!-- Right: stat tiles -->
+      <div class="why-stats" data-reveal="up">
+        <div class="stat-tile">
+          <div class="stat-tile-num">30%</div>
+          <div class="stat-tile-body">
+            <p class="stat-tile-desc">Increase in indoor VOC levels from conventional cleaning products</p>
           </div>
         </div>
-        <div class="eco-visual fade-in fade-in-delay-2">
-          <h3>The <em>Pink Petals</em> Solution</h3>
-          <p style="color:rgba(255,255,255,0.65);font-size:0.95rem;margin-bottom:24px;">We replace harmful conventional products with safer, equally effective eco-friendly alternatives at every step of our cleaning process.</p>
-          <div class="eco-stat-list">
-            <div class="eco-stat-item">
-              <div class="eco-stat-num">100%</div>
-              <div class="eco-stat-desc">Non-toxic, biodegradable products used across all our services</div>
-            </div>
-            <div class="eco-stat-item">
-              <div class="eco-stat-num">Zero</div>
-              <div class="eco-stat-desc">Harsh chemical residues left on surfaces or in the air after we clean</div>
-            </div>
-            <div class="eco-stat-item">
-              <div class="eco-stat-num">40%</div>
-              <div class="eco-stat-desc">Average reduction in sick days in buildings using green cleaning programs</div>
-            </div>
-            <div class="eco-stat-item">
-              <div class="eco-stat-num">99.9%</div>
-              <div class="eco-stat-desc">Pathogen elimination rate with our EPA-registered eco-friendly disinfectants</div>
-            </div>
+        <div class="stat-tile">
+          <div class="stat-tile-num">40%</div>
+          <div class="stat-tile-body">
+            <p class="stat-tile-desc">Of sick days attributed to poor indoor air quality (EPA data)</p>
+          </div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-tile-num">99.9%</div>
+          <div class="stat-tile-body">
+            <p class="stat-tile-desc">Pathogen elimination rate with EPA-registered eco-formulas</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Our Approach -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">Our Approach</div>
-        <h2 class="section-title">How We Clean <span>Differently</span></h2>
-        <div class="section-divider"></div>
-        <p>Our green cleaning program is built on three pillars: safer products, smarter methods, and sustainable practices.</p>
-      </div>
-      <div class="values-grid fade-in">
-        <div class="value-card">
-          <div class="value-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
-          <h4>EPA-Registered Products</h4>
-          <p>All disinfectants and cleaning agents are EPA-registered and on the List N for safety and efficacy against pathogens.</p>
-        </div>
-        <div class="value-card">
-          <div class="value-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg></div>
-          <h4>Green Seal Compatible</h4>
-          <p>Our product choices align with Green Seal GS-42 standards, supporting LEED certification for your building.</p>
-        </div>
-        <div class="value-card">
-          <div class="value-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-          <h4>Microfiber Technology</h4>
-          <p>Microfiber cloths and mops remove up to 99% of bacteria using less water and fewer chemicals — cleaner and more efficient.</p>
-        </div>
-        <div class="value-card">
-          <div class="value-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 2v6h6M2.66 15.57a10 10 0 1 0 .57-8.38"/></svg></div>
-          <h4>Reduced Waste</h4>
-          <p>Concentrated formulas, reusable supplies, and responsible disposal practices minimize packaging waste and environmental impact.</p>
-        </div>
-        <div class="value-card">
-          <div class="value-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
-          <h4>Safe for Sensitive Groups</h4>
-          <p>Our products are safe for children, elderly individuals, allergy sufferers, and people with chemical sensitivities.</p>
-        </div>
-        <div class="value-card">
-          <div class="value-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-          <h4>Continuous Improvement</h4>
-          <p>We stay current with new sustainable technologies and regularly evaluate and upgrade our product and method selections.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Benefits Comparison -->
-  <section class="section section-bg">
-    <div class="container">
-      <div class="section-header fade-in">
-        <div class="section-label">The Comparison</div>
-        <h2 class="section-title">Eco-Friendly vs. <span>Conventional Cleaning</span></h2>
-        <div class="section-divider"></div>
-      </div>
-      <div style="overflow-x:auto;" class="fade-in">
-        <table style="width:100%;border-collapse:collapse;background:white;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);">
-          <thead>
-            <tr>
-              <th style="background:var(--dark);color:white;padding:16px 24px;text-align:left;font-size:0.85rem;letter-spacing:0.05em;">Factor</th>
-              <th style="background:var(--green);color:white;padding:16px 24px;text-align:center;font-size:0.85rem;letter-spacing:0.05em;">Pink Petals (Eco-Friendly)</th>
-              <th style="background:var(--gray-600);color:white;padding:16px 24px;text-align:center;font-size:0.85rem;letter-spacing:0.05em;">Conventional Cleaning</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);font-weight:600;">Indoor Air Quality</td><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);text-align:center;color:var(--green);font-weight:600;">Improved ✓</td><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);text-align:center;color:#D32F2F;">Often Worsened ✗</td></tr>
-            <tr style="background:var(--off-white);"><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);font-weight:600;">VOC Exposure</td><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);text-align:center;color:var(--green);font-weight:600;">Minimal ✓</td><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);text-align:center;color:#D32F2F;">High ✗</td></tr>
-            <tr><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);font-weight:600;">Safe for Children &amp; Elderly</td><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);text-align:center;color:var(--green);font-weight:600;">Yes ✓</td><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);text-align:center;color:#D32F2F;">Risk of Irritation ✗</td></tr>
-            <tr style="background:var(--off-white);"><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);font-weight:600;">Environmental Impact</td><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);text-align:center;color:var(--green);font-weight:600;">Biodegradable ✓</td><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);text-align:center;color:#D32F2F;">Harmful Runoff ✗</td></tr>
-            <tr><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);font-weight:600;">Cleaning Effectiveness</td><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);text-align:center;color:var(--green);font-weight:600;">Equal or Better ✓</td><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);text-align:center;">Comparable</td></tr>
-            <tr style="background:var(--off-white);"><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);font-weight:600;">Pathogen Elimination</td><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);text-align:center;color:var(--green);font-weight:600;">99.9% (EPA Listed) ✓</td><td style="padding:16px 24px;border-bottom:1px solid var(--gray-100);text-align:center;">Varies</td></tr>
-            <tr><td style="padding:16px 24px;font-weight:600;">LEED / Sustainability Goals</td><td style="padding:16px 24px;text-align:center;color:var(--green);font-weight:600;">Supports Goals ✓</td><td style="padding:16px 24px;text-align:center;color:#D32F2F;">May Conflict ✗</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <div class="cta-banner" style="background:linear-gradient(135deg,var(--green),#1a5e38);">
-    <div class="container">
-      <h2>Ready to Make Your Building Greener?</h2>
-      <p>Join the businesses choosing eco-friendly cleaning — for healthier spaces and a healthier planet. Request your free quote today.</p>
-      <div class="cta-buttons">
-        <a href="contact.html" class="btn" style="background:white;color:var(--green);font-weight:700;">Request a Free Quote</a>
-        <a href="services.html#green" class="btn btn-outline">Green Cleaning Programs</a>
-      </div>
     </div>
   </div>
+</section>
 
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="../index.html" class="nav__logo" style="margin-bottom:4px;">
-            <img src="../images/logo.png" alt="Pink Petals Facility Solutions" class="nav__logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-            <div class="nav__logo-mark" style="display:none;width:40px;height:40px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <div class="nav__logo-text"><span class="nav__brand">Pink Petals</span><span class="nav__sub">Facility Solutions</span></div>
-          </a>
-          <p class="footer-tagline">Healthy Buildings. Cleaner Air. Better Environments.</p>
-          <p>Premium eco-friendly commercial cleaning and facility services across Northwest Indiana and Chicagoland.</p>
-          <div class="footer-social">
-            <a href="#" class="social-icon" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-            <a href="#" class="social-icon" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
-            <a href="#" class="social-icon" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 3 — OUR APPROACH
+══════════════════════════════════════════════════ -->
+<section class="eco-section eco-section--alt" aria-labelledby="approach-h2">
+  <div class="wrap">
+
+    <header class="approach-head" data-reveal="up">
+      <span class="eyebrow">How We Do It</span>
+      <h2 class="approach-h2" id="approach-h2">
+        Six Practices That<br><em>Make the Difference</em>
+      </h2>
+    </header>
+
+    <div class="approach-grid">
+
+      <div class="approach-card" data-reveal="up">
+        <div class="approach-icon" aria-hidden="true">
+          <!-- Shield check — EPA registered -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <h3 class="approach-card-h3">EPA-Registered Products</h3>
+        <p class="approach-card-p">Every formula we use is registered with the EPA for safety and efficacy. No guesswork. No greenwashing.</p>
+      </div>
+
+      <div class="approach-card" data-reveal="up">
+        <div class="approach-icon" aria-hidden="true">
+          <!-- Leaf / globe — Green Seal -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+        </div>
+        <h3 class="approach-card-h3">Green Seal Compatible</h3>
+        <p class="approach-card-p">Our products are selected to align with Green Seal certification standards for commercial cleaning.</p>
+      </div>
+
+      <div class="approach-card" data-reveal="up">
+        <div class="approach-icon" aria-hidden="true">
+          <!-- Grid / microfiber -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><line x1="7" y1="8" x2="17" y2="8"/><line x1="7" y1="12" x2="17" y2="12"/></svg>
+        </div>
+        <h3 class="approach-card-h3">Microfiber Technology</h3>
+        <p class="approach-card-p">Hospital-grade microfiber removes 99% of surface bacteria using less product and less water than traditional methods.</p>
+      </div>
+
+      <div class="approach-card" data-reveal="up">
+        <div class="approach-icon" aria-hidden="true">
+          <!-- Recycle / waste reduction -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.84"/></svg>
+        </div>
+        <h3 class="approach-card-h3">Reduced Chemical Waste</h3>
+        <p class="approach-card-p">Concentrated formulas and dispensing systems minimize container waste and chemical runoff.</p>
+      </div>
+
+      <div class="approach-card" data-reveal="up">
+        <div class="approach-icon" aria-hidden="true">
+          <!-- Heart / safe for sensitive groups -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3 class="approach-card-h3">Safe for Sensitive Groups</h3>
+        <p class="approach-card-p">All products are free from harsh fragrances, dyes, and allergens — suitable for healthcare, childcare, and senior environments.</p>
+      </div>
+
+      <div class="approach-card" data-reveal="up">
+        <div class="approach-icon" aria-hidden="true">
+          <!-- Trending up — continuous improvement -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3 class="approach-card-h3">Continuous Improvement</h3>
+        <p class="approach-card-p">We regularly evaluate new products, technologies, and protocols to maintain the most current eco-cleaning standards.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 4 — COMPARISON TABLE
+══════════════════════════════════════════════════ -->
+<section class="eco-section" aria-labelledby="table-h2">
+  <div class="wrap">
+
+    <header class="table-head" data-reveal="up">
+      <h2 class="table-h2" id="table-h2">
+        Green Cleaning vs.<br><em>Conventional Methods</em>
+      </h2>
+    </header>
+
+    <div class="table-wrap" data-reveal="up">
+      <table class="eco-table" aria-label="Green cleaning compared to conventional cleaning methods">
+        <thead>
+          <tr>
+            <th scope="col">Feature</th>
+            <th scope="col">Green Cleaning</th>
+            <th scope="col">Conventional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Indoor Air Quality</td>
+            <td class="cell-green">Maintains healthy air quality</td>
+            <td class="cell-muted">Degrades with VOC release</td>
+          </tr>
+          <tr>
+            <td>Surface Residue</td>
+            <td class="cell-green">Non-toxic, residue-free</td>
+            <td class="cell-muted">Chemical residue remains</td>
+          </tr>
+          <tr>
+            <td>Safe for Children &amp; Elderly</td>
+            <td class="cell-green">Yes — hypoallergenic formulas</td>
+            <td class="cell-muted">Potentially harmful</td>
+          </tr>
+          <tr>
+            <td>Pathogen Elimination</td>
+            <td class="cell-green">99.9% (EPA-registered formulas)</td>
+            <td class="cell-muted">Varies by product</td>
+          </tr>
+          <tr>
+            <td>Environmental Impact</td>
+            <td class="cell-green">Biodegradable, low waste</td>
+            <td class="cell-muted">Non-biodegradable, higher waste</td>
+          </tr>
+          <tr>
+            <td>LEED Compatibility</td>
+            <td class="cell-green">Supports LEED certification</td>
+            <td class="cell-muted">Not compatible</td>
+          </tr>
+          <tr>
+            <td>Cleaning Effectiveness</td>
+            <td class="cell-green">Equal or superior</td>
+            <td class="cell-muted">Standard</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     SECTION 5 — CTA BANNER
+══════════════════════════════════════════════════ -->
+<section class="eco-cta" aria-label="Call to action">
+  <div class="wrap">
+    <div class="eco-cta-inner">
+      <p class="eco-cta-quote" data-reveal="up">
+        "Every facility we clean is treated with the same commitment to health, safety, and environmental responsibility."
+      </p>
+      <a href="contact.html" class="eco-cta-btn" data-reveal="up">
+        Request an Eco-Friendly Quote
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="ft-cta">
+    <div class="wrap">
+      <h2 class="ft-cta-h2">
+        <span class="l1">Ready for a Cleaner,</span>
+        <em class="l2">Healthier Facility?</em>
+      </h2>
+      <p class="ft-cta-sub">Get a free quote within 24 hours — no commitment required.</p>
+      <a href="contact.html" class="ft-cta-btn">
+        Request a Quote
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="ft-body">
+    <div class="wrap">
+      <div class="ft-grid">
+        <div class="ft-brand">
+          <div class="ft-logo">
+            <img src="../images/logo.png" alt="Pink Petals Facility Solutions" class="ft-logo-img" onerror="this.style.display='none'">
+          </div>
+          <div class="ft-certs">
+            <span class="ft-cert">Women-Owned</span>
+            <span class="ft-cert">Minority-Owned</span>
+          </div>
+          <div class="ft-gov-ids">
+            <div class="ft-id-row">
+              <span class="ft-id-label">CAGE</span>
+              <span class="ft-id-val">21Q93</span>
+            </div>
+          </div>
+          <div class="ft-social">
+            <a href="#" class="ft-soc" aria-label="LinkedIn"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" class="ft-soc" aria-label="Facebook"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="ft-soc" aria-label="Instagram"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
           </div>
         </div>
-        <div class="footer-col">
-          <h5>Services</h5>
-          <ul class="footer-links">
-            <li><a href="services.html#commercial">Commercial Cleaning</a></li>
-            <li><a href="services.html#janitorial">Janitorial Services</a></li>
-            <li><a href="services.html#green">Green Cleaning</a></li>
-            <li><a href="services.html#disinfection">Disinfection Services</a></li>
-            <li><a href="services.html#floor">Floor Care</a></li>
-            <li><a href="services.html#facility">Facility Support</a></li>
-            <li><a href="services.html#dayporter">Day Porter</a></li>
-            <li><a href="services.html#postconstruction">Post-Construction</a></li>
+        <div class="ft-col">
+          <p class="ft-col-head">Services</p>
+          <ul class="ft-links">
+            <li><a href="services.html#commercial-janitorial">Commercial Janitorial</a></li>
+            <li><a href="services.html#healthcare-cleaning">Healthcare Cleaning</a></li>
+            <li><a href="services.html#post-construction">Post-Construction Cleanup</a></li>
+            <li><a href="services.html#day-porter">Day Porter Services</a></li>
+            <li><a href="services.html#move-in-out">Move-In / Move-Out</a></li>
+            <li><a href="services.html#emergency-cleaning">Emergency Cleaning</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h5>Company</h5>
-          <ul class="footer-links">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="industries.html">Industries</a></li>
-            <li><a href="eco-friendly.html">Why Eco-Friendly</a></li>
+        <div class="ft-col">
+          <p class="ft-col-head">Company</p>
+          <ul class="ft-links">
+            <li><a href="../index.html#why">Why Pink Petals</a></li>
             <li><a href="../government.html">Government Contracting</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html">Request a Quote</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h5>Contact</h5>
-          <ul class="footer-contact-list">
-            <li class="footer-contact-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.39 2 2 0 0 1 3.59 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.92-1.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:2192858345">(219) 285-8345</a></li>
-            <li class="footer-contact-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:pinkpetalsfacilitysolutions@gmail.com">pinkpetalsfacilitysolutions@gmail.com</a></li>
-            <li class="footer-contact-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>3618 W 80th Ln, Unit 219<br>Merrillville, IN 46410</span></li>
-          </ul>
+        <div class="ft-col">
+          <p class="ft-col-head">Contact</p>
+          <div class="ft-contact-list">
+            <a href="tel:2192858345" class="ft-contact-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 6 6l1.27-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              (219) 285-8345
+            </a>
+            <a href="mailto:pinkpetalsfacilitysolutions@gmail.com" class="ft-contact-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              pinkpetalsfacilitysolutions@gmail.com
+            </a>
+            <span class="ft-contact-item">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Merrillville, Indiana
+            </span>
+          </div>
         </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Pink Petals Inc. All rights reserved.</p>
-        <p>CEO &amp; Founder: Brenda O. Koger &nbsp;&middot;&nbsp; Women-Owned Business &nbsp;&middot;&nbsp; Fully Insured</p>
       </div>
     </div>
-  </footer>
-  <script src="../js/main.js"></script>
+  </div>
+  <div class="ft-bar">
+    <div class="ft-bar-inner">
+      <p class="ft-bar-copy">&copy; 2026 Pink Petals Inc. All rights reserved.</p>
+      <p class="ft-bar-sectors">Commercial &middot; Healthcare &middot; Education &middot; Government &middot; Property Management</p>
+    </div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+
 </body>
 </html>

@@ -999,6 +999,7 @@ a.ft-contact-item:hover { color: var(--c-white); }
   .about-feature-grid { grid-template-columns: 1fr; }
   .ft-grid   { grid-template-columns: 1fr; }
   .ft-grid > .ft-brand { grid-column: span 1; }
+  .ft-bar-inner { flex-direction: column; text-align: center; gap: 8px; }
 }
 
 @media (max-width: 420px) {
