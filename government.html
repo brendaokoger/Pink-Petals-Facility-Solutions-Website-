@@ -4,211 +4,929 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Government Contracting — Pink Petals Facility Solutions</title>
-  <meta name="description" content="Pink Petals Facility Solutions — CAGE Code 21Q93. Women-owned facility services company registered for federal, state, and local government cleaning and facility support contracts.">
+  <meta name="description" content="Pink Petals Facility Solutions — CAGE Code 21Q93. Women-owned facility services registered in SAM.gov for federal, state, and local government janitorial and facility support contracts.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css?v=3">
   <link rel="icon" href="images/logo.png" type="image/png">
+
   <style>
-    /* ── Government page additions ── */
+  /* ═══════════════════════════════════════════════════════════
+     PREMIUM GOVERNMENT PAGE — PINK PETALS FACILITY SOLUTIONS
+     ═══════════════════════════════════════════════════════════ */
 
-    /* Label pill */
-    .gov-label-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.20);
-      border-radius: 100px;
-      padding: 6px 20px;
-      font-family: var(--f-sans);
-      font-size: 0.6875rem;
-      font-weight: var(--fw-semibold);
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.78);
-      margin-bottom: 30px;
-    }
+  /* ── Tokens ── */
+  :root {
+    --g-dark:       #0a3820;
+    --g-emerald:    #0E5032;
+    --g-pink:       #E8387A;
+    --g-white:      #FAF9F7;
+    --g-bg:         #F8F9FA;
+    --g-border:     #E5E7EB;
+    --g-text:       #111827;
+    --g-body:       #4B5563;
+    --g-muted:      #9CA3AF;
+    --g-radius:     18px;
+    --g-radius-sm:  10px;
+    --g-shadow:     0 1px 3px rgba(0,0,0,0.05), 0 8px 28px rgba(0,0,0,0.07);
+    --g-shadow-up:  0 4px 14px rgba(0,0,0,0.08), 0 24px 56px rgba(0,0,0,0.11);
+    --g-section:    clamp(96px, 11vw, 136px);
+  }
 
-    /* Hero CTA row */
-    .gov-hero-ctas {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 48px;
-    }
+  /* ══════════════════════════════════════════════
+     HERO — SPLIT LAYOUT
+     ══════════════════════════════════════════════ */
+  .gov-hero {
+    display: flex;
+    min-height: clamp(620px, 92vh, 840px);
+    overflow: hidden;
+    position: relative;
+  }
 
-    .gov-hero-btn-dl {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      background: var(--c-pink);
-      color: #fff;
-      font-family: var(--f-sans);
-      font-size: 0.875rem;
-      font-weight: var(--fw-semibold);
-      padding: 14px 26px;
-      border-radius: var(--radius-md);
-      text-decoration: none;
-      transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
-      box-shadow: 0 4px 22px rgba(232,56,122,0.40);
-      white-space: nowrap;
-    }
-    .gov-hero-btn-dl:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(232,56,122,0.52);
-      filter: brightness(1.06);
-    }
+  /* Left — emerald content panel */
+  .gov-hero-left {
+    flex: 0 0 56%;
+    background: linear-gradient(140deg, #062e1a 0%, var(--g-emerald) 55%, #0d4729 100%);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+  }
 
-    .gov-hero-btn-discuss {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      background: rgba(255,255,255,0.09);
-      color: rgba(255,255,255,0.90);
-      font-family: var(--f-sans);
-      font-size: 0.875rem;
-      font-weight: var(--fw-medium);
-      padding: 14px 26px;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255,255,255,0.24);
-      text-decoration: none;
-      transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
-      backdrop-filter: blur(8px);
-      white-space: nowrap;
-    }
-    .gov-hero-btn-discuss:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.17);
-      border-color: rgba(255,255,255,0.40);
-    }
+  /* subtle grid on left panel */
+  .gov-hero-left::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 44px 44px;
+    pointer-events: none;
+  }
 
-    /* Info bar */
-    .gov-infobar {
-      background: #ffffff;
-      border-bottom: 1px solid var(--c-border-soft);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-      position: relative;
-      z-index: 10;
-    }
+  /* top radial glow */
+  .gov-hero-left::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 50% at 30% -5%, rgba(255,255,255,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
 
-    .gov-infobar-inner {
-      display: flex;
-      align-items: stretch;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+  .gov-hero-content {
+    position: relative;
+    z-index: 3;
+    padding: calc(var(--nav-h) + clamp(56px, 8vw, 88px))
+             clamp(36px, 6vw, 72px)
+             clamp(56px, 8vw, 88px);
+    max-width: 560px;
+  }
 
-    .gov-infobar-card {
-      flex: 1;
-      display: flex;
+  /* Right — photo panel */
+  .gov-hero-right {
+    flex: 0 0 44%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gov-hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  /* emerald feather blending left edge of photo into content */
+  .gov-hero-right::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 120px;
+    background: linear-gradient(to right, var(--g-emerald), transparent);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* dark polish on top and bottom edges */
+  .gov-hero-right::after {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(10,40,24,0.45) 0%, transparent 25%, transparent 75%, rgba(10,40,24,0.35) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Sector label pill */
+  .gov-sector-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 20px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 100px;
+    font-family: var(--f-sans);
+    font-size: 0.6875rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 30px;
+  }
+  .gov-pill-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--g-pink);
+    flex-shrink: 0;
+  }
+
+  /* Hero headline */
+  .gov-h1 {
+    font-family: var(--f-display);
+    font-size: clamp(2.75rem, 5.5vw, 5rem);
+    font-weight: var(--fw-semibold);
+    color: #ffffff;
+    line-height: 1.06;
+    letter-spacing: -0.025em;
+    margin-bottom: 24px;
+  }
+  .gov-h1-em {
+    display: block;
+    font-style: italic;
+    font-weight: var(--fw-light);
+    color: rgba(255,255,255,0.48);
+  }
+
+  /* Hero lead */
+  .gov-hero-p {
+    font-family: var(--f-sans);
+    font-size: clamp(0.9375rem, 1.4vw, 1.0625rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.68);
+    line-height: 1.80;
+    margin-bottom: 44px;
+  }
+
+  /* Hero CTA row */
+  .gov-hero-ctas {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .g-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 15px 28px;
+    background: var(--g-pink);
+    color: #ffffff;
+    font-family: var(--f-sans);
+    font-size: 0.875rem;
+    font-weight: var(--fw-semibold);
+    border-radius: var(--g-radius-sm);
+    text-decoration: none;
+    box-shadow: 0 4px 24px rgba(232,56,122,0.42);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .g-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(232,56,122,0.54);
+    filter: brightness(1.06);
+  }
+
+  .g-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 14px 26px;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.88);
+    font-family: var(--f-sans);
+    font-size: 0.875rem;
+    font-weight: var(--fw-medium);
+    border-radius: var(--g-radius-sm);
+    border: 1px solid rgba(255,255,255,0.24);
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .g-btn-ghost:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.40);
+  }
+
+  /* ══════════════════════════════════════════════
+     CREDENTIALS BAR
+     ══════════════════════════════════════════════ */
+  .gov-creds {
+    background: #ffffff;
+    border-bottom: 1px solid var(--g-border);
+    box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+    position: relative;
+    z-index: 10;
+  }
+
+  .gov-creds-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .gov-cred {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 28px 24px;
+    position: relative;
+    transition: background 0.18s ease;
+  }
+  .gov-cred:hover { background: #FAFAFA; }
+
+  .gov-cred + .gov-cred::before {
+    content: '';
+    position: absolute; left: 0; top: 50%;
+    transform: translateY(-50%);
+    height: 40px; width: 1px;
+    background: var(--g-border);
+  }
+
+  .gov-cred-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: #edfaf3;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--g-emerald);
+    flex-shrink: 0;
+  }
+
+  .gov-cred-text { min-width: 0; }
+
+  .gov-cred-lbl {
+    font-family: var(--f-sans);
+    font-size: 0.625rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--g-muted);
+    margin-bottom: 3px;
+    display: block;
+  }
+
+  .gov-cred-val {
+    font-family: var(--f-sans);
+    font-size: 0.9375rem;
+    font-weight: var(--fw-semibold);
+    color: var(--g-text);
+    display: block;
+    line-height: 1.2;
+  }
+  .gov-cred-val.mono {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    letter-spacing: 0.07em;
+    color: var(--g-emerald);
+  }
+
+  .gov-sam-row { display: inline-flex; align-items: center; gap: 6px; }
+  .gov-sam-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #16a34a;
+    box-shadow: 0 0 0 3px rgba(22,163,74,0.16);
+    flex-shrink: 0;
+    animation: gpulse 2.8s ease-in-out infinite;
+  }
+  @keyframes gpulse {
+    0%,100% { box-shadow: 0 0 0 3px rgba(22,163,74,0.16); }
+    50%      { box-shadow: 0 0 0 6px rgba(22,163,74,0.06); }
+  }
+
+  /* ══════════════════════════════════════════════
+     SHARED SECTION UTILITIES
+     ══════════════════════════════════════════════ */
+  .gsec {
+    padding: var(--g-section) 0;
+  }
+  .gsec-white { background: #ffffff; }
+  .gsec-alt   { background: var(--g-bg); }
+  .gsec-dark  { background: var(--g-emerald); }
+
+  .gsec-head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto clamp(56px, 7vw, 80px);
+  }
+
+  .g-eyebrow {
+    display: inline-block;
+    font-family: var(--f-sans);
+    font-size: 0.6875rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--g-pink);
+    margin-bottom: 14px;
+  }
+
+  .g-h2 {
+    font-family: var(--f-display);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: var(--fw-semibold);
+    color: var(--g-text);
+    letter-spacing: -0.025em;
+    line-height: 1.10;
+    margin-bottom: 16px;
+  }
+
+  .g-lead {
+    font-family: var(--f-sans);
+    font-size: 1rem;
+    color: var(--g-body);
+    line-height: 1.78;
+    margin: 0;
+  }
+
+  /* ══════════════════════════════════════════════
+     CAPABILITY STATEMENT
+     ══════════════════════════════════════════════ */
+  .gov-capstat {
+    display: flex;
+    align-items: center;
+    gap: clamp(40px, 6vw, 80px);
+    background: #ffffff;
+    border: 1px solid var(--g-border);
+    border-radius: var(--g-radius);
+    box-shadow: var(--g-shadow);
+    padding: clamp(36px, 5vw, 60px);
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .gov-capstat-thumb {
+    flex-shrink: 0;
+    width: clamp(130px, 18vw, 180px);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--g-border);
+    box-shadow: var(--g-shadow);
+    position: relative;
+  }
+  .gov-capstat-thumb img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .gov-capstat-thumb-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(14,80,50,0.88);
+    padding: 7px 10px;
+    font-family: var(--f-sans);
+    font-size: 0.5625rem;
+    font-weight: var(--fw-bold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.92);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .gov-capstat-body { flex: 1; min-width: 0; }
+
+  .gov-capstat-h3 {
+    font-family: var(--f-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: var(--fw-semibold);
+    color: var(--g-text);
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+    margin-bottom: 14px;
+  }
+
+  .gov-capstat-p {
+    font-family: var(--f-sans);
+    font-size: 0.9375rem;
+    color: var(--g-body);
+    line-height: 1.78;
+    margin-bottom: 28px;
+  }
+
+  .gov-capstat-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+
+  .gov-capstat-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--f-sans);
+    font-size: 0.8125rem;
+    font-weight: var(--fw-medium);
+    color: var(--g-body);
+  }
+  .gov-capstat-tag svg { color: var(--g-emerald); flex-shrink: 0; }
+
+  .g-btn-dl {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 14px 26px;
+    background: var(--g-emerald);
+    color: #ffffff;
+    font-family: var(--f-sans);
+    font-size: 0.875rem;
+    font-weight: var(--fw-semibold);
+    border-radius: var(--g-radius-sm);
+    text-decoration: none;
+    box-shadow: 0 4px 18px rgba(14,80,50,0.28);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+    white-space: nowrap;
+  }
+  .g-btn-dl:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(14,80,50,0.38);
+    filter: brightness(1.06);
+  }
+
+  /* ══════════════════════════════════════════════
+     CORE SERVICES GRID
+     ══════════════════════════════════════════════ */
+  .gov-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .gov-service-card {
+    background: #ffffff;
+    border: 1px solid var(--g-border);
+    border-radius: var(--g-radius);
+    padding: clamp(28px, 3.5vw, 40px);
+    box-shadow: var(--g-shadow);
+    transition: transform 0.24s ease, box-shadow 0.24s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .gov-service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--g-shadow-up);
+  }
+
+  .gov-svc-icon {
+    width: 50px; height: 50px;
+    border-radius: 14px;
+    background: #edfaf3;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--g-emerald);
+    margin-bottom: 20px;
+    flex-shrink: 0;
+  }
+
+  .gov-svc-title {
+    font-family: var(--f-sans);
+    font-size: 1rem;
+    font-weight: var(--fw-semibold);
+    color: var(--g-text);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .gov-svc-desc {
+    font-family: var(--f-sans);
+    font-size: 0.875rem;
+    color: var(--g-body);
+    line-height: 1.72;
+    margin: 0;
+    flex: 1;
+  }
+
+  /* ══════════════════════════════════════════════
+     FACILITY TYPES STRIP
+     ══════════════════════════════════════════════ */
+  .gov-facility-strip {
+    background: var(--g-emerald);
+    padding: 40px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .gov-facility-strip::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px,
+      transparent 1px, transparent 16px
+    );
+    pointer-events: none;
+  }
+
+  .gov-facility-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(24px, 4vw, 56px);
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+  }
+
+  .gov-facility-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    min-width: 88px;
+  }
+
+  .gov-facility-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.90);
+    transition: background 0.20s ease;
+  }
+  .gov-facility-item:hover .gov-facility-icon {
+    background: rgba(255,255,255,0.20);
+  }
+
+  .gov-facility-label {
+    font-family: var(--f-sans);
+    font-size: 0.6875rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.3;
+    max-width: 88px;
+  }
+
+  /* ══════════════════════════════════════════════
+     CLASSIFICATION CODES
+     ══════════════════════════════════════════════ */
+  .gov-codes-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .gov-code-card {
+    background: #ffffff;
+    border: 1px solid var(--g-border);
+    border-radius: var(--g-radius);
+    overflow: hidden;
+    box-shadow: var(--g-shadow);
+  }
+
+  .gov-code-card-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 28px;
+    border-bottom: 1px solid #F3F4F6;
+    background: #F9FAFB;
+  }
+
+  .gov-code-head-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: #edfaf3;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--g-emerald);
+    flex-shrink: 0;
+  }
+
+  .gov-code-head-title {
+    font-family: var(--f-sans);
+    font-size: 0.75rem;
+    font-weight: var(--fw-bold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--g-text);
+  }
+
+  .gov-code-row {
+    display: flex;
+    align-items: baseline;
+    padding: 14px 28px;
+    border-bottom: 1px solid #F3F4F6;
+    transition: background 0.15s ease;
+  }
+  .gov-code-row:last-child { border-bottom: none; }
+  .gov-code-row:hover { background: #F9FAFB; }
+
+  .gov-code-num {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--g-emerald);
+    min-width: 56px;
+    flex-shrink: 0;
+    letter-spacing: 0.04em;
+  }
+
+  .gov-code-dash {
+    color: #D1D5DB;
+    margin: 0 12px;
+    flex-shrink: 0;
+  }
+
+  .gov-code-desc {
+    font-family: var(--f-sans);
+    font-size: 0.875rem;
+    color: #374151;
+    line-height: 1.45;
+    flex: 1;
+  }
+
+  .gov-primary-tag {
+    display: inline-block;
+    background: rgba(14,80,50,0.08);
+    border: 1px solid rgba(14,80,50,0.15);
+    color: var(--g-emerald);
+    font-size: 0.5625rem;
+    font-weight: var(--fw-bold);
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-left: 8px;
+    vertical-align: middle;
+    line-height: 1.8;
+  }
+
+  /* ══════════════════════════════════════════════
+     REGISTRATION DETAILS
+     ══════════════════════════════════════════════ */
+  .gov-reg-card {
+    max-width: 720px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid var(--g-border);
+    border-radius: var(--g-radius);
+    overflow: hidden;
+    box-shadow: var(--g-shadow);
+  }
+
+  .gov-reg-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 22px 36px;
+    border-bottom: 1px solid #F3F4F6;
+    transition: background 0.15s ease;
+  }
+  .gov-reg-row:last-child { border-bottom: none; }
+  .gov-reg-row:hover { background: #FAFAFA; }
+
+  .gov-reg-lbl {
+    font-family: var(--f-sans);
+    font-size: 0.875rem;
+    font-weight: var(--fw-medium);
+    color: #6B7280;
+    white-space: nowrap;
+  }
+
+  .gov-reg-val {
+    font-family: var(--f-sans);
+    font-size: 0.9375rem;
+    font-weight: var(--fw-semibold);
+    color: var(--g-text);
+    text-align: right;
+  }
+  .gov-reg-val.mono {
+    font-family: 'Courier New', monospace;
+    font-size: 1.0625rem;
+    letter-spacing: 0.07em;
+    color: var(--g-emerald);
+  }
+
+  /* ══════════════════════════════════════════════
+     WHY PINK PETALS — QUALIFICATION CARDS
+     ══════════════════════════════════════════════ */
+  .gov-qual-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .gov-qual-card {
+    background: #ffffff;
+    border: 1px solid var(--g-border);
+    border-radius: var(--g-radius);
+    padding: clamp(28px, 3.5vw, 36px);
+    box-shadow: var(--g-shadow);
+    transition: transform 0.24s ease, box-shadow 0.24s ease;
+  }
+  .gov-qual-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--g-shadow-up);
+  }
+
+  .gov-qual-icon {
+    width: 46px; height: 46px;
+    border-radius: 13px;
+    background: #edfaf3;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--g-emerald);
+    margin-bottom: 18px;
+  }
+
+  .gov-qual-title {
+    display: block;
+    font-family: var(--f-sans);
+    font-size: 0.9375rem;
+    font-weight: var(--fw-semibold);
+    color: var(--g-text);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .gov-qual-desc {
+    font-family: var(--f-sans);
+    font-size: 0.875rem;
+    color: var(--g-body);
+    line-height: 1.72;
+    margin: 0;
+  }
+
+  /* ══════════════════════════════════════════════
+     FINAL CTA
+     ══════════════════════════════════════════════ */
+  .gov-cta-wrap {
+    background: var(--g-emerald);
+    padding: var(--g-section) 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .gov-cta-wrap::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 1px,
+      transparent 1px, transparent 16px
+    );
+    pointer-events: none;
+  }
+  .gov-cta-wrap::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,255,255,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .gov-cta-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .gov-cta-eyebrow {
+    display: inline-block;
+    font-family: var(--f-sans);
+    font-size: 0.6875rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.50);
+    margin-bottom: 18px;
+  }
+
+  .gov-cta-h2 {
+    font-family: var(--f-display);
+    font-size: clamp(2rem, 4vw, 3.125rem);
+    font-weight: var(--fw-semibold);
+    color: #ffffff;
+    letter-spacing: -0.025em;
+    line-height: 1.10;
+    margin-bottom: 18px;
+  }
+
+  .gov-cta-p {
+    font-family: var(--f-sans);
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+    margin-bottom: 44px;
+  }
+
+  .gov-cta-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .g-btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 15px 28px;
+    background: #ffffff;
+    color: var(--g-emerald);
+    font-family: var(--f-sans);
+    font-size: 0.9rem;
+    font-weight: var(--fw-semibold);
+    border-radius: var(--g-radius-sm);
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.14);
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    white-space: nowrap;
+  }
+  .g-btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+  }
+
+  .g-btn-outline-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 14px 26px;
+    background: transparent;
+    color: rgba(255,255,255,0.88);
+    font-family: var(--f-sans);
+    font-size: 0.9rem;
+    font-weight: var(--fw-medium);
+    border-radius: var(--g-radius-sm);
+    border: 1px solid rgba(255,255,255,0.30);
+    text-decoration: none;
+    transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+    white-space: nowrap;
+  }
+  .g-btn-outline-white:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.10);
+    border-color: rgba(255,255,255,0.48);
+  }
+
+  /* ══════════════════════════════════════════════
+     RESPONSIVE
+     ══════════════════════════════════════════════ */
+  @media (max-width: 860px) {
+    .gov-hero { flex-direction: column; min-height: auto; }
+    .gov-hero-left  { flex: none; }
+    .gov-hero-right { flex: none; height: 340px; }
+    .gov-hero-right::before { width: 60px; }
+    .gov-hero-content {
+      padding: calc(var(--nav-h) + 48px) clamp(24px, 5vw, 48px) 48px;
+      max-width: 100%;
+    }
+    .gov-services-grid { grid-template-columns: repeat(2, 1fr); }
+    .gov-qual-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 680px) {
+    .gov-creds-inner { flex-direction: column; padding: 0; }
+    .gov-cred {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--g-border);
+    }
+    .gov-cred:last-child { border-bottom: none; }
+    .gov-cred + .gov-cred::before { display: none; }
+    .gov-codes-2col { grid-template-columns: 1fr; }
+    .gov-capstat {
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
       text-align: center;
-      padding: 36px 20px;
-      position: relative;
     }
+    .gov-capstat-thumb { width: 160px; margin: 0 auto; }
+    .gov-capstat-meta { justify-content: center; }
+  }
 
-    .gov-infobar-card + .gov-infobar-card::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      height: 48px;
-      width: 1px;
-      background: var(--c-border-soft);
-    }
-
-    .gov-infobar-lbl {
-      font-family: var(--f-sans);
-      font-size: 0.625rem;
-      font-weight: var(--fw-semibold);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #9ca3af;
-      margin-bottom: 8px;
-    }
-
-    .gov-infobar-val {
-      font-family: var(--f-sans);
-      font-size: 1.125rem;
-      font-weight: var(--fw-semibold);
-      color: var(--c-emerald);
-      letter-spacing: 0.01em;
-      line-height: 1.2;
-    }
-
-    .gov-infobar-val.v-mono {
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 1.25rem;
-      letter-spacing: 0.08em;
-    }
-
-    .gov-infobar-sub {
-      font-family: var(--f-sans);
-      font-size: 0.75rem;
-      color: #9ca3af;
-      margin-top: 4px;
-    }
-
-    .gov-sam-active {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .gov-sam-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #16a34a;
-      box-shadow: 0 0 0 3px rgba(22,163,74,0.18);
-      flex-shrink: 0;
-      animation: sam-pulse 2.8s ease-in-out infinite;
-    }
-
-    @keyframes sam-pulse {
-      0%, 100% { box-shadow: 0 0 0 3px rgba(22,163,74,0.18); }
-      50%       { box-shadow: 0 0 0 6px rgba(22,163,74,0.07); }
-    }
-
-    /* Mobile responsive */
-    @media (max-width: 680px) {
-      .gov-infobar-inner {
-        flex-direction: column;
-        padding: 0;
-      }
-      .gov-infobar-card {
-        flex-direction: row;
-        text-align: left;
-        justify-content: space-between;
-        align-items: center;
-        padding: 18px 24px;
-        border-bottom: 1px solid var(--c-border-soft);
-        gap: 16px;
-      }
-      .gov-infobar-card:last-child { border-bottom: none; }
-      .gov-infobar-card + .gov-infobar-card::before { display: none; }
-      .gov-infobar-lbl { margin-bottom: 0; white-space: nowrap; }
-      .gov-infobar-sub { margin-top: 2px; }
-    }
-
-    @media (max-width: 520px) {
-      .gov-hero-ctas {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .gov-hero-btn-dl,
-      .gov-hero-btn-discuss {
-        justify-content: center;
-      }
-    }
+  @media (max-width: 540px) {
+    .gov-hero-ctas { flex-direction: column; align-items: stretch; }
+    .g-btn-primary, .g-btn-ghost { justify-content: center; }
+    .gov-services-grid { grid-template-columns: 1fr; }
+    .gov-qual-grid { grid-template-columns: 1fr; }
+    .gov-cta-btns { flex-direction: column; align-items: stretch; }
+    .g-btn-white, .g-btn-outline-white { justify-content: center; }
+    .gov-reg-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .gov-reg-val { text-align: left; }
+  }
   </style>
 </head>
 <body>
@@ -219,12 +937,10 @@
 ══════════════════════════════════════════════════ -->
 <header class="nav" id="site-nav">
   <div class="nav-inner">
-
     <a href="index.html" class="nav-logo" aria-label="Pink Petals Facility Solutions — Home">
       <img src="images/logo.png" alt="Pink Petals Facility Solutions" class="nav-logo-img"
            onerror="this.style.display='none'">
     </a>
-
     <nav class="nav-links" aria-label="Main navigation">
       <a href="index.html" class="nav-link">Home
         <svg class="nav-link-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
@@ -239,21 +955,17 @@
         <svg class="nav-link-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 2 8 6 4 10"/></svg>
       </a>
     </nav>
-
     <a href="index.html#contact" class="nav-cta">Request a Quote</a>
-
     <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-
   </div>
 </header>
 
 <!-- Mobile drawer -->
 <div class="drawer" id="drawer" aria-hidden="true">
   <div class="drawer-top">
-    <img src="images/logo.png" alt="Pink Petals" class="drawer-logo"
-         onerror="this.style.display='none'">
+    <img src="images/logo.png" alt="Pink Petals" class="drawer-logo" onerror="this.style.display='none'">
     <button class="drawer-x" aria-label="Close menu">&#x2715;</button>
   </div>
   <nav class="drawer-nav" aria-label="Mobile navigation">
@@ -271,65 +983,129 @@
 
 
 <!-- ══════════════════════════════════════════════════
-     HERO
+     HERO — SPLIT LAYOUT
 ══════════════════════════════════════════════════ -->
-<section class="government">
-  <div class="wrap">
-    <div class="gov-top">
+<section class="gov-hero" aria-label="Government Contracting">
 
-      <span class="gov-label-pill">Federal &bull; State &bull; Local Government</span>
+  <!-- Left: content -->
+  <div class="gov-hero-left">
+    <div class="gov-hero-content">
 
-      <h1 class="gov-h2">
+      <span class="gov-sector-pill">
+        <span class="gov-pill-dot" aria-hidden="true"></span>
+        Federal &bull; State &bull; Local Government
+      </span>
+
+      <h1 class="gov-h1">
         Government-Ready.<br>
-        <em>Commercially Proven.</em>
+        <span class="gov-h1-em">Commercially Proven.</span>
       </h1>
 
-      <p class="gov-lead">
-        Registered, compliant, and prepared to support federal, state, and local agencies
-        with professional janitorial and facility services.
+      <p class="gov-hero-p">
+        Registered in SAM.gov and positioned to deliver professional facility services to
+        federal agencies, state departments, and local municipalities — with the compliance,
+        accountability, and performance government contracts demand.
       </p>
 
       <div class="gov-hero-ctas">
-        <a href="images/capability-statement.png" download="PinkPetals-CapabilityStatement.png" class="gov-hero-btn-dl">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <a href="images/capability-statement.png" download="PinkPetals-CapabilityStatement.png"
+           class="g-btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
           Download Capability Statement
         </a>
-        <a href="pages/contact.html" class="gov-hero-btn-discuss">
-          Discuss a Requirement
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <a href="pages/contact.html" class="g-btn-ghost">
+          Contact Government Team
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </a>
       </div>
 
     </div>
   </div>
+
+  <!-- Right: hero photo -->
+  <div class="gov-hero-right">
+    <img src="images/hero-photo.png"
+         alt="Pink Petals professional cleaning a high-end commercial facility"
+         class="gov-hero-photo">
+  </div>
+
 </section>
 
 
 <!-- ══════════════════════════════════════════════════
-     INFO BAR
+     CREDENTIALS BAR
 ══════════════════════════════════════════════════ -->
-<div class="gov-infobar" role="region" aria-label="Registration summary">
-  <div class="gov-infobar-inner">
+<div class="gov-creds" role="region" aria-label="Registration credentials">
+  <div class="gov-creds-inner">
 
-    <div class="gov-infobar-card">
-      <span class="gov-infobar-lbl">CAGE Code</span>
-      <span class="gov-infobar-val v-mono">21Q93</span>
+    <div class="gov-cred">
+      <div class="gov-cred-icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2"/>
+          <path d="M16 2v5M8 2v5M2 12h20"/>
+        </svg>
+      </div>
+      <div class="gov-cred-text">
+        <span class="gov-cred-lbl">CAGE Code</span>
+        <span class="gov-cred-val mono">21Q93</span>
+      </div>
     </div>
 
-    <div class="gov-infobar-card">
-      <span class="gov-infobar-lbl">SAM.gov Status</span>
-      <span class="gov-infobar-val">
-        <span class="gov-sam-active">
-          <span class="gov-sam-dot" aria-hidden="true"></span>
-          Active
+    <div class="gov-cred">
+      <div class="gov-cred-icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <polyline points="9 12 11 14 15 10"/>
+        </svg>
+      </div>
+      <div class="gov-cred-text">
+        <span class="gov-cred-lbl">SAM.gov Status</span>
+        <span class="gov-cred-val">
+          <span class="gov-sam-row">
+            <span class="gov-sam-dot" aria-hidden="true"></span>
+            Active — Verified
+          </span>
         </span>
-      </span>
+      </div>
     </div>
 
-    <div class="gov-infobar-card">
-      <span class="gov-infobar-lbl">Primary NAICS</span>
-      <span class="gov-infobar-val">561720</span>
-      <span class="gov-infobar-sub">Janitorial Services</span>
+    <div class="gov-cred">
+      <div class="gov-cred-icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+          <line x1="7" y1="7" x2="7.01" y2="7"/>
+        </svg>
+      </div>
+      <div class="gov-cred-text">
+        <span class="gov-cred-lbl">Primary NAICS</span>
+        <span class="gov-cred-val mono">561720</span>
+      </div>
+    </div>
+
+    <div class="gov-cred">
+      <div class="gov-cred-icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <div class="gov-cred-text">
+        <span class="gov-cred-lbl">Business Status</span>
+        <span class="gov-cred-val">Women-Owned SB</span>
+      </div>
     </div>
 
   </div>
@@ -339,38 +1115,71 @@
 <!-- ══════════════════════════════════════════════════
      CAPABILITY STATEMENT
 ══════════════════════════════════════════════════ -->
-<section class="gov-cap-section" aria-labelledby="cap-heading">
+<section class="gsec gsec-alt" aria-labelledby="capstat-heading">
   <div class="wrap">
-    <div class="gov-cap-card" data-reveal="up">
 
-      <div class="gov-cap-thumb">
+    <div class="gsec-head" data-reveal="up">
+      <span class="g-eyebrow">For Procurement Officers</span>
+      <h2 class="g-h2" id="capstat-heading">Capability Statement</h2>
+      <p class="g-lead">Everything a Contracting Officer needs to evaluate Pink Petals for a government award — in one professionally formatted document.</p>
+    </div>
+
+    <div class="gov-capstat" data-reveal="up">
+
+      <div class="gov-capstat-thumb">
         <img src="images/capability-statement.png"
-             alt="Pink Petals Facility Solutions — Capability Statement"
-             class="gov-cap-img">
-        <div class="gov-cap-thumb-overlay">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+             alt="Pink Petals Facility Solutions official capability statement document">
+        <div class="gov-capstat-thumb-label">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+          </svg>
           Capability Statement
         </div>
       </div>
 
-      <div class="gov-cap-info">
-        <p class="eyebrow gov-cap-eyebrow">For Procurement Officers</p>
-        <h2 class="gov-cap-h2" id="cap-heading">Capability Statement</h2>
-        <p class="gov-cap-desc">
-          Our one-page capability statement covers our core services, CAGE Code, NAICS codes,
-          PSC codes, past performance, and key differentiators — everything a contracting
-          officer needs to evaluate Pink Petals for a federal, state, or local award.
+      <div class="gov-capstat-body">
+        <span class="g-eyebrow" style="margin-bottom:12px;display:inline-block">Official Document</span>
+        <h3 class="gov-capstat-h3">Download Our Official Capability Statement</h3>
+        <p class="gov-capstat-p">
+          Our capability statement outlines our core services, NAICS and PSC codes, past
+          performance record, key differentiators, and full SAM.gov registration details —
+          formatted and ready for federal procurement review.
         </p>
-        <div class="gov-cap-actions">
-          <a href="images/capability-statement.png" download="PinkPetals-CapabilityStatement.png" class="gov-cap-btn gov-cap-btn--primary">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download Capability Statement
-          </a>
-          <a href="pages/contact.html" class="gov-cap-btn gov-cap-btn--ghost">
-            Discuss a Requirement
-            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+        <div class="gov-capstat-meta">
+          <span class="gov-capstat-tag">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            NAICS &amp; PSC Codes
+          </span>
+          <span class="gov-capstat-tag">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Core Capabilities
+          </span>
+          <span class="gov-capstat-tag">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Registration Details
+          </span>
         </div>
+        <a href="images/capability-statement.png" download="PinkPetals-CapabilityStatement.png"
+           class="g-btn-dl">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download Capability Statement
+        </a>
       </div>
 
     </div>
@@ -379,104 +1188,267 @@
 
 
 <!-- ══════════════════════════════════════════════════
-     REGISTRATION INFORMATION
+     CORE SERVICE CAPABILITIES
 ══════════════════════════════════════════════════ -->
-<section class="gov-reg-section" aria-label="Registration Information">
+<section class="gsec gsec-white" aria-labelledby="services-heading">
   <div class="wrap">
 
-    <div class="gov-reg-intro">
-      <p class="eyebrow gov-reg-eyebrow">Registration</p>
-      <h2 class="gov-reg-h2">Registration Information</h2>
-      <p class="gov-reg-sub">Official registration details for procurement and contracting officers.</p>
+    <div class="gsec-head" data-reveal="up">
+      <span class="g-eyebrow">What We Deliver</span>
+      <h2 class="g-h2" id="services-heading">Core Service Capabilities</h2>
+      <p class="g-lead">Professional facility services designed to meet government performance standards — scalable to any scope, agency, or facility type.</p>
     </div>
 
-    <div class="gov-reg-card" data-reveal="up">
-      <div class="gov-reg-row">
-        <span class="gov-reg-label">CAGE Code</span>
-        <span class="gov-reg-value gov-reg-mono">21Q93</span>
-      </div>
-      <div class="gov-reg-row">
-        <span class="gov-reg-label">State of Incorporation</span>
-        <span class="gov-reg-value">Indiana</span>
-      </div>
-      <div class="gov-reg-row gov-reg-row--last">
-        <span class="gov-reg-label">Business Type</span>
-        <span class="gov-reg-value">Women-Owned Small Business</span>
-      </div>
-    </div>
+    <div class="gov-services-grid">
 
+      <div class="gov-service-card" data-reveal="up">
+        <div class="gov-svc-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <div class="gov-svc-title">Custodial &amp; Janitorial Services</div>
+        <p class="gov-svc-desc">Daily, weekly, and monthly janitorial programs tailored to government facilities, agency offices, and multi-tenant buildings.</p>
+      </div>
+
+      <div class="gov-service-card" data-reveal="up" data-delay="40">
+        <div class="gov-svc-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div class="gov-svc-title">Day Porter Services</div>
+        <p class="gov-svc-desc">On-site day porter personnel maintaining cleanliness, restocking supplies, and ensuring facility readiness throughout operating hours.</p>
+      </div>
+
+      <div class="gov-service-card" data-reveal="up" data-delay="80">
+        <div class="gov-svc-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <div class="gov-svc-title">Emergency Cleaning Response</div>
+        <p class="gov-svc-desc">Rapid-response cleaning and remediation for unplanned events, post-incident cleanup, and urgent facility restoration needs.</p>
+      </div>
+
+      <div class="gov-service-card" data-reveal="up" data-delay="40">
+        <div class="gov-svc-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="gov-svc-title">High-Touch Surface Disinfection</div>
+        <p class="gov-svc-desc">Targeted disinfection of high-contact surfaces, restrooms, and common areas to meet agency infection-control standards.</p>
+      </div>
+
+      <div class="gov-service-card" data-reveal="up" data-delay="80">
+        <div class="gov-svc-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <div class="gov-svc-title">Post-Construction Cleanup</div>
+        <p class="gov-svc-desc">Thorough construction and renovation cleanup — debris removal, deep cleaning, and pre-occupancy inspection-ready preparation.</p>
+      </div>
+
+      <div class="gov-service-card" data-reveal="up" data-delay="120">
+        <div class="gov-svc-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <div class="gov-svc-title">Facility Support Services</div>
+        <p class="gov-svc-desc">Comprehensive facility operations support including floor care, carpet extraction, window cleaning, and light maintenance assistance.</p>
+      </div>
+
+    </div>
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════════════════
-     NAICS & PSC CODES
+     FACILITIES WE SUPPORT
 ══════════════════════════════════════════════════ -->
-<section class="gov-codes-section" aria-labelledby="codes-heading">
+<div class="gov-facility-strip" aria-label="Types of facilities served">
+  <div class="wrap">
+    <div class="gov-facility-grid">
+
+      <div class="gov-facility-item">
+        <div class="gov-facility-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="22" x2="21" y2="22"/>
+            <line x1="6" y1="18" x2="6" y2="11"/>
+            <line x1="10" y1="18" x2="10" y2="11"/>
+            <line x1="14" y1="18" x2="14" y2="11"/>
+            <line x1="18" y1="18" x2="18" y2="11"/>
+            <polygon points="12 2 20 7 4 7"/>
+          </svg>
+        </div>
+        <span class="gov-facility-label">Federal Buildings</span>
+      </div>
+
+      <div class="gov-facility-item">
+        <div class="gov-facility-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
+            <line x1="12" y1="22" x2="12" y2="15.5"/>
+            <polyline points="22 8.5 12 15.5 2 8.5"/>
+          </svg>
+        </div>
+        <span class="gov-facility-label">Military Installations</span>
+      </div>
+
+      <div class="gov-facility-item">
+        <div class="gov-facility-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <span class="gov-facility-label">Municipal Buildings</span>
+      </div>
+
+      <div class="gov-facility-item">
+        <div class="gov-facility-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+        </div>
+        <span class="gov-facility-label">Educational Facilities</span>
+      </div>
+
+      <div class="gov-facility-item">
+        <div class="gov-facility-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <span class="gov-facility-label">Healthcare Facilities</span>
+      </div>
+
+      <div class="gov-facility-item">
+        <div class="gov-facility-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2"/>
+            <path d="M16 2v5M8 2v5M2 12h20"/>
+          </svg>
+        </div>
+        <span class="gov-facility-label">Commercial Properties</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════
+     CLASSIFICATION CODES
+══════════════════════════════════════════════════ -->
+<section class="gsec gsec-alt" aria-labelledby="codes-heading">
   <div class="wrap">
 
-    <div class="gov-codes-head" data-reveal="up">
-      <p class="eyebrow gov-codes-eyebrow">Procurement</p>
-      <h2 class="gov-codes-h2" id="codes-heading">Classification Codes</h2>
-      <p class="gov-codes-sub">For federal, state, and local procurement officers. Codes registered in SAM.gov.</p>
+    <div class="gsec-head" data-reveal="up">
+      <span class="g-eyebrow">Procurement</span>
+      <h2 class="g-h2" id="codes-heading">Classification Codes</h2>
+      <p class="g-lead">For federal, state, and local procurement officers. All codes are active and registered in SAM.gov.</p>
     </div>
 
-    <div class="gov-codes-grid" data-reveal="up" data-delay="30">
+    <div class="gov-codes-2col" data-reveal="up">
 
       <!-- NAICS -->
-      <div class="gov-code-block">
-        <span class="gov-code-label">NAICS Codes</span>
-
-        <div class="gov-code-row">
-          <span class="gov-code-num">561720</span>
-          <span class="gov-code-sep">—</span>
-          <span class="gov-code-desc">Janitorial Services <span class="gtb-primary">Primary</span></span>
+      <div class="gov-code-card">
+        <div class="gov-code-card-head">
+          <div class="gov-code-head-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+              <line x1="7" y1="7" x2="7.01" y2="7"/>
+            </svg>
+          </div>
+          <span class="gov-code-head-title">NAICS Codes</span>
         </div>
-        <div class="gov-code-row">
-          <span class="gov-code-num">561210</span>
-          <span class="gov-code-sep">—</span>
-          <span class="gov-code-desc">Facilities Support Services</span>
-        </div>
-        <div class="gov-code-row">
-          <span class="gov-code-num">561790</span>
-          <span class="gov-code-sep">—</span>
-          <span class="gov-code-desc">Other Services to Buildings &amp; Dwellings</span>
-        </div>
-        <div class="gov-code-row">
-          <span class="gov-code-num">561740</span>
-          <span class="gov-code-sep">—</span>
-          <span class="gov-code-desc">Carpet &amp; Upholstery Cleaning</span>
-        </div>
-        <div class="gov-code-row gov-code-row--last">
-          <span class="gov-code-num">562910</span>
-          <span class="gov-code-sep">—</span>
-          <span class="gov-code-desc">Remediation Services</span>
+        <div>
+          <div class="gov-code-row">
+            <span class="gov-code-num">561720</span>
+            <span class="gov-code-dash">—</span>
+            <span class="gov-code-desc">Janitorial Services <span class="gov-primary-tag">Primary</span></span>
+          </div>
+          <div class="gov-code-row">
+            <span class="gov-code-num">561210</span>
+            <span class="gov-code-dash">—</span>
+            <span class="gov-code-desc">Facilities Support Services</span>
+          </div>
+          <div class="gov-code-row">
+            <span class="gov-code-num">561790</span>
+            <span class="gov-code-dash">—</span>
+            <span class="gov-code-desc">Other Services to Buildings &amp; Dwellings</span>
+          </div>
+          <div class="gov-code-row">
+            <span class="gov-code-num">561740</span>
+            <span class="gov-code-dash">—</span>
+            <span class="gov-code-desc">Carpet &amp; Upholstery Cleaning</span>
+          </div>
+          <div class="gov-code-row">
+            <span class="gov-code-num">562910</span>
+            <span class="gov-code-dash">—</span>
+            <span class="gov-code-desc">Remediation Services</span>
+          </div>
         </div>
       </div>
 
       <!-- PSC -->
-      <div class="gov-code-block">
-        <span class="gov-code-label">PSC Codes</span>
-
-        <div class="gov-code-row">
-          <span class="gov-code-num">S201</span>
-          <span class="gov-code-sep">—</span>
-          <span class="gov-code-desc">Custodial / Janitorial Services</span>
+      <div class="gov-code-card">
+        <div class="gov-code-card-head">
+          <div class="gov-code-head-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <span class="gov-code-head-title">PSC Codes</span>
         </div>
-        <div class="gov-code-row">
-          <span class="gov-code-num">S208</span>
-          <span class="gov-code-sep">—</span>
-          <span class="gov-code-desc">Housekeeping Services</span>
-        </div>
-        <div class="gov-code-row">
-          <span class="gov-code-num">S216</span>
-          <span class="gov-code-sep">—</span>
-          <span class="gov-code-desc">Facilities Operations Support</span>
-        </div>
-        <div class="gov-code-row gov-code-row--last">
-          <span class="gov-code-num">S299</span>
-          <span class="gov-code-sep">—</span>
-          <span class="gov-code-desc">Other Housekeeping Services</span>
+        <div>
+          <div class="gov-code-row">
+            <span class="gov-code-num">S201</span>
+            <span class="gov-code-dash">—</span>
+            <span class="gov-code-desc">Custodial / Janitorial Services</span>
+          </div>
+          <div class="gov-code-row">
+            <span class="gov-code-num">S208</span>
+            <span class="gov-code-dash">—</span>
+            <span class="gov-code-desc">Housekeeping Services</span>
+          </div>
+          <div class="gov-code-row">
+            <span class="gov-code-num">S216</span>
+            <span class="gov-code-dash">—</span>
+            <span class="gov-code-desc">Facilities Operations Support</span>
+          </div>
+          <div class="gov-code-row">
+            <span class="gov-code-num">S299</span>
+            <span class="gov-code-dash">—</span>
+            <span class="gov-code-desc">Other Housekeeping Services</span>
+          </div>
         </div>
       </div>
 
@@ -486,76 +1458,140 @@
 
 
 <!-- ══════════════════════════════════════════════════
-     QUALIFICATIONS
+     REGISTRATION DETAILS
 ══════════════════════════════════════════════════ -->
-<section class="gov-qual-section" aria-labelledby="qual-heading">
+<section class="gsec gsec-white" aria-labelledby="reg-heading">
   <div class="wrap">
 
-    <div class="gov-qual-head" data-reveal="up">
-      <p class="eyebrow gov-qual-eyebrow">Qualifications</p>
-      <h2 class="gov-qual-h2" id="qual-heading">Why Choose Pink Petals</h2>
+    <div class="gsec-head" data-reveal="up">
+      <span class="g-eyebrow">Registration</span>
+      <h2 class="g-h2" id="reg-heading">Official Registration Details</h2>
+      <p class="g-lead">For procurement and contracting officers. All information on file and verifiable through SAM.gov.</p>
     </div>
 
-    <div class="gov-qual-list" data-reveal="up" data-delay="30">
+    <div class="gov-reg-card" data-reveal="up">
+      <div class="gov-reg-row">
+        <span class="gov-reg-lbl">CAGE Code</span>
+        <span class="gov-reg-val mono">21Q93</span>
+      </div>
+      <div class="gov-reg-row">
+        <span class="gov-reg-lbl">State of Incorporation</span>
+        <span class="gov-reg-val">Indiana</span>
+      </div>
+      <div class="gov-reg-row">
+        <span class="gov-reg-lbl">Business Type</span>
+        <span class="gov-reg-val">Women-Owned Small Business</span>
+      </div>
+      <div class="gov-reg-row">
+        <span class="gov-reg-lbl">SAM.gov Registration</span>
+        <span class="gov-reg-val">
+          <span style="display:inline-flex;align-items:center;gap:6px">
+            <span style="width:7px;height:7px;border-radius:50%;background:#16a34a;display:inline-block;flex-shrink:0"></span>
+            Active
+          </span>
+        </span>
+      </div>
+      <div class="gov-reg-row">
+        <span class="gov-reg-lbl">Service Area</span>
+        <span class="gov-reg-val">Indiana &amp; Surrounding Areas</span>
+      </div>
+    </div>
 
-      <div class="gov-qual-item">
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     WHY CONTRACTING OFFICERS CHOOSE US
+══════════════════════════════════════════════════ -->
+<section class="gsec gsec-alt" aria-labelledby="qual-heading">
+  <div class="wrap">
+
+    <div class="gsec-head" data-reveal="up">
+      <span class="g-eyebrow">Qualifications</span>
+      <h2 class="g-h2" id="qual-heading">Why Contracting Officers Choose Us</h2>
+      <p class="g-lead">From compliance documentation to day-of execution, Pink Petals delivers the professionalism, accountability, and results government clients expect.</p>
+    </div>
+
+    <div class="gov-qual-grid">
+
+      <div class="gov-qual-card" data-reveal="up">
         <div class="gov-qual-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
         </div>
-        <div class="gov-qual-body">
-          <strong class="gov-qual-title">Registered &amp; Compliant</strong>
-          <p class="gov-qual-desc">CAGE Code 21Q93 on file. Eligible to compete for federal, state, and local contracting awards.</p>
-        </div>
+        <strong class="gov-qual-title">Registered &amp; Compliant</strong>
+        <p class="gov-qual-desc">CAGE Code 21Q93 active in SAM.gov. Fully eligible to compete for federal, state, and local contracting awards.</p>
       </div>
 
-      <div class="gov-qual-item">
+      <div class="gov-qual-card" data-reveal="up" data-delay="40">
         <div class="gov-qual-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
         </div>
-        <div class="gov-qual-body">
-          <strong class="gov-qual-title">Bonded &amp; Insured</strong>
-          <p class="gov-qual-desc">$1M+ general liability on every engagement. Bonding documentation available on request.</p>
-        </div>
+        <strong class="gov-qual-title">Bonded &amp; Insured</strong>
+        <p class="gov-qual-desc">$1M+ general liability coverage on every engagement. Bonding and insurance documentation available upon request.</p>
       </div>
 
-      <div class="gov-qual-item">
+      <div class="gov-qual-card" data-reveal="up" data-delay="80">
         <div class="gov-qual-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M20 21a8 8 0 1 0-16 0"/>
+            <line x1="18" y1="11" x2="22" y2="11"/>
+            <line x1="20" y1="9" x2="20" y2="13"/>
+          </svg>
         </div>
-        <div class="gov-qual-body">
-          <strong class="gov-qual-title">OSHA-Trained Teams</strong>
-          <p class="gov-qual-desc">All personnel trained to agency safety and compliance standards on every government engagement.</p>
-        </div>
+        <strong class="gov-qual-title">OSHA-Trained Personnel</strong>
+        <p class="gov-qual-desc">All team members trained to agency safety and compliance standards. Background-screened staff on every government engagement.</p>
       </div>
 
-      <div class="gov-qual-item">
+      <div class="gov-qual-card" data-reveal="up" data-delay="40">
         <div class="gov-qual-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <line x1="23" y1="11" x2="17" y2="11"/>
+          </svg>
         </div>
-        <div class="gov-qual-body">
-          <strong class="gov-qual-title">Dedicated Point of Contact</strong>
-          <p class="gov-qual-desc">No call centers or delays. One accountable contact manages every contract from award to close.</p>
-        </div>
+        <strong class="gov-qual-title">Dedicated Contract Manager</strong>
+        <p class="gov-qual-desc">No call centers. One accountable point of contact manages every contract from award through close — with direct access at all times.</p>
       </div>
 
-      <div class="gov-qual-item">
+      <div class="gov-qual-card" data-reveal="up" data-delay="80">
         <div class="gov-qual-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
         </div>
-        <div class="gov-qual-body">
-          <strong class="gov-qual-title">Inspection-Ready Results</strong>
-          <p class="gov-qual-desc">Consistent, high-quality outcomes that hold up to agency audits, walk-throughs, and performance reviews.</p>
-        </div>
+        <strong class="gov-qual-title">Inspection-Ready Quality</strong>
+        <p class="gov-qual-desc">Consistent, high-quality outcomes that hold up to agency audits, walk-throughs, and performance reviews every time.</p>
       </div>
 
-      <div class="gov-qual-item">
+      <div class="gov-qual-card" data-reveal="up" data-delay="120">
         <div class="gov-qual-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="8" y1="6" x2="21" y2="6"/>
+            <line x1="8" y1="12" x2="21" y2="12"/>
+            <line x1="8" y1="18" x2="21" y2="18"/>
+            <line x1="3" y1="6" x2="3.01" y2="6"/>
+            <line x1="3" y1="12" x2="3.01" y2="12"/>
+            <line x1="3" y1="18" x2="3.01" y2="18"/>
+          </svg>
         </div>
-        <div class="gov-qual-body">
-          <strong class="gov-qual-title">Scalable Scope of Work</strong>
-          <p class="gov-qual-desc">From routine janitorial to full facility support — we scale services to meet your contract requirements.</p>
-        </div>
+        <strong class="gov-qual-title">Scalable Scope of Work</strong>
+        <p class="gov-qual-desc">From routine janitorial to full facility operations support — we scale services to match your statement of work and contract requirements.</p>
       </div>
 
     </div>
@@ -564,20 +1600,44 @@
 
 
 <!-- ══════════════════════════════════════════════════
-     CTA
+     FINAL CTA
 ══════════════════════════════════════════════════ -->
-<section class="gov-cta-section">
+<section class="gov-cta-wrap" aria-label="Get in touch">
   <div class="wrap">
     <div class="gov-cta-inner" data-reveal="up">
-      <p class="eyebrow gov-cta-eyebrow">Get Started</p>
-      <h2 class="gov-cta-h2">Ready to Work Together?</h2>
-      <p class="gov-cta-sub">Contact us to discuss your agency's facility needs and procurement requirements.</p>
-      <a href="pages/contact.html" class="btn-primary">
-        Discuss a Requirement
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
+
+      <span class="gov-cta-eyebrow">Let's Work Together</span>
+
+      <h2 class="gov-cta-h2">
+        Ready to Support Your<br>Next Requirement?
+      </h2>
+
+      <p class="gov-cta-p">
+        Whether you're a Contracting Officer evaluating vendors or a Prime looking for
+        a reliable subcontractor, we're ready to support your mission with professional,
+        verifiable, and performance-driven facility services.
+      </p>
+
+      <div class="gov-cta-btns">
+        <a href="images/capability-statement.png" download="PinkPetals-CapabilityStatement.png"
+           class="g-btn-white">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download Capability Statement
+        </a>
+        <a href="pages/contact.html" class="g-btn-outline-white">
+          Contact Government Team
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.7"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -597,7 +1657,10 @@
       <p class="ft-cta-sub">Get a free quote within 24 hours — no commitment required.</p>
       <a href="index.html#contact" class="ft-cta-btn">
         Request a Quote
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14m-7-7 7 7-7 7"/>
+        </svg>
       </a>
     </div>
   </div>
@@ -608,21 +1671,35 @@
 
         <div class="ft-brand">
           <div class="ft-logo">
-            <img src="images/logo.png" alt="Pink Petals Facility Solutions" class="ft-logo-img" onerror="this.style.display='none'">
+            <img src="images/logo.png" alt="Pink Petals Facility Solutions"
+                 class="ft-logo-img" onerror="this.style.display='none'">
           </div>
           <div class="ft-certs">
             <span class="ft-cert">Women-Owned</span>
             <span class="ft-cert">Minority-Owned</span>
           </div>
           <div class="ft-social">
-            <a href="https://www.linkedin.com/in/pink-petals-facility-solutions" class="ft-soc" aria-label="LinkedIn" target="_blank" rel="noopener">
-              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            <a href="https://www.linkedin.com/in/pink-petals-facility-solutions"
+               class="ft-soc" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"
+                   stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+              </svg>
             </a>
             <a href="#" class="ft-soc" aria-label="Facebook">
-              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"
+                   stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
             </a>
             <a href="#" class="ft-soc" aria-label="Instagram">
-              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"
+                   stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
             </a>
           </div>
         </div>
@@ -652,15 +1729,26 @@
           <p class="ft-col-head">Contact</p>
           <div class="ft-contact-list">
             <a href="tel:2192858345" class="ft-contact-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 6 6l1.27-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.69a16 16 0 0 0 6 6l1.27-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
               (219) 285-8345
             </a>
             <a href="mailto:info@pinkpetalsfs.com" class="ft-contact-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
               info@pinkpetalsfs.com
             </a>
             <span class="ft-contact-item">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
               Merrillville, Indiana
             </span>
           </div>
